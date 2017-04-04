@@ -1,45 +1,48 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<base href="/">
-
-	<title>Starter Node and Angular</title>
-
-	<!-- CSS -->
-	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
-
-	<!-- JS -->
-	<script src="libs/angular/angular.min.js"></script>
-	<script src="libs/angular-route/angular-route.min.js"></script>
-
-	<!-- ANGULAR CUSTOM -->
-	<script src="js/controllers/MainCtrl.js"></script>
-	<script src="js/controllers/EntryCtrl.js"></script>
-	<script src="js/services/EntryService.js"></script>
-	<script src="js/controllers/FormCtrl.js"></script>
-	<script src="js/services/FormService.js"></script>
-	<script src="js/appRoutes.js"></script>
-	<script src="js/app.js"></script>
-</head>
-<body ng-app="sampleApp" ng-controller="EntryController">
-<div class="container">
-	
-	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">NFL Pick Em' Standings</a>
-		</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/entries">Entries</a></li>
-			<li><a href="/pickForm">Weekly Pick Form</a></li>
-		</ul>
-	</nav>
-
-	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ng-view></div>
-
-</div>
-</body>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular Shell</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- CSS Stylesheets -->
+        <link rel="stylesheet" href="content/css/common.css" />
+        <link rel="stylesheet" href="content/css/font-awesome.min.css" />
+        
+        <!-- JQuery -->
+        <script src="scripts/jquery-2.2.4.min.js"></script>
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="content/bootstrap/css/bootstrap.min.css" />
+        <script src="content/bootstrap/js/bootstrap.min.js"></script>
+        
+        <!-- Angular -->
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/angular-route.min.js"></script>
+        
+        <!-- UI Bootstrap - Bootstrap Components turned into Angular Directives -->
+        <script src="scripts/ui-bootstrap-tpls-1.3.3.js"></script>
+    </head>
+    
+    <body ng-app="app">
+        <div ng-include="'app/layout/shell.view.html'"></div>
+        
+        <!-- Load Modules -->
+        <script src="app/app.module.js"></script>
+        
+        <!-- Load Directives -->
+        
+        <!-- Load Controllers -->
+        <script src="app/layout/shell.js"></script>
+        <script src="app/pages/home/home.js"></script>
+        <script src="app/pages/another_page/another_page.js"></script>
+        
+        <!-- Load Services -->
+        <script src="app/services/session.js"></script>
+        
+        <!-- Load Other Third Party Libraries -->
+    </body>
+        
+        
+        
 </html>
