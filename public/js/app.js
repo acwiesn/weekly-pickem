@@ -1,1 +1,0 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'EntryCtrl', 'EntryService', 'FormCtrl', 'FormService']);
