@@ -5,8 +5,6 @@ var mongoose       = require('mongoose');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 
-// configuration ===========================================
-	
 // config files
 var db = require('./config/db');
 
@@ -21,10 +19,20 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
 
+
 // routes ==================================================
-require('./app/routes')(app); // pass our application into our routes
+app.use(require('./app/controllers'));
+
+
+// Handle 404 error. 
+// The last middleware.
+app.use("*",(req,res)=>{
+  res.status(404).send('404');
+});
+
+
 
 // start app ===============================================
 app.listen(port);	
-console.log('Magic happens on port ' + port); 			// shoutout to the user
+console.log('Server running on ' + port); 			// shoutout to the user
 exports = module.exports = app; 						// expose app
