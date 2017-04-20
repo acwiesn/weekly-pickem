@@ -1,17 +1,15 @@
  var mongoose = require('mongoose');
-'use strict';
 
     mongoose.Promise = require('bluebird');
     var Schema = mongoose.Schema;
 
-    var entrySchema = Schema({
-        Week: {type: String, required: true},
-        User: {type: String, require: true},
-        picks: {
+    var entrySchema = new Schema({
+        week: [ ],
+        user: {type: String, required: true},
+        picks: [{
             type: String,
             required: true,
-            unique: true
-        },
+        }],
         lock: {
             type: String
         },
