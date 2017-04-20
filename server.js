@@ -32,7 +32,7 @@ require('./config/passport')(app);
 app.use(express.static(__dirname + '/public')); 
 // routes ==================================================
 
-require('./app/controllers')(app,mongoose);
+require('./app/controllers')(app);
 
 
 // Handle 404 error. 

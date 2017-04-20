@@ -1,18 +1,7 @@
 'use strict';
+var User = require('../models/users.js');
+module.exports = function(app){
 
-module.exports = function(app, mongoose){
-    
-    //Must export this to models files............
-    mongoose.Promise = require('bluebird');
-    var Schema = mongoose.Schema;
-
-    var UserSchema = Schema({
-        username: { type: String, required: true, unique : true },
-        password: { type: String }
-    });
-    var User = mongoose.model('User', UserSchema);
-    
-    //...............................................................
     
     app.post('/login', (req, res) => {
         console.log(req.body);
