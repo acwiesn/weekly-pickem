@@ -7,11 +7,18 @@ module.exports = function(app, mongoose){
     var Schema = mongoose.Schema;
 
     var UserSchema = Schema({
+        email: {type: String, required: true, unique: true},
         username: { type: String, required: true, unique : true },
         password: { type: String }
     });
     var User = mongoose.model('User', UserSchema);
     
+    
+    var EntrySchema = Schema({
+        winner: { type: String, required: true, unique : true },
+        lock: { type: String }
+    });
+    var Entry = mongoose.model('Entry', EntrySchema);
     //...............................................................
     
     app.post('/login', (req, res) => {
@@ -22,6 +29,10 @@ module.exports = function(app, mongoose){
     app.post('/signup', (req, res) => {
         
         var newuser = new User(req.body);
+        var newentry = new Entry({
+            winner: 'Bears',
+            lock: 'Patriots'
+         });
         newuser.save((err,user,numRows)=>{
             if(err){
                 if(err.code === 11000){
@@ -33,6 +44,9 @@ module.exports = function(app, mongoose){
 
             }else{
                     req.login(user,()=>{
+                    newentry.save((err,entry,numRows)=>{
+                    console.log('Entry has been save');
+        });
                     res.redirect('/profile');
                 });
             }
