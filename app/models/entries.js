@@ -1,5 +1,5 @@
+ var mongoose = require('mongoose');
 'use strict';
-module.exports = function (app, mongoose) {
 
     mongoose.Promise = require('bluebird');
     var Schema = mongoose.Schema;
@@ -19,6 +19,4 @@ module.exports = function (app, mongoose) {
         updated_at: Date
     });
 
-    var Entry = mongoose.model('Entry', entrySchema);
-
-}
+module.exports = mongoose.model('Entry', entrySchema);
