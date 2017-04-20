@@ -1,26 +1,8 @@
 'use strict';
+var User = require('../models/users.js');
+module.exports = function(app){
 
-module.exports = function(app, mongoose){
-    
-    //Must export this to models files............
-    mongoose.Promise = require('bluebird');
-    var Schema = mongoose.Schema;
 
-    var UserSchema = Schema({
-        email: {type: String, required: true, unique: true},
-        username: { type: String, required: true, unique : true },
-        password: { type: String }
-    });
-    var User = mongoose.model('User', UserSchema);
-    
-    
-    var EntrySchema = Schema({
-        winner: { type: String, required: true, unique : true },
-        lock: { type: String }
-    });
-    var Entry = mongoose.model('Entry', EntrySchema);
-    //...............................................................
-    
     app.post('/login', (req, res) => {
         console.log(req.body);
       res.send('loginTODO');
@@ -61,7 +43,7 @@ module.exports = function(app, mongoose){
     
     
     
-    //Test passport use angular after**************************
+    //Test passport using small html form ,use angular after**************************
     app.get('/form',(req,res)=>{
         res.sendfile('./form.html', {root: __dirname });
     });
