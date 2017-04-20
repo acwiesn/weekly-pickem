@@ -47,7 +47,7 @@ module.exports = function(app, mongoose){
     
     
     
-    //Test passport use angular after**************************
+    //Test passport using small html form ,use angular after**************************
     app.get('/form',(req,res)=>{
         res.sendfile('./form.html', {root: __dirname });
     });
