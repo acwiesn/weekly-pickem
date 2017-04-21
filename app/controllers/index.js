@@ -24,6 +24,9 @@ module.exports = function (app) {
     app.all('/api/*',requireLogin, (req, res, next)=> {
                 next();
     });
+        app.all('/app/*',requireLogin, (req, res, next)=> {
+                next();
+    });
 
         //TODO: redirect failure to signup form with messge
     app.post('/login', passport.authenticate('local', {
