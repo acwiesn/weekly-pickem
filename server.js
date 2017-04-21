@@ -7,6 +7,7 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
 
 
 // config files
@@ -25,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(cookieParser('thissecret'));
 app.use(session({ resave: true ,secret: 'thissecret' , saveUninitialized: true}));
-
+app.use(flash());
 require('./config/passport')(app);
 
 // set the static files location /public/img will be /img for users

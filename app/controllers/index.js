@@ -1,4 +1,5 @@
 'use strict';
+var passport = require('passport');
 var User = require('../models/users.js');
 var Entry = require('../models/entries.js');
 // var Game = require('../models/games.js');
@@ -6,16 +7,12 @@ var Entry = require('../models/entries.js');
 
 module.exports = function (app) {
 
-    app.post('/login', (req, res) => {
-        console.log(req.body);
-        res.send('loginTODO');
-
-
-    });
-    
-    // for (var i=0; i < Teams.length; i++){
-       // console.log(Teams[i].code);
-    // }
+    //TODO: redirect failure to signup form with messge
+    app.post('/login',passport.authenticate('local',{
+        successRedirect : '/profile',
+        failureRedirect : '/form',
+        failureFlash: true
+    }));
 
     app.post('/signup', (req, res) => {
 
@@ -41,6 +38,8 @@ module.exports = function (app) {
 
         });
     });
+
+
     app.post('/entrySubmit', (req, res)=>{
         var newentry = new Entry(req.body);
         
@@ -56,15 +55,18 @@ module.exports = function (app) {
     });
     
     app.get('/profile', (req, res) => {
-
-       // Game.find({}, (err, games) => {
-         //   res.json(games);
+            res.json(req.user);
         });
+
+
+
     //Test passport using small html form ,use angular after**************************
     app.get('/form', (req, res) => {
-        res.sendfile('./form.html', {
+                    console.log(req);
+            res.sendfile('./form.html', {
             root: __dirname
         });
+
     });
 
     //********************************************************

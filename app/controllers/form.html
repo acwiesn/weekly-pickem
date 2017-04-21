@@ -1,4 +1,5 @@
-<form action="/signup" method="post">
+<form action="/login" method="post">
+    <h3>LOGIN</h3>
     <div>
         <label>Username:</label>
         <input type="text" name="username"/>
@@ -11,10 +12,26 @@
         <input type="submit" value="Log In"/>
     </div>
 </form>
+<br/>
+<form action="/signup" method="post">
+    <h3>Register</h3>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Register"/>
+    </div>
+</form>
 
+<br/>
 <form action="/entrySubmit" method="post">
     <div>
-    <label> Weekly Entries </label><br>
+        <label> <h3>Weekly Entries</h3> </label><br>
     <label>Week</label>    
     <input type='text' name="week"/>
         
