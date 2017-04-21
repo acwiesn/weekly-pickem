@@ -11,7 +11,7 @@ var flash = require('connect-flash');
 
 
 // config files
-var db = require('./config/db');
+var db = require('./app/config/db');
 var port = process.env.PORT || 5000; // set our port
 mongoose.connect(db.url); 
 // connect to our mongoDB database (commented out after you enter in your own credentials)
@@ -27,7 +27,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(cookieParser('thissecret'));
 app.use(session({ resave: true ,secret: 'thissecret' , saveUninitialized: true}));
 app.use(flash());
-require('./config/passport')(app);
+require('./app/config/passport')(app);
 
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public')); 

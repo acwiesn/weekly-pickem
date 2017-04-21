@@ -6,18 +6,24 @@ var Entry = require('../models/entries.js');
 // var Teams = require('../../config/teams.json');
 
 module.exports = function (app) {
-
-    //TODO: redirect failure to signup form with messge
-    app.post('/login',passport.authenticate('local',{
-        successRedirect : '/profile',
-        failureRedirect : '/form',
+    app.all('*', (req, res, next)=> {
+                if (!req.user) {
+                    res.redirect('/form')
+                } else {
+                    return res.send('User logged in');
+                }
+                next();
+            })
+        //TODO: redirect failure to signup form with messge
+    app.post('/login', passport.authenticate('local', {
+        successRedirect: '/profile',
+        failureRedirect: '/form',
         failureFlash: true
     }));
 
     app.post('/signup', (req, res) => {
 
         var newuser = new User(req.body);
-        
 
         newuser.save((err, user, numRows) => {
             if (err) {
@@ -31,39 +37,46 @@ module.exports = function (app) {
 
             } else {
                 req.login(user, () => {
-                    
+
                     res.redirect('/profile');
                 });
             }
 
         });
     });
+    app.all('/profile', (req, res, next) => {
+        if (!req.user) {
+            res.redirect('/form')
+        }
+        next();
+    })
+
+    app.get('/profile', (req, res) => {
+        res.json(req.user);
+    });
 
 
-    app.post('/entrySubmit', (req, res)=>{
+
+
+
+
+    app.post('/entrySubmit', (req, res) => {
         var newentry = new Entry(req.body);
-        
+
         newentry.save((err, entry, numRows) => {
-        if (err) {
-            console.log(err);
-        } else {
+            if (err) {
+                console.log(err);
+            } else {
                 console.log(entry);
                 res.send('Entry has been submitted');
             }
         });
-   
+
     });
-    
-    app.get('/profile', (req, res) => {
-            res.json(req.user);
-        });
-
-
 
     //Test passport using small html form ,use angular after**************************
     app.get('/form', (req, res) => {
-                    console.log(req);
-            res.sendfile('./form.html', {
+        res.sendfile('./form.html', {
             root: __dirname
         });
 
