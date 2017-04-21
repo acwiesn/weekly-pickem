@@ -6,14 +6,25 @@ var Entry = require('../models/entries.js');
 // var Teams = require('../../config/teams.json');
 
 module.exports = function (app) {
-    app.all('*', (req, res, next)=> {
-                if (!req.user) {
-                    res.redirect('/form')
-                } else {
-                    return res.send('User logged in');
-                }
+
+
+    function requireLogin(req, res, next) {
+        if (!req.user) {
+            // require the user to log in
+            res.redirect("/form"); // or render a form, etc.
+        } else {
+            next(); // allow the next route to run
+
+        }
+
+    }
+
+        //Test passport using small html form ,use angular after**************************
+
+    app.all('/api/*',requireLogin, (req, res, next)=> {
                 next();
-            })
+    });
+
         //TODO: redirect failure to signup form with messge
     app.post('/login', passport.authenticate('local', {
         successRedirect: '/profile',
@@ -44,17 +55,10 @@ module.exports = function (app) {
 
         });
     });
-    app.all('/profile', (req, res, next) => {
-        if (!req.user) {
-            res.redirect('/form')
-        }
-        next();
-    })
 
-    app.get('/profile', (req, res) => {
+    app.get('/profile',requireLogin, (req, res) => {
         res.json(req.user);
     });
-
 
 
 
@@ -74,14 +78,13 @@ module.exports = function (app) {
 
     });
 
-    //Test passport using small html form ,use angular after**************************
+
     app.get('/form', (req, res) => {
         res.sendfile('./form.html', {
             root: __dirname
         });
 
     });
-
     //********************************************************
 
 
