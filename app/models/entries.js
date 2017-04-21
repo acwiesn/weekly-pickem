@@ -5,7 +5,7 @@
 
     var entrySchema = new Schema({
         week: [ ],
-        user: {type: String, required: true},
+        user: {type: String},
         picks: [{
             type: String,
             required: true,

@@ -2,7 +2,7 @@
     <div>
         <label>Username:</label>
         <input type="text" name="username"/>
-    </div></br>
+    </div>
     <div>
         <label>Password:</label>
         <input type="password" name="password"/>
@@ -11,3 +11,23 @@
         <input type="submit" value="Log In"/>
     </div>
 </form>
+
+<form action="/entrySubmit" method="post">
+    <div>
+    <label> Weekly Entries </label><br>
+    <label>Week</label>    
+    <input type='text' name="week"/>
+        
+        <select name="picks">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        </select>
+        <input type="radio" name="lock" value="yes">
+    <input type="submit" value="Submit"/>
+    </div>
+</form>
+
+
+

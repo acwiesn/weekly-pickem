@@ -1,8 +1,8 @@
 'use strict';
 var User = require('../models/users.js');
 var Entry = require('../models/entries.js');
-var Game = require('../models/games.js');
-var Teams = require('../../config/teams.json');
+// var Game = require('../models/games.js');
+// var Teams = require('../../config/teams.json');
 
 module.exports = function (app) {
 
@@ -13,13 +13,14 @@ module.exports = function (app) {
 
     });
     
-    for (var i=0; i < Teams.length; i++){
-        console.log(Teams[i].code);
-    }
+    // for (var i=0; i < Teams.length; i++){
+       // console.log(Teams[i].code);
+    // }
 
     app.post('/signup', (req, res) => {
 
         var newuser = new User(req.body);
+        
 
         newuser.save((err, user, numRows) => {
             if (err) {
@@ -33,24 +34,34 @@ module.exports = function (app) {
 
             } else {
                 req.login(user, () => {
-
+                    
                     res.redirect('/profile');
                 });
             }
 
         });
     });
+    app.post('/entrySubmit', (req, res)=>{
+        var newentry = new Entry(req.body);
+        
+        newentry.save((err, entry, numRows) => {
+        if (err) {
+            console.log(err);
+        } else {
+                console.log(entry);
+                res.send('Entry has been submitted');
+            }
+        });
+   
+    });
+    
     app.get('/profile', (req, res) => {
 
-        Game.find({}, (err, games) => {
-            res.json(games);
-        })
-    });
-
-
+       // Game.find({}, (err, games) => {
+         //   res.json(games);
+        });
     //Test passport using small html form ,use angular after**************************
     app.get('/form', (req, res) => {
-        save();
         res.sendfile('./form.html', {
             root: __dirname
         });
