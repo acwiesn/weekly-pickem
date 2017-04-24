@@ -28,10 +28,7 @@ app.use(cookieParser('thissecret'));
 app.use(session({ resave: true ,secret: 'thissecret' , saveUninitialized: true}));
 app.use(flash());
 require('./app/config/passport')(app);
-
-
 // routes ==================================================
-
 require('./app/controllers')(app);
 // set the static files location /public/img will be /img for users
 app.use('/app',express.static(__dirname + '/public'));

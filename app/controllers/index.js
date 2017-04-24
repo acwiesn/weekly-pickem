@@ -82,8 +82,6 @@ module.exports = function (app) {
         
         
         var newentry = new Entry(newEntry);
-        
-        console.log(req.body);
         newentry.save((err, entry, numRows) => {
             if (err) {
                 console.log(err);
