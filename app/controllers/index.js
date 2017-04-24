@@ -68,8 +68,22 @@ module.exports = function (app) {
 
 
     app.post('/entrySubmit', (req, res) => {
-        var newentry = new Entry(req.body);
-
+        var newEntry = {
+            user: req.body.user,
+            week: req.body.week,
+            picks: {
+            game1: req.body.game1,
+            game2: req.body.game2
+                    },
+            lock: req.body.lock, 
+            created_at: new Date(), 
+            updated_at: new Date()
+        }
+        
+        
+        var newentry = new Entry(newEntry);
+        
+        console.log(req.body);
         newentry.save((err, entry, numRows) => {
             if (err) {
                 console.log(err);

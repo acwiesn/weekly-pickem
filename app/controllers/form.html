@@ -32,10 +32,16 @@
 <form action="/entrySubmit" method="post">
     <div>
         <label> <h3>Weekly Entries</h3> </label><br>
+        <input type='label' value='username' name="user"/>
     <label>Week</label>    
-    <input type='text' name="week"/>
-        
-        <select name="picks">
+    <input type='text' value="1" name="week"/>   
+        <select name="game1" value="game1">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        </select>
+        <select name="game2" value="game2">
               <option value="Bears">Bears</option>
               <option value="Titans">Titans</option>
               <option value="Cowboys">Cowboys</option>

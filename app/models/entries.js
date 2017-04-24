@@ -4,12 +4,19 @@
     var Schema = mongoose.Schema;
 
     var entrySchema = new Schema({
-        week: [ ],
+        week: Number,
         user: {type: String},
-        picks: [{
-            type: String,
-            required: true,
-        }],
+        picks: {
+            game1: {
+            type: String
+            },
+            game2: {
+            type: String
+            },
+            game3: {
+            type: String
+            }
+        },
         lock: {
             type: String
         },
