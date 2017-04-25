@@ -1,0 +1,167 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+    <body>
+    <form name="signinForm" action="/login" method="post">
+    <h3>LOGIN</h3>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+
+    </div>
+</form>
+<form name="Logout" action="/logout" method="get">
+        <div>
+        <input type="submit" value="Log Out"/>
+    </div>
+</form>
+
+<br/>
+<form name="signinForm" action="/signup" method="post">
+    <h3>Register</h3>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password"/>
+    </div>
+        <div>
+        <label>Email:</label>
+        <input type="text" name="email"/>
+    </div>
+        <div>
+        <label>Firsname:</label>
+        <input type="text" name="firstname"/>
+    </div>
+        <div>
+        <label>Lastname:</label>
+        <input type="text" name="lastname"/>
+    </div>
+    <div>
+        <input type="submit" value="Register"/>
+    </div>
+
+</form>
+
+<br/>
+<form action="" id="entryID">
+    <div>
+        <label> <h3>Weekly Entries</h3> </label><br>
+        <label> <h4>User</h4></label><br>
+    <label>Week</label>    
+    <input type='text' value="1" name="week"/><br>  
+        <select name="game1" value="game1">
+              <option value="Browns">Browns</option>
+              <option value="Jaguars">Jaguars</option>
+       <input type="radio" id="1" name="lock"/>'
+        </select><br><br>
+        <select name="game2" value="game2">
+              <option value="Bears">Bears</option>
+            <option value="Titans">Titans</option>
+        <input type="radio" id="2" name="lock"/>
+        </select><br><br>
+        <select name="game3" value="game3">
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" id="3" name="lock"/>
+        </select><br><br>
+		<select name="game4" value="game4">
+              <option value="Patriots">Patriots</option>
+              <option value="Seahawks">Seahawks</option>
+        <input type="radio" id="4" name="lock"/>
+        </select><br><br>
+		<!--<select name="game5" value="game5">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock5"/>
+        </select><br><br>
+		<select name="game6" value="game6">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock6"/>
+        </select><br><br>
+		<select name="game7" value="game7">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock7"/>
+        </select><br><br>
+		<select name="game8" value="game8">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock8"/>
+        </select><br><br>
+		<select name="game9" value="game9">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock9"/>
+        </select><br><br>
+		<select name="game10" value="game10">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock10"/>
+        </select><br><br>
+		<select name="game11" value="game11">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock11"/>
+        </select><br><br>
+		<select name="game12" value="game12">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock12"/>
+        </select><br><br>
+        <select name="game13" value="game13">
+              <option value="Bears">Bears</option>
+              <option value="Titans">Titans</option>
+              <option value="Cowboys">Cowboys</option>
+              <option value="Steelers">Steelers</option>
+        <input type="radio" name="lock" value="lock13"/>
+        </select><br><br>
+        -->
+    <input type="submit" value="submit"/>
+    </div>
+</form>
+        <script> 
+    $('#entryID').submit(function(e){
+        
+    e.preventDefault();
+    console.log( $( this ).serialize() );
+    // ... your ajax code here ...
+        
+    return false;
+
+});
+    </script>
+    </body>
+</html>
+
+
+
+
+
