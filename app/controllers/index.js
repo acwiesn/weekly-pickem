@@ -55,23 +55,68 @@ module.exports = function (app) {
         res.json(req.user);
     });
 
-
-
-
-
+    
     app.post('/entrySubmit', (req, res) => {
+        console.log(req.body);
         var newEntry = {
             user: req.body.user,
             week: req.body.week,
-            picks: {
+            selections: {
             game1: {
-                game1: req.body.game1,
-                lock: req.body.lock},
-            game2: req.body.game2
+                pick: req.body.game1,
+                lock: req.body.lock1
                     },
-            lock: req.body.lock, 
+            game2: {
+                   pick: req.body.game2,
+                   lock: req.body.lock2
+                    },
+            game3: {
+                   pick: req.body.game2,
+                   lock: req.body.lock3
+                    },
+            game4: {
+                   pick: req.body.game2,
+                   lock: req.body.lock4
+                    },
+            game5: {
+                   pick: req.body.game2,
+                   lock: req.body.lock5
+                    },
+            game6: {
+                   pick: req.body.game2,
+                   lock: req.body.lock6
+                    },
+            game7: {
+                   pick: req.body.game2,
+                   lock: req.body.lock7
+                    },
+            game8: {
+                   pick: req.body.game2,
+                   lock: req.body.lock8
+                    },
+            game9: {
+                   pick: req.body.game2,
+                   lock: req.body.lock9
+                    },
+            game10: {
+                   pick: req.body.game2,
+                   lock: req.body.lock10
+                    },
+            game11: {
+                   pick: req.body.game2,
+                   lock: req.body.lock11
+                    },
+            game12: {
+                   pick: req.body.game2,
+                   lock: req.body.lock12
+                    },
+            game13: {
+                   pick: req.body.game2,
+                   lock: req.body.lock13
+                    },     
             created_at: new Date(), 
             updated_at: new Date()
+        }
         }
         
         
