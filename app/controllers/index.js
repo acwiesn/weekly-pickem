@@ -9,19 +9,22 @@ module.exports = function (app) {
 
 
     function requireLogin(req, res, next) {
+
         if (!req.user) {
             // require the user to log in
+            req.flash('message', "Failed to authenticate")
             res.redirect("/form"); // or render a form, etc.
         } else {
+            req.flash('message', "Successful logining")
             next(); // allow the next route to run
 
         }
 
     }
 
-        //Test passport using small html form ,use angular after**************************
 
     app.all('/api/*',requireLogin, (req, res, next)=> {
+
                 next();
     });
         app.all('/app/*',requireLogin, (req, res, next)=> {
@@ -34,32 +37,21 @@ module.exports = function (app) {
         failureRedirect: '/form',
         failureFlash: true
     }));
-
-    app.post('/signup', (req, res) => {
-
-        var newuser = new User(req.body);
-
-        newuser.save((err, user, numRows) => {
-            if (err) {
-                if (err.code === 11000) {
-                    console.log(err);
-                    console.log('User already exists');
-                    res.send('User already exists');
-                } else {
-                    console.log(err);
-                }
-
-            } else {
-                req.login(user, () => {
-
-                    res.redirect('/profile');
-                });
-            }
-
-        });
+    app.get('/logout', function (req, res) {
+        req.logout();
+        res.redirect('/form');
     });
 
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/profile',
+        failureRedirect: '/form',
+        failureFlash: true,
+    }));
     app.get('/profile',requireLogin, (req, res) => {
+        if(req.session){
+            console.log(req.session);
+           }
+        
         res.json(req.user);
     });
 
@@ -95,6 +87,9 @@ module.exports = function (app) {
 
 
     app.get('/form', (req, res) => {
+        if(req.session){
+            console.log(req.session);
+        }
         res.sendfile('./form.html', {
             root: __dirname
         });
