@@ -72,7 +72,9 @@ module.exports = function (app) {
             user: req.body.user,
             week: req.body.week,
             picks: {
-            game1: req.body.game1,
+            game1: {
+                game1: req.body.game1,
+                lock: req.body.lock},
             game2: req.body.game2
                     },
             lock: req.body.lock, 

@@ -8,7 +8,8 @@
         user: {type: String},
         picks: {
             game1: {
-            type: String
+                selectedTeam: String,
+                lock: Boolean
             },
             game2: {
             type: String
@@ -16,9 +17,6 @@
             game3: {
             type: String
             }
-        },
-        lock: {
-            type: String
         },
         created_at: Date,
         updated_at: Date
