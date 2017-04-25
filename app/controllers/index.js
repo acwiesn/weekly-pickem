@@ -39,8 +39,9 @@ module.exports = function (app) {
     }));
     app.get('/logout', function (req, res) {
         req.logout();
+        req.session.destroy();
         if(req.session){
-            console.log(req.session.flash);}
+            console.log(req.session);}
         
         res.send('loged out');
     });
