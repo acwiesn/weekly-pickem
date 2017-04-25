@@ -71,49 +71,49 @@ module.exports = function (app) {
                    lock: req.body.lock2
                     },
             game3: {
-                   pick: req.body.game2,
+                   pick: req.body.game3,
                    lock: req.body.lock3
                     },
             game4: {
-                   pick: req.body.game2,
+                   pick: req.body.game4,
                    lock: req.body.lock4
                     },
             game5: {
-                   pick: req.body.game2,
+                   pick: req.body.game5,
                    lock: req.body.lock5
                     },
             game6: {
-                   pick: req.body.game2,
+                   pick: req.body.game6,
                    lock: req.body.lock6
                     },
             game7: {
-                   pick: req.body.game2,
+                   pick: req.body.game7,
                    lock: req.body.lock7
                     },
             game8: {
-                   pick: req.body.game2,
+                   pick: req.body.game8,
                    lock: req.body.lock8
                     },
             game9: {
-                   pick: req.body.game2,
+                   pick: req.body.game9,
                    lock: req.body.lock9
                     },
             game10: {
-                   pick: req.body.game2,
+                   pick: req.body.game10,
                    lock: req.body.lock10
                     },
             game11: {
-                   pick: req.body.game2,
+                   pick: req.body.game11,
                    lock: req.body.lock11
                     },
             game12: {
-                   pick: req.body.game2,
+                   pick: req.body.game12,
                    lock: req.body.lock12
                     },
             game13: {
-                   pick: req.body.game2,
+                   pick: req.body.game13,
                    lock: req.body.lock13
-                    },     
+                    },  
             created_at: new Date(), 
             updated_at: new Date()
         }
