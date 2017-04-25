@@ -15,14 +15,13 @@ module.exports = function (app) {
             req.flash('message', "Failed to authenticate")
             res.redirect("/form"); // or render a form, etc.
         } else {
-            req.flash('message', "Successful logining")
+            req.flash('message', "Successful login")
             next(); // allow the next route to run
 
         }
 
     }
-
-
+    
     app.all('/api/*',requireLogin, (req, res, next)=> {
 
                 next();
@@ -33,7 +32,7 @@ module.exports = function (app) {
 
         //TODO: redirect failure to signup form with messge
     app.post('/login', passport.authenticate('local', {
-        successRedirect: '/profile',
+        successRedirect: '/app',
         failureRedirect: '/form',
         failureFlash: true
     }));
@@ -43,11 +42,12 @@ module.exports = function (app) {
         if(req.session){
             console.log(req.session);}
         
-        res.send('loged out');
+        res.send('logged out');
+        
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/profile',
+        successRedirect: '/app',
         failureRedirect: '/form',
         failureFlash: true,
     }));
@@ -65,59 +65,60 @@ module.exports = function (app) {
         var newEntry = {
             user: req.body.user,
             week: req.body.week,
-            selections: {
+            selections: 
+            {
             game1: {
                 pick: req.body.game1,
-                lock: req.body.lock1
+                lock: req.body.lock
                     },
             game2: {
                    pick: req.body.game2,
-                   lock: req.body.lock2
+                   lock: req.body.lock
                     },
             game3: {
                    pick: req.body.game3,
-                   lock: req.body.lock3
+                   lock: req.body.lock
                     },
             game4: {
                    pick: req.body.game4,
-                   lock: req.body.lock4
+                   lock: req.body.lock
                     },
-            game5: {
+      /*      game5: {
                    pick: req.body.game5,
-                   lock: req.body.lock5
+                   lock: req.body.lock
                     },
             game6: {
                    pick: req.body.game6,
-                   lock: req.body.lock6
+                   lock: req.body.lock
                     },
             game7: {
                    pick: req.body.game7,
-                   lock: req.body.lock7
+                   lock: req.body.lock
                     },
             game8: {
                    pick: req.body.game8,
-                   lock: req.body.lock8
+                   lock: req.body.lock
                     },
             game9: {
                    pick: req.body.game9,
-                   lock: req.body.lock9
+                   lock: req.body.lock
                     },
             game10: {
                    pick: req.body.game10,
-                   lock: req.body.lock10
+                   lock: req.body.lock
                     },
             game11: {
                    pick: req.body.game11,
-                   lock: req.body.lock11
+                   lock: req.body.lock
                     },
             game12: {
                    pick: req.body.game12,
-                   lock: req.body.lock12
+                   lock: req.body.lock
                     },
             game13: {
                    pick: req.body.game13,
-                   lock: req.body.lock13
-                    },  
+                   lock: req.body.lock
+                    },  */
             created_at: new Date(), 
             updated_at: new Date()
         }

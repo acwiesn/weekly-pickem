@@ -6,7 +6,8 @@
     var entrySchema = new Schema({
         week: Number,
         user: {type: String},
-        selections: {
+        selections: 
+        {
             game1: {
                 pick: String,
                 lock: {
@@ -30,8 +31,8 @@
                 lock: {
                     type: Boolean
                 }
-            },
-            game5: {
+            }
+    /*        game5: {
                 pick: String,
                 lock: {
                     type: Boolean
@@ -85,12 +86,7 @@
                     type: Boolean
                 }
             },
-            game14: {
-                pick: String,
-                lock: {
-                    type: Boolean
-                }
-            },
+            */
             
         },
         created_at: Date,
