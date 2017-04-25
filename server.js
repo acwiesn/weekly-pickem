@@ -27,6 +27,7 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(cookieParser('thissecret'));
 app.use(session({ resave: true ,secret: 'thissecret' , saveUninitialized: true}));
 app.use(flash());
+
 require('./app/config/passport')(app);
 // routes ==================================================
 require('./app/controllers')(app);
