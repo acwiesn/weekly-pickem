@@ -88,7 +88,7 @@ module.exports = function (app) {
 
     app.get('/form', (req, res) => {
         if(req.session){
-            console.log(req.session);
+            console.log(req.session.flash);
         }
         res.sendfile('./form.html', {
             root: __dirname
