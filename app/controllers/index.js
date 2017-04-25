@@ -39,7 +39,11 @@ module.exports = function (app) {
     }));
     app.get('/logout', function (req, res) {
         req.logout();
-        res.redirect('/form');
+        req.session.destroy();
+        if(req.session){
+            console.log(req.session);}
+        
+        res.send('loged out');
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
@@ -48,8 +52,8 @@ module.exports = function (app) {
         failureFlash: true,
     }));
     app.get('/profile',requireLogin, (req, res) => {
-        if(req.session){
-            console.log(req.session);
+        if(req.session.flash){
+            console.log(req.session.flash);
            }
         
         res.json(req.user);
@@ -134,7 +138,7 @@ module.exports = function (app) {
 
 
     app.get('/form', (req, res) => {
-        if(req.session){
+        if(req.session.flash){
             console.log(req.session.flash);
         }
         res.sendfile('./form.html', {
