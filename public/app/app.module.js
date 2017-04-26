@@ -14,6 +14,10 @@
       $locationProvider.hashPrefix('');
 
        $routeProvider
+        .when('/loginPage', {
+           templateUrl: 'app/pages/login/loginPage.view.html',
+           controller: 'Login as vm'
+         })
          .when('/', {
              templateUrl: 'app/pages/home/home.view.html',
              controller: 'Home as vm'
