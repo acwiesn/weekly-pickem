@@ -1,15 +1,31 @@
 'use strict';
 var passport = require('passport');
-var User = require('../models/users.js');
 var Entry = require('../models/entries.js');
 // var Game = require('../models/games.js');
 // var Teams = require('../../config/teams.json');
 
+
+/*Current routes:
+    GET:
+    get : /form -> has all forms at the moment signup, login, logout
+    get : / -> serves public folder
+    get : /logout -> logs user and destroys session
+    get : /profile -> returns signed in user
+    get : /users -> returns a json object of users, needs implementation
+    
+    POST:
+    post: /login -> authenticates a user using passport locally
+    post: /signup -> registers a user and adds to DB
+    post: /entrySubmit -> saves an entry req.body must have user, week 
+        games, selections which has all of the games for that week and the game 
+        that has been locked.
+    
+*/ 
 module.exports = function (app) {
     //Function to authenticate our routes
     function requireLogin(req, res, next) {
         if (!req.user) {
-            res.redirect("/form"); // or render a form, etc.
+            res.redirect('/form'); // or render a form, etc.
         } else {
             next(); // allow the next route to run
 
@@ -41,7 +57,7 @@ module.exports = function (app) {
         req.logout();
         req.session.destroy();
         if(req.session){
-            console.log(req.session+"SESSION HAS NOT BEEN DESTROYED");}
+            console.log(req.session+'SESSION HAS NOT BEEN DESTROYED');}
         
         res.send('Thanks For visiting');
         
@@ -135,13 +151,13 @@ module.exports = function (app) {
             created_at: new Date(), 
             updated_at: new Date()
         }
-        }
+        };
         
         
         var newentry = new Entry(newEntry);
         newentry.save((err, entry, numRows) => {
-            if (err) {
-                console.log(err);
+            if (err || numRows === 0) {
+                console.log(err + numRows );
             } else {
                 console.log(entry);
                 res.send('Entry has been submitted');
