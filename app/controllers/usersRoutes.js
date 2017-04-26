@@ -13,11 +13,9 @@ var users = {
 // Car brands page
 router.get('/users', (req, res) => {
     //res.json({'foo': 'bar'});
-    
+
 
     res.json(users);
 });
-
-
 
 module.exports = router;

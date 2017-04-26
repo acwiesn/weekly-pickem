@@ -1,3 +1,4 @@
+/*jshint camelcase: false */
 'use strict';
 var passport = require('passport');
 var Entry = require('../models/entries.js');
@@ -11,7 +12,7 @@ var Entry = require('../models/entries.js');
     get : / -> serves public folder
     get : /logout -> logs user and destroys session
     get : /profile -> returns signed in user
-    get : /users -> returns a json object of users, needs implementation
+    get : app/users -> returns a json object of users, needs implementation
     
     POST:
     post: /login -> authenticates a user using passport locally
@@ -22,7 +23,8 @@ var Entry = require('../models/entries.js');
     
 */ 
 module.exports = function (app) {
-    //Function to authenticate our routes
+
+       //Function to authenticate our routes
     function requireLogin(req, res, next) {
         if (!req.user) {
             res.redirect('/form'); // or render a form, etc.
@@ -42,41 +44,16 @@ module.exports = function (app) {
         });
 
     });
-    //Requireing login for all of our routes
+    //Requireing login for all of static routes
     app.all('/',requireLogin, (req, res, next)=> {
                 next();
     });
-    //Authenticate user using passport
-    app.post('/login', passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/form',
-        failureFlash: true
-    }));
-    //Destory and logout of session
-    app.get('/logout', function (req, res) {
-        req.logout();
-        req.session.destroy();
-        if(req.session){
-            console.log(req.session+'SESSION HAS NOT BEEN DESTROYED');}
-        
-        res.send('Thanks For visiting');
-        
+        //Requireing login for all of our api routes
+    app.all('/api/*',requireLogin, (req, res, next)=> {
+                next();
     });
-    //Register a user route
-    app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/',
-        failureRedirect: '/form',
-        failureFlash: true,
-    }));
-    app.get('/profile',requireLogin, (req, res) => {
-        if(req.session){
-            console.log(req.session.passport.user);
-           }
-        
-        res.json(req.user);
-    });
-
-    
+    //Organizied signup and login routes passing app and function to requireLogin
+    require('./authenticateRoutes')(app,requireLogin);
     app.post('/entrySubmit', (req, res) => {
         console.log(req.body);
         var newEntry = {
@@ -165,13 +142,8 @@ module.exports = function (app) {
         });
 
     });
-
-
-
-    //********************************************************
-
-
     // Tell express to use this router with /api before.
-    app.use('/', require('./users'));
+    app.use('/api',require('./usersRoutes'));
+
     return app;
 };
