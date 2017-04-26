@@ -6,54 +6,55 @@ var Entry = require('../models/entries.js');
 // var Teams = require('../../config/teams.json');
 
 module.exports = function (app) {
-
-
+    //Function to authenticate our routes
     function requireLogin(req, res, next) {
-
         if (!req.user) {
-            // require the user to log in
-            req.flash('message', "Failed to authenticate")
             res.redirect("/form"); // or render a form, etc.
         } else {
-            req.flash('message', "Successful login")
             next(); // allow the next route to run
 
         }
 
     }
-    
-    app.all('/api/*',requireLogin, (req, res, next)=> {
+    //First route which is not authenticated
+    app.get('/form', (req, res) => {
+        if(req.session.flash){
+            console.log(req.session.flash);
+        }
+        res.sendfile('./form.html', {
+            root: __dirname
+        });
 
+    });
+    //Requireing login for all of our routes
+    app.all('/',requireLogin, (req, res, next)=> {
                 next();
     });
-        app.all('/app/*',requireLogin, (req, res, next)=> {
-                next();
-    });
-
-        //TODO: redirect failure to signup form with messge
+    //Authenticate user using passport
     app.post('/login', passport.authenticate('local', {
-        successRedirect: '/app',
+        successRedirect: '/',
         failureRedirect: '/form',
         failureFlash: true
     }));
+    //Destory and logout of session
     app.get('/logout', function (req, res) {
         req.logout();
         req.session.destroy();
         if(req.session){
-            console.log(req.session);}
+            console.log(req.session+"SESSION HAS NOT BEEN DESTROYED");}
         
-        res.send('logged out');
+        res.send('Thanks For visiting');
         
     });
-
+    //Register a user route
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/app',
+        successRedirect: '/',
         failureRedirect: '/form',
         failureFlash: true,
     }));
     app.get('/profile',requireLogin, (req, res) => {
-        if(req.session.flash){
-            console.log(req.session.flash);
+        if(req.session){
+            console.log(req.session.passport.user);
            }
         
         res.json(req.user);
@@ -69,11 +70,11 @@ module.exports = function (app) {
             {
             game1: {
                 pick: req.body.game1,
-                lock: req.body.lock
+                lock: false
                     },
             game2: {
                    pick: req.body.game2,
-                   lock: req.body.lock
+                   lock: false
                     },
             game3: {
                    pick: req.body.game3,
@@ -83,7 +84,7 @@ module.exports = function (app) {
                    pick: req.body.game4,
                    lock: req.body.lock
                     },
-      /*      game5: {
+            game5: {
                    pick: req.body.game5,
                    lock: req.body.lock
                     },
@@ -118,7 +119,19 @@ module.exports = function (app) {
             game13: {
                    pick: req.body.game13,
                    lock: req.body.lock
-                    },  */
+                    },
+            game14: {
+                   pick: req.body.game14,
+                   lock: req.body.lock
+                    },
+            game15: {
+                   pick: req.body.game15,
+                   lock: req.body.lock
+                    },
+            game16: {
+                   pick: req.body.game16,
+                   lock: req.body.lock
+                    },
             created_at: new Date(), 
             updated_at: new Date()
         }
@@ -138,19 +151,11 @@ module.exports = function (app) {
     });
 
 
-    app.get('/form', (req, res) => {
-        if(req.session.flash){
-            console.log(req.session.flash);
-        }
-        res.sendfile('./form.html', {
-            root: __dirname
-        });
 
-    });
     //********************************************************
 
 
     // Tell express to use this router with /api before.
-    app.use('/api', require('./users'));
+    app.use('/', require('./users'));
     return app;
 };

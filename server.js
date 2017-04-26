@@ -32,7 +32,7 @@ require('./app/config/passport')(app);
 // routes ==================================================
 require('./app/controllers')(app);
 // set the static files location /public/img will be /img for users
-app.use('/app',express.static(__dirname + '/public'));
+app.use('/',express.static(__dirname + '/public'));
 
 // Handle 404 error. 
 // The last middleware.

@@ -31,8 +31,8 @@
                 lock: {
                     type: Boolean
                 }
-            }
-    /*        game5: {
+            },
+            game5: {
                 pick: String,
                 lock: {
                     type: Boolean
@@ -86,8 +86,24 @@
                     type: Boolean
                 }
             },
-            */
-            
+            game14: {
+                pick: String,
+                lock: {
+                    type: Boolean
+                }
+            },    
+            game15: {
+                pick: String,
+                lock: {
+                    type: Boolean
+                }
+            },
+            game16: {
+                pick: String,
+                lock: {
+                    type: Boolean
+                }
+            },        
         },
         created_at: Date,
         updated_at: Date
