@@ -105,8 +105,8 @@
                 }
             },        
         },
-        created_at: Date,
-        updated_at: Date
+        createdAt: Date,
+        updatedAt: Date
     });
 
 module.exports = mongoose.model('Entry', entrySchema);

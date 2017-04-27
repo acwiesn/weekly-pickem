@@ -1,6 +1,4 @@
-/*jshint camelcase: false */
 'use strict';
-var passport = require('passport');
 var Entry = require('../models/entries.js');
 // var Game = require('../models/games.js');
 // var Teams = require('../../config/teams.json');
@@ -24,7 +22,7 @@ var Entry = require('../models/entries.js');
 */ 
 module.exports = function (app) {
 
-       //Function to authenticate our routes
+       //Function to authenticate our routes, use this on your requests to ensure authentication
     function requireLogin(req, res, next) {
         if (!req.user) {
             res.redirect('/form'); // or render a form, etc.
@@ -125,8 +123,8 @@ module.exports = function (app) {
                    pick: req.body.game16,
                    lock: req.body.lock
                     },
-            created_at: new Date(), 
-            updated_at: new Date()
+            createdAt: new Date(),
+            updatedAt: new Date()
         }
         };
         
