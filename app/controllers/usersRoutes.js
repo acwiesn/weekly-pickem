@@ -60,4 +60,20 @@ router.get('/users/:id', (req, res) => {
     }
 
 });
+router.get('/users/:username', (req, res) => {
+    var username = req.params.username;
+
+        User.findOne({username:username},(err, user)=>{
+            if (err) {
+                console.log(err);
+                res.send(500, {
+                    message: 'Failed to retrive user with username: ' + username
+                });
+            }
+            res.status(200);
+            res.send(user);
+        });
+});
+
+
 module.exports = router;
