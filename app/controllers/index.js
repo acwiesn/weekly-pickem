@@ -20,12 +20,16 @@ var Entry = require('../models/entries.js');
         that has been locked.
     
 */ 
+
 module.exports = function (app) {
 
        //Function to authenticate our routes, use this on your requests to ensure authentication
     function requireLogin(req, res, next) {
         if (!req.user) {
-            res.redirect('/form'); // or render a form, etc.
+
+            //TODO renable for authentication
+            //res.redirect('/form'); // or render a form, etc.
+            next();
         } else {
             next(); // allow the next route to run
 
