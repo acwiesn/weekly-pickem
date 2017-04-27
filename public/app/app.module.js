@@ -22,7 +22,7 @@
          .when('/', {
              templateUrl: 'app/pages/home/home.view.html',
              controller: 'Home as vm',
-             secure: true
+             secure: false
          })
          .when('/entries', {
              templateUrl: 'app/pages/entries/entries.view.html',
