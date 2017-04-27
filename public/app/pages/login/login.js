@@ -1,4 +1,4 @@
-(function () {
+(function (authentication) {
     'use strict'
     
     angular.module('app')
@@ -6,10 +6,12 @@
     
     function Login($scope, $http) {
         
-        $http.get('/profile').then(handleSuccess, handleError('Error getting all users'));
-
-        console.log("login controller");
+        $http.get('/login').then(handleSuccess, handleError('Error logging in'));
     }
+        
+    function Logout($scope, $http) {
+            return $http.get('/logout').then(handleSuccess, handleError('Error logging out'));
+        }
     
   function handleSuccess(res) {
             console.log(res.data);
@@ -21,7 +23,6 @@
                 return { success: false, message: error };
             };
         }
-  Login();
+  authentication();
   
-    
 })();    

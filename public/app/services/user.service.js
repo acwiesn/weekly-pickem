@@ -19,31 +19,17 @@
         return service;
 
         function GetAll() {
-            return $http.get('/logout').then(handleSuccess, handleError('Error getting all users'));
-        }
-
-      /*  function GetById(id) {
-            return $http.get('../../../app/model/users/' + id).then(handleSuccess, handleError('Error getting user by id'));
-        }
-
-        function GetByUsername(username) {
-            return $http.get('../../../app/model/users/' + username).then(handleSuccess, handleError('Error getting user by username'));
-        }
-
-        function Create(user) {
-            return $http.post('../../../app/model/users', user).then(handleSuccess, handleError('Error creating user'));
-        }
-
-        function Update(user) {
-            return $http.put('../../../app/model/users/' + user.id, user).then(handleSuccess, handleError('Error updating user'));
-        }
-
-        function Delete(id) {
-            return $http.delete('../../../app/model/users/' + id).then(handleSuccess, handleError('Error deleting user'));
+            return $http.get('api/users').then(handleSuccess, handleError('Error getting all users'));
         }
         
-        */
-
+        function GetByUsername() {
+            return $http.get('api/usersMaped').then(handleSuccess, handleError('Error getting all users'));
+        }
+        
+        function GetByID() {
+            return $http.get('api/users/:id').then(handleSuccess, handleError('Error getting all users'));
+        }
+        
         // private functions
 
         function handleSuccess(res) {
