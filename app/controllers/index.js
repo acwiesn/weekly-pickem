@@ -10,7 +10,7 @@ var Entry = require('../models/entries.js');
     get : / -> serves public folder
     get : /logout -> logs user and destroys session
     get : /profile -> returns signed in user
-    get : app/users -> returns a json object of users, needs implementation
+    get : api/users -> returns a json object of users
     
     POST:
     post: /login -> authenticates a user using passport locally
