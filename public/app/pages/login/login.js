@@ -1,4 +1,4 @@
-(function (authentication) {
+(function () {
     'use strict'
     
     angular.module('app')
@@ -23,6 +23,5 @@
                 return { success: false, message: error };
             };
         }
-  authentication();
   
 })();    

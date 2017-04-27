@@ -28,8 +28,8 @@ module.exports = function (app) {
         if (!req.user) {
 
             //TODO renable for authentication
-            //res.redirect('/form'); // or render a form, etc.
-            next();
+            res.redirect('/form'); // or render a form, etc.
+            // next();
         } else {
             next(); // allow the next route to run
 
