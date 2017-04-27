@@ -1,7 +1,6 @@
 /*jshint camelcase: false */
 'use strict';
 var passport = require('passport');
-
 module.exports = function (app,requireLogin) {
 
     //Authenticate user using passport
@@ -14,9 +13,7 @@ module.exports = function (app,requireLogin) {
     app.get('/logout', function (req, res) {
         req.logout();
         req.session.destroy();
-        if(req.session){
-            console.log(req.session+'SESSION HAS NOT BEEN DESTROYED');}
-
+        //Reply with a page
         res.send('Thanks For visiting');
 
     });
