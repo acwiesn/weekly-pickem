@@ -41,10 +41,6 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        /*
-        res.sendfile('./form.html', {
-            root: __dirname
-        });*/
         res.render('form');
 
     });
