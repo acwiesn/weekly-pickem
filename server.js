@@ -9,7 +9,7 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var favicon = require('serve-favicon');
-
+var exphbs  = require('express-handlebars');
 
 
 // config files
@@ -34,6 +34,8 @@ require('./app/config/passport')(app);
 // routes ==================================================
 require('./app/controllers')(app);
 // set the static files location /public/img will be /img for users
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 app.use('/',express.static(__dirname + '/public'));
 
 // Handle 404 error. 
