@@ -5,8 +5,8 @@ module.exports = function (app,requireLogin) {
 
     //Authenticate user using passport
     app.post('/login', passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/form',
+        successRedirect: '/index',
+        failureRedirect: '/loginforms',
         failureFlash: true
     }));
     //Destory and logout of session
@@ -19,8 +19,8 @@ module.exports = function (app,requireLogin) {
     });
     //Register a user route
     app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/',
-        failureRedirect: '/form',
+        successRedirect: '/index',
+        failureRedirect: '/loginforms',
         failureFlash: true,
     }));
     app.get('/profile',requireLogin, function (req, res) {

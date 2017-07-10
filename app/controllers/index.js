@@ -28,7 +28,7 @@ module.exports = function (app) {
         if (!req.user) {
 
             //TODO renable for authentication
-            res.redirect('/form'); // or render a form, etc.
+            res.redirect('/loginforms'); // or render a form, etc.
             // next();
         } else {
             next(); // allow the next route to run
@@ -37,16 +37,23 @@ module.exports = function (app) {
 
     }
     //First route which is not authenticated
-    app.get('/form', (req, res) => {
+    app.get('/loginforms', (req, res) => {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        res.render('form');
+        res.render('loginforms');
 
     });
+
     //Requireing login for all of static routes
     app.all('/',requireLogin, (req, res, next)=> {
                 next();
+    });
+    app.get('/index',requireLogin, (req, res, next)=> {
+        if(req.session.flash){
+            console.log(req.session.flash);
+        }
+        res.render('index');
     });
         //Requireing login for all of our api routes
     app.all('/api/*',requireLogin, (req, res, next)=> {
