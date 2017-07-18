@@ -11,10 +11,11 @@ module.exports = function (app,requireLogin) {
     }));
     //Destory and logout of session
     app.get('/logout', function (req, res) {
+
         req.logout();
         req.session.destroy();
         //Reply with a page
-        res.send('Thanks For visiting');
+        res.redirect('/loginforms');
 
     });
     //Register a user route

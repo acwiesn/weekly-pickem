@@ -53,7 +53,7 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        res.render('index');
+        res.render('index',{user:req.user});
     });
         //Requireing login for all of our api routes
     app.all('/api/*',requireLogin, (req, res, next)=> {
