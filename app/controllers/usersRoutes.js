@@ -4,10 +4,9 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('../models/users.js');
 
-
 router.get('/users', (req, res) => {
 
-    User.find({},(err, users) => {
+    User.find({},{password:0,__v:0},(err, users) => {
         if(err){
             console.log(err);
             res.send(500, {message: 'Failed to retrive users'});
@@ -17,7 +16,6 @@ router.get('/users', (req, res) => {
 
   });
 
-});
 
 router.get('/usersMaped', (req, res) => {
 
@@ -47,7 +45,7 @@ router.get('/users/:id', (req, res) => {
                     message: 'Bad request invalid id: ' +id
                 });
     } else {
-        User.findById(id,(err, user)=>{
+        User.findById(id,{password:0,__v:0},(err, user)=>{
             if (err) {
                 console.log(err);
                 res.send(500, {
@@ -60,10 +58,10 @@ router.get('/users/:id', (req, res) => {
     }
 
 });
-router.get('/users/:username', (req, res) => {
+router.get('/users/:username/user', (req, res) => {
     var username = req.params.username;
 
-        User.findOne({username:username},(err, user)=>{
+        User.findOne({username:username},{password:0,__v:0},(err, user)=>{
             if (err) {
                 console.log(err);
                 res.send(500, {
@@ -75,5 +73,8 @@ router.get('/users/:username', (req, res) => {
         });
 });
 
+
+
+});
 
 module.exports = router;
