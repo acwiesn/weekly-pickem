@@ -15,22 +15,10 @@
         that has been locked.
     
 */ 
+var requireLogin = require('./requireLogin')
 
 module.exports = function (app) {
 
-       //Function to authenticate our routes, use this on your requests to ensure authentication
-    function requireLogin(req, res, next) {
-        if (!req.user) {
-
-            //TODO renable for authentication
-          res.redirect('/loginforms'); // or render a form, etc. */ 
-          //   next();
-        } else {
-            next(); // allow the next route to run
-
-        }
-
-    }
     //First route which is not authenticated
     app.get('/loginforms', (req, res) => {
         if(req.session.flash){
@@ -59,8 +47,8 @@ module.exports = function (app) {
      require('./authenticateRoutes')(app,requireLogin);
 
     // Tell express to use this router with /api before.
-    app.use('/',require('./usersRoutes'));
-    app.use('/',require('./entryRoutes'));
+    app.use(require('./usersRoutes'));
+    app.use(require('./entryRoutes'));
 
     return app;
 };

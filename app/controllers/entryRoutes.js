@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Entry = require('../models/entries.js');
+var requireLogin = require('./requireLogin')
 
     //Organizied signup and login routes passing app and function to requireLogin
     router.post('/entrySubmit', (req, res) => {
@@ -93,11 +94,18 @@ var Entry = require('../models/entries.js');
         });
         
     });
-    router.get('/standings', (req, res, next)=>{
+    router.get('/standings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
-        res.send(overall);
+        res.render('standings', {overall:overall});
+    });
+
+ router.get('/pickform',requireLogin, (req, res, next)=>{
+        var overall = require( "../config/standings.json" )
+        if(req.session.flash){
+        }
+        res.render('pickform');
     });
 
 module.exports = router;
