@@ -1,6 +1,6 @@
 /**** Login Form ****/
 .container {
-    padding-top: 90px;
+    padding-top: 10px;
 }
 .panel-login {
     border-color: #ccc;
@@ -147,6 +147,7 @@ picture{
 /* TEMP */
 .page-header{
   background: #51910d;
+    margin: 0px !important;
 }
 
 .page-header h1{
@@ -172,64 +173,3 @@ picture{
   margin: 0.5em 0 0.5em 0;
 }
 
-/* STANDINGS */
-table caption{
-  color: #000;
-  font-size: 1.2em;
-  font-weight: bold; 
-}
-
-.table-striped > tbody > tr:first-child{
-  background-color: #51910d; 
-}
-
-.table-striped > tbody > tr:nth-child(2n+3){
-  background-color: #7e888b; 
-}
-
-/*-- SIGN UP --*/
-
-#buttonSignUp{
-   float: left;
-   margin: 0 3em 0 0;
-}
-
-/*-- Responsive Layout --*/
-@media screen and (min-width:; 1024px){
-   picture{
-      width: 100%;
-      display: block;
-      float: left;
-   }
-
-   #register{
-      width: 50%;
-      float: left;
-   }
-}
-
-@media screen and (min-width: 800px) and (max-width: 1024px){
-   picture{
-      width: 50%;
-      display: block;
-      float: left;
-      overflow:hidden;
-   }
-
-   #register{
-      width: 50%;
-      float: left;
-   }
-}
-@media screen and (max-width: 400px){
-   picture{
-      width: 100%;
-      display: block;
-      float: left;
-      overflow: hidden;
-   }
-   #register{
-      width: 100%;
-      float: left;
-   }
-}

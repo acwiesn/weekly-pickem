@@ -64,6 +64,13 @@ module.exports = function (app) {
         console.log('standings route');
         res.render('standings',{overall:overall});
     });
+    app.get('/pickform',requireLogin, (req, res, next)=>{
+        var entries = require("../config/teams.json")
+        if(req.session.flash){
+        }
+        console.log('picform route');
+        res.render('pickform',{entry:entries});
+    });
     //Requireing login for all of our api routes
     app.all('/api/*',requireLogin, (req, res, next)=> {
                 next();
