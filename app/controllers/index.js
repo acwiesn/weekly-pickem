@@ -41,7 +41,6 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        console.log('login route')
         res.render('loginforms');
 
     });
@@ -54,14 +53,12 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        console.log('index route');
         res.render('index',{user:req.user});
     });
     app.get('/standings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
-        console.log('standings route');
         res.render('standings',{overall:overall});
     });
     //Requireing login for all of our api routes
