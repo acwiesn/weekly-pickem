@@ -2,7 +2,7 @@
 <div>
 
 <br/>
-<form action="/entrySubmit" method="post" id="entryID">
+<form action="/api/entrySubmit" method="post">
     <div>
         <label> <h3>Weekly Entries</h3> </label><br>
         <label> <h4>User</h4></label><br>
@@ -96,15 +96,5 @@
     </div>
 </form>
 <button type="button" name="logout" id="logout"  onclick="location.href='/logout';" value="Log Out">Log Out</button>
-        <script> 
-    $('#entryID').submit(function(e){
-        
-    e.preventDefault();
-    console.log( $( this ).serialize() );
-    // ... your ajax code here ...
-        
-    return false;
-
-});
-    </script>
+    
     </div>

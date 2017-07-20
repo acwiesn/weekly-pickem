@@ -41,6 +41,7 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
+        console.log('login route')
         res.render('loginforms');
 
     });
@@ -53,20 +54,21 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
+        console.log('index route');
         res.render('index',{user:req.user});
     });
     app.get('/standings',requireLogin, (req, res, next)=>{
         if(req.session.flash){
         }
+        console.log('standings route');
         res.render('standings',{user:req.user});
     });
-
     //Requireing login for all of our api routes
     app.all('/api/*',requireLogin, (req, res, next)=> {
                 next();
     });
 
-    });
+     require('./authenticateRoutes')(app,requireLogin);
 
     // Tell express to use this router with /api before.
     app.use('/api',require('./usersRoutes'));

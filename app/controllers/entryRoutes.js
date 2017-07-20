@@ -1,10 +1,11 @@
-//Requireing login for all of our api routes
-    app.all('/api/*',requireLogin, (req, res, next)=> {
-                next();
-    });
+'use strict';
+var express = require('express');
+var router = express.Router();
+var mongoose = require('mongoose');
+var Entry = require('../models/entries.js');
+
     //Organizied signup and login routes passing app and function to requireLogin
-    require('./authenticateRoutes')(app,requireLogin);
-    app.post('/entrySubmit', (req, res) => {
+    router.post('/entrySubmit', (req, res) => {
         console.log(req.body);
         var newEntry = {
             user: req.body.user,
@@ -13,11 +14,11 @@
             {
             game1: {
                 pick: req.body.game1,
-                lock: false
+                lock: req.body.lock
                     },
             game2: {
                    pick: req.body.game2,
-                   lock: false
+                   lock: req.body.lock
                     },
             game3: {
                    pick: req.body.game3,
@@ -78,7 +79,7 @@
             createdAt: new Date(),
             updatedAt: new Date()
         }
-        };
+     };
         
         
         var newentry = new Entry(newEntry);
@@ -90,3 +91,7 @@
                 res.send('Entry has been submitted');
             }
         });
+        
+    });
+
+module.exports = router;
