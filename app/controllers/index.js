@@ -28,8 +28,8 @@ module.exports = function (app) {
         if (!req.user) {
 
             //TODO renable for authentication
-            res.redirect('/loginforms'); // or render a form, etc.
-            // next();
+          /*  res.redirect('/loginforms'); // or render a form, etc. */ 
+             next();
         } else {
             next(); // allow the next route to run
 
@@ -58,10 +58,11 @@ module.exports = function (app) {
         res.render('index',{user:req.user});
     });
     app.get('/standings',requireLogin, (req, res, next)=>{
+        var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
         console.log('standings route');
-        res.render('standings',{user:req.user});
+        res.render('standings',{overall:overall});
     });
     //Requireing login for all of our api routes
     app.all('/api/*',requireLogin, (req, res, next)=> {
