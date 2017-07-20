@@ -1,38 +1,84 @@
 <body>
     <div class="page-header">
-      <div class="container">
-         <h1>Test Header 2017</h1>
-      </div>
-   </div>
-    
+        <div class="container">
+            <h1>Test Header 2017</h1>
+        </div>
+    </div>
+
     <!-- NAVIGATION BAR -->
-   <div class="navbar navbar-default navbar-inverse navbar-static-top" id="nav">
-      <nav class="navbar-wrapper navbar-default" role="navigation">
-      <div class="container">
-         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+    <div class="navbar navbar-default navbar-inverse navbar-static-top" id="nav">
+        <nav class="navbar-wrapper navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
                <span class="sr-only">Toggle navigation</span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
             </button>
-         </div>
-      <div id="navbar" class="navbar-collapse collapse">
-         <ul class="nav nav-pills">
-            <li role="presentation"><a href="index.html"><span class='glyphicon glyphicon-home'></span> Home</a></li>
-            <li role="presentation" class="active"><a href="/standings"><span class='glyphicon glyphicon-glass'></span> Standings</a></li>
-            <li role="presentation"><a href="locations.html"><span class='glyphicon glyphicon-map-marker'></span> Locations</a></li>
-            <li role="presentation"><a href="signup.html"><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
-         </ul>
-      </div>
-           </div>
-      </nav>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav nav-pills">
+                        <li role="presentation"><a href="index.html"><span class='glyphicon glyphicon-home'></span> Home</a></li>
+                        <li role="presentation" class="active"><a href="/standings"><span class='glyphicon glyphicon-glass'></span> Standings</a></li>
+                        <li role="presentation"><a href="locations.html"><span class='glyphicon glyphicon-map-marker'></span> Locations</a></li>
+                        <li role="presentation"><a href="signup.html"><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-   <!-- END NAVIGATION BAR -->
-<div> 
-    {{ overall }}
+    <!-- END NAVIGATION BAR -->
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <th>Name</th>
+                <th>Total</th>
+                <th>Week 1</th>
+                <th>Week 2</th>
+                <th>Week 3</th>
+                <th>Week 4</th>
+                <th>Week 5</th>
+                <th>Week 6</th>
+                <th>Week 7</th>
+                <th>Week 8</th>
+                <th>Week 9</th>
+                <th>Week 10</th>
+                <th>Week 11</th>
+                <th>Week 12</th>
+                <th>Week 13</th>
+                <th>Week 14</th>
+                <th>Week 15</th>
+                <th>Week 16</th>
+                <th>Week 17</th>
+
+            </thead>
+            <tbody>
+                {{! use this for just_data}} {{!#just_data}} {{#each overall}}
+
+                <tr>
+                    <td>{{ this.Name }}</td>
+                    <td>{{ this.total }}</td>
+                    <td>{{ this.Week1 }}</td>
+                    <td>{{ this.Week2 }}</td>
+                    <td>{{ this.Week3 }}</td>
+                    <td>{{ this.Week4 }}</td>
+                    <td>{{ this.Week5 }}</td>
+                    <td>{{ this.Week6 }}</td>
+                    <td>{{ this.Week7 }}</td>
+                    <td>{{ this.Week8 }}</td>
+                    <td>{{ this.Week9 }}</td>
+                    <td>{{ this.Week10 }}</td>
+                    <td>{{ this.Week11 }}</td>
+                    <td>{{ this.Week12 }}</td>
+                    <td>{{ this.Week13 }}</td>
+                    <td>{{ this.Week14 }}</td>
+                    <td>{{ this.Week15 }}</td>
+                    <td>{{ this.Week16 }}</td>
+                    <td>{{ this.Week17 }}</td>
+                </tr>
+                {{/each}} {{!/just_data}}
+            </tbody>
+        </table>
     </div>
-    {{#each overall}}
-    Index: {{@index}} Value = {{this.Name}}
-    {{/each}}
 </body>
