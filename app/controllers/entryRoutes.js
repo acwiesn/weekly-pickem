@@ -93,5 +93,11 @@ var Entry = require('../models/entries.js');
         });
         
     });
+    router.get('/standings', (req, res, next)=>{
+        var overall = require( "../config/standings.json" )
+        if(req.session.flash){
+        }
+        res.send(overall);
+    });
 
 module.exports = router;

@@ -1,13 +1,8 @@
 'use strict';
-var Entry = require('../models/entries.js');
-// var Game = require('../models/games.js');
-// var Teams = require('../../config/teams.json');
-
-
 /*Current routes:
     GET:
-    get : /form -> has all forms at the moment signup, login, logout
     get : / -> serves public folder
+    get : /index -> serves home hbs
     get : /logout -> logs user and destroys session
     get : /profile -> returns signed in user
     get : api/users -> returns a json object of users
@@ -28,8 +23,8 @@ module.exports = function (app) {
         if (!req.user) {
 
             //TODO renable for authentication
-          /*  res.redirect('/loginforms'); // or render a form, etc. */ 
-             next();
+          res.redirect('/loginforms'); // or render a form, etc. */ 
+          //   next();
         } else {
             next(); // allow the next route to run
 
@@ -41,7 +36,6 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        console.log('login route')
         res.render('loginforms');
 
     });
@@ -54,23 +48,9 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        console.log('index route');
         res.render('index',{user:req.user});
     });
-    app.get('/standings',requireLogin, (req, res, next)=>{
-        var overall = require( "../config/standings.json" )
-        if(req.session.flash){
-        }
-        console.log('standings route');
-        res.render('standings',{overall:overall});
-    });
-    app.get('/pickform',requireLogin, (req, res, next)=>{
-        var entries = require("../config/teams.json")
-        if(req.session.flash){
-        }
-        console.log('picform route');
-        res.render('pickform',{entry:entries});
-    });
+
     //Requireing login for all of our api routes
     app.all('/api/*',requireLogin, (req, res, next)=> {
                 next();
@@ -79,8 +59,8 @@ module.exports = function (app) {
      require('./authenticateRoutes')(app,requireLogin);
 
     // Tell express to use this router with /api before.
-    app.use('/api',require('./usersRoutes'));
-    app.use('/api',require('./entryRoutes'));
+    app.use('/',require('./usersRoutes'));
+    app.use('/',require('./entryRoutes'));
 
     return app;
 };

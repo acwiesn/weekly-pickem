@@ -4,7 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('../models/users.js');
 
-router.get('/users', (req, res) => {
+router.get('/api/users', (req, res) => {
 
     User.find({},{password:0,__v:0},(err, users) => {
         if(err){
@@ -17,7 +17,7 @@ router.get('/users', (req, res) => {
   });
 
 
-router.get('/usersMaped', (req, res) => {
+router.get('/api/usersMaped', (req, res) => {
 
     User.find({}, (err, users) => {
         if (err) {

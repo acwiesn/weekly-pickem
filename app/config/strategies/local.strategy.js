@@ -11,7 +11,6 @@ module.exports = function () {
         },
         function (req, username, password, done) {
             process.nextTick(()=> {
-                console.log('local signup');
                 User.findOne({
                     username: username
                 }, (err, user)=> {
@@ -43,7 +42,6 @@ module.exports = function () {
         passwordField: 'password',
         passReqToCallback: true
     }, (req, username, password, done) => {
-            console.log('find user');
         User.findOne({
             username: username
         }, (err, results) => {
