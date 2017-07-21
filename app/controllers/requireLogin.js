@@ -5,8 +5,8 @@
         if (!req.user) {
 
             //TODO renable for authentication
-          res.redirect('/loginforms'); // or render a form, etc. */ 
-          //   next();
+         // res.redirect('/loginforms'); // or render a form, etc. */ 
+           next();
         } else {
             next(); // allow the next route to run
 

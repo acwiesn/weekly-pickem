@@ -1,31 +1,38 @@
-<div>
+<div class="row">
+<div id="pick1" class="col-md-4 pickform">
 
 <br/>
 <form action="/api/entrySubmit" method="post">
     <div>
+             {{#each games}}
+
+        
         <label> <h3>Weekly Entries</h3> </label><br>
-        <label> <h4>User</h4></label><br>
-    <label>Week</label>    
-    <input type='text' value="1" name="week"/><br>  
+        <label> <h4>User</h4> {{user.username}}</label><br>
+        <label>Week </label><label type='text' value="1" name="week"> 1</label> <br> <br> 
+        <label>{{this.0.title}}</label><br>
         <select name="game1" value="game1">
-              <option value="Browns">Browns</option>
-              <option value="Jaguars">Jaguars</option>
-       <input type="radio" id="1" name="lock"/>'
+              <option value="{{this.0.homeTeam}}"> {{this.0.homeTeam}} </option>
+              <option value="{{this.0.awayTeam}}"> {{this.0.awayTeam}} </option>
+       <input type="radio" id="1" name="lock"/>
         </select><br><br>
+        <label>{{this.1.title}}</label><br>
         <select name="game2" value="game2">
-              <option value="Bears">Bears</option>
-            <option value="Titans">Titans</option>
-        <input type="radio" id="2" name="lock"/>
+              <option value="{{this.1.homeTeam}}"> {{this.1.homeTeam}} </option>
+              <option value="{{this.1.awayTeam}}"> {{this.1.awayTeam}} </option>
+       <input type="radio" id="1" name="lock"/>
         </select><br><br>
+        <label>{{this.2.title}}</label><br>
         <select name="game3" value="game3">
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" id="3" name="lock"/>
+              <option value="{{this.2.homeTeam}}"> {{this.2.homeTeam}} </option>
+              <option value="{{this.2.awayTeam}}"> {{this.2.awayTeam}} </option>
+       <input type="radio" id="1" name="lock"/>
         </select><br><br>
-		<select name="game4" value="game4">
-              <option value="Patriots">Patriots</option>
-              <option value="Seahawks">Seahawks</option>
-        <input type="radio" id="4" name="lock"/>
+		<label>{{this.3.title}}</label><br>
+        <select name="game4" value="game4">
+              <option value="{{this.3.homeTeam}}"> {{this.3.homeTeam}} </option>
+              <option value="{{this.3.awayTeam}}"> {{this.3.awayTeam}} </option>
+       <input type="radio" id="1" name="lock"/>
         </select><br><br>
 		<!--<select name="game5" value="game5">
               <option value="Bears">Bears</option>
@@ -91,9 +98,12 @@
         <input type="radio" name="lock" value="lock13"/>
         </select><br><br>
         -->
+        {{/each}}
     <input type="submit" value="submit"/>
     </div>
 </form>
 <button type="button" name="logout" id="logout"  onclick="location.href='/logout';" value="Log Out">Log Out</button>
     
     </div>
+    
+</div>    

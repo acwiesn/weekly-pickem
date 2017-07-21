@@ -101,11 +101,23 @@ var requireLogin = require('./requireLogin')
         res.render('standings', {overall:overall});
     });
 
- router.get('/pickform',requireLogin, (req, res, next)=>{
+ router.get('/pickform',requireLogin, (req, res, next)=>{  
+     var games = require( "../config/games.json" )
+        if(req.session.flash){
+        }
+        res.render('pickform', {games:games});
+    });
+ router.get('/weeklystandings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
-        res.render('pickform');
+        res.render('weeklystandings');
+    });
+router.get('/schedule',requireLogin, (req, res, next)=>{
+        
+        if(req.session.flash){
+        }
+        res.render('schedule');
     });
 
 module.exports = router;
