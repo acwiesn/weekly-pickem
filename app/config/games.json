@@ -1,7 +1,8 @@
 
   {
     "Week1": [
-      {
+        {}
+        "game1": {
         "gametime": "12:00",
         "title": "Bears vs Packers",
         "homeTeam": "Bears",

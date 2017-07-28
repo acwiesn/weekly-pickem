@@ -30,7 +30,7 @@ module.exports = function (app) {
 
     //Requireing login for all of static routes
     app.all('/',requireLogin, (req, res, next)=> {
-                next();
+        res.redirect("/index");
     });
     app.get('/index',requireLogin, (req, res, next)=> {
         if(req.session.flash){

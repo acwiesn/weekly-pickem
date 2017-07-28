@@ -6,7 +6,7 @@ var Entry = require('../models/entries.js');
 var requireLogin = require('./requireLogin')
 
     //Organizied signup and login routes passing app and function to requireLogin
-    router.post('/entrySubmit', (req, res) => {
+    router.post('/entrySubmit', requireLogin, (req, res) => {
         console.log(req.body);
         var newEntry = {
             user: req.body.user,
@@ -94,7 +94,7 @@ var requireLogin = require('./requireLogin')
         });
         
     });
-    router.get('/standings',requireLogin, (req, res, next)=>{
+    router.get('/standings', requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
@@ -102,10 +102,10 @@ var requireLogin = require('./requireLogin')
     });
 
  router.get('/pickform',requireLogin, (req, res, next)=>{  
-     var games = require( "../config/games.json" )
+     var week1 = require( "../config/scheduleWeek1.json" )
         if(req.session.flash){
         }
-        res.render('pickform', {games:games});
+        res.render('pickform', {week1:week1, user:req.user});
     });
  router.get('/weeklystandings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
@@ -114,10 +114,11 @@ var requireLogin = require('./requireLogin')
         res.render('weeklystandings');
     });
 router.get('/schedule',requireLogin, (req, res, next)=>{
-        
+        var teams = require( "../config/teams.json" )
+        var week1 = require( "../config/scheduleWeek1.json" )
         if(req.session.flash){
         }
-        res.render('schedule');
+        res.render('schedule', {teams:teams, week1:week1, user:req.user});
     });
 
 module.exports = router;

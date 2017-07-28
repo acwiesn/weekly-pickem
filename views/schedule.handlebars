@@ -1,17 +1,92 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-2">
     </div>
-    <div class="col-md-4">
-         <h2>Noon Games:</h2>
-         <form class="form-inline">
+    
+        
+ <div class="col-md-8">
+<h2>Week 1 Games:</h2>
+     
+        <form class="form-inline">
             <div class="form-group">
-              <label for="focusedInput">Home Team</label>
-              <input class="form-control" id="focusedInput" type="text">
-           <br>
-              <label>Away Team</label>
-              <input class="form-control"  type="text">
-             </div>
-         </form>             
-    <div class="col-md-4">
+
+                {{#each week1}}
+               <table class="table table-bordered">
+                   <thead>
+                    <th>Game</th>
+                       <th>Game Time</th>
+                       <th>Home Team</th>
+                       <th>Spread</th>
+                       <th>Home Team Score</th>
+                       <th>Away Team</th>
+                       <th>Spread</th>
+                       <th>Away Team Score</th>
+                       
+                   </thead>
+                <tbody>
+                <tr>
+                    <td><p>{{this.0.homeTeam}} vs. {{this.0.awayTeam}} </p></td>
+                    <td><p>{{this.0.gameTime}} p.m. </p></td>
+                    <td>{{this.0.homeTeam}} ({{this.0.homeSpread}})</td>
+                        <td><input type="text" style="width:2em;"></td>
+                    <td><input type="text" style="width:5em;"> </td>
+                    <td>{{this.0.awayTeam}} ({{this.0.awaySpread}}) </td>
+                        <td><input type="text" style="width:2em;">  </td>
+                    <td><input type="text" style="width:5em;"> </td>
+                    </tr>
+                   <tr>
+                    <td><p>{{this.1.homeTeam}} vs. {{this.1.awayTeam}} </p></td>
+                        <td><p>{{this.1.gameTime}} p.m. </p></td>
+                        <td>{{this.1.homeTeam}} ({{this.1.homeSpread}})</td>
+                        <td><input type="text" style="width:2em;"></td>
+                       <td><input type="text" style="width:5em;"> </td>
+                       <td>{{this.1.awayTeam}} ({{this.1.awaySpread}}) </td>
+                        <td><input type="text" style="width:2em;">  </td>
+                       <td><input type="text" style="width:5em;">  </td>
+                    </tr>
+                    <tr>
+                   <td><p>{{this.2.homeTeam}} vs. {{this.2.awayTeam}} </p></td>
+                        <td><p>{{this.2.gameTime}} p.m. </p></td>
+                        <td>{{this.2.homeTeam}} ({{this.2.homeSpread}})</td>
+                        <td><input type="text" style="width:2em;"></td>
+                       <td><input type="text" style="width:5em;"> </td>
+                       <td>{{this.2.awayTeam}} ({{this.2.awaySpread}}) </td>
+                        <td><input type="text" style="width:2em;">  </td>
+                       <td><input type="text" style="width:5em;">  </td>
+                    </tr>
+                    <tr>
+                        <td><p>{{this.3.homeTeam}} vs. {{this.3.awayTeam}} </p></td>
+                        <td><p>{{this.3.gameTime}} p.m. </p></td>
+                        <td>{{this.3.homeTeam}} ({{this.3.homeSpread}})</td>
+                        <td><input type="text" style="width:2em;"></td>
+                       <td><input type="text" style="width:5em;"> </td>
+                       <td>{{this.3.awayTeam}} ({{this.3.awaySpread}}) </td>
+                        <td><input type="text" style="width:2em;">  </td>
+                       <td><input type="text" style="width:5em;">  </td>
+                    </tr>
+                    <tr>
+                    
+                    </tr>
+                </tbody>
+                   </table>
+                
+                {{/each}}
+            </div>
+        </form>
+
+    <button type="button" value="Save" onclick="gamesschedule">Save</button>
+    </div>
+    <div class="col-md-2">
+        
     </div>
 </div>
+
+<script>
+    var gameSelect = function(name){
+        $("#game1Home").html(name)
+        alert(name)
+    }
+    var game1Selection = function(teamName){
+        $
+    }
+    
+</script>

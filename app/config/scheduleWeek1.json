@@ -1,0 +1,164 @@
+{
+  "Week1": [
+    {
+      "homeTeam": "Chiefs",
+      "awayTeam": "Patriots",
+      "day": "Thursday",
+      "gameTime": "8:30",
+      "homeScore": "30",
+      "awayScore": "27",
+      "homeSpread": "7",
+      "awaySpread": "-7"
+    },
+    {
+      "homeTeam": "Jets",
+      "awayTeam": "Bills",
+      "date": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "-3",
+      "awaySpread": "3"
+    },
+    {
+      "homeTeam": "Cardinals",
+      "awayTeam": "Lions",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "4",
+      "awaySpread": "-4"
+    },
+    {
+      "homeTeam": "Steelers",
+      "awayTeam": "Browns",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "1",
+      "awaySpread": "-1"
+    },
+    {
+      "homeTeam": "Jaguars",
+      "awayTeam": "Texans",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "2",
+      "awaySpread": "-2"
+    },
+    {
+      "homeTeam": "Cardinals",
+      "awayTeam": "Lions",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "3",
+      "awaySpread": "-3"
+    },
+    {
+      "homeTeam": "Buccaneers",
+      "awayTeam": "Dolphins",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "4",
+      "awaySpread": "-4"
+    },
+    {
+      "homeTeam": "Falcons",
+      "awayTeam": "Bears",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "-12",
+      "awaySpread": "12"
+    },
+    {
+      "homeTeam": "Raiders",
+      "awayTeam": "Titans",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    },
+    {
+      "homeTeam": "Ravens",
+      "awayTeam": "Bengals",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    },
+    {
+      "homeTeam": "Eagles",
+      "awayTeam": "Redskins",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    },
+    {
+      "homeTeam": "Colts",
+      "awayTeam": "Rams",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    },
+    {
+      "homeTeam": "Panthers",
+      "awayTeam": "49ers",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    },
+    {
+      "homeTeam": "Seahawks",
+      "awayTeam": "Packers",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    },
+    {
+      "homeTeam": "Giants",
+      "awayTeam": "Cowboys",
+      "day": "Sunday",
+      "gameTime": "1:00",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    },
+    {
+      "homeTeam": "Chargers",
+      "awayTeam": "Broncos",
+      "day": "Monday",
+      "gameTime": "10:20",
+      "homeScore": "",
+      "awayScore": "",
+      "homeSpread": "",
+      "awaySpread": ""
+    }
+  ]
+}

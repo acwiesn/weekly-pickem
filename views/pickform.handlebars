@@ -1,109 +1,95 @@
 <div class="row">
-<div id="pick1" class="col-md-4 pickform">
+    <div id="pick1" class="col-md-4 pickform">
 
-<br/>
-<form action="/api/entrySubmit" method="post">
-    <div>
-             {{#each games}}
-
-        
-        <label> <h3>Weekly Entries</h3> </label><br>
-        <label> <h4>User</h4> {{user.username}}</label><br>
-        <label>Week </label><label type='text' value="1" name="week"> 1</label> <br> <br> 
-        <label>{{this.0.title}}</label><br>
-        <select name="game1" value="game1">
-              <option value="{{this.0.homeTeam}}"> {{this.0.homeTeam}} </option>
+        <br/>
+        <form action="/entrySubmit" method="post">
+            <div>
+                <label> <h3>Weekly Entries</h3> </label><br>
+                <label> <h4>User {{user.username}}</h4></label><br>
+                <label>Week </label><label type='text' value="1" name="week"> 1</label> 
+                <table class="table">
+                    <th>Game</th>
+                    <th>Pick</th>
+                    <th>Lock?</th>
+                    {{#each week1}}
+                    <div class="btn-group" data-toggle="buttons">
+                    <tbody>
+                        <tr>
+                            <td><label>{{this.0.homeTeam}} ({{this.0.homeSpread}}) vs. {{this.0.awayTeam}} ({{this.0.awaySpread}}) </label> </td>
+                            <td><select name="game1" value="game1">
+              <option value="blank">  </option>
+             <option value="{{this.0.homeTeam}}"> {{this.0.homeTeam}} </option>
               <option value="{{this.0.awayTeam}}"> {{this.0.awayTeam}} </option>
-       <input type="radio" id="1" name="lock"/>
-        </select><br><br>
-        <label>{{this.1.title}}</label><br>
-        <select name="game2" value="game2">
+                    </select></td>
+
+                            <td><label class="btn btn-default">
+                                <input type="radio" value="" id="game1" name="lock" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{this.1.homeTeam}} vs. {{this.1.awayTeam}}</label> </td>
+                            <td>
+                                <select name="game2" value="game2">
+                                    <option value="blank">  </option>
               <option value="{{this.1.homeTeam}}"> {{this.1.homeTeam}} </option>
               <option value="{{this.1.awayTeam}}"> {{this.1.awayTeam}} </option>
-       <input type="radio" id="1" name="lock"/>
-        </select><br><br>
-        <label>{{this.2.title}}</label><br>
-        <select name="game3" value="game3">
+            </select>
+                            </td>
+                            <td>
+                                 <label class="btn btn-default">
+                                <input type="radio" id="game2" name="lock" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{this.2.homeTeam}} vs. {{this.2.awayTeam}}</label> </td>
+                            <td>
+                                <select name="game3" value="game3">
+                                    <option value="blank">  </option>
               <option value="{{this.2.homeTeam}}"> {{this.2.homeTeam}} </option>
               <option value="{{this.2.awayTeam}}"> {{this.2.awayTeam}} </option>
-       <input type="radio" id="1" name="lock"/>
-        </select><br><br>
-		<label>{{this.3.title}}</label><br>
-        <select name="game4" value="game4">
+            </select>
+                            </td>
+                            <td>
+                                <label class="btn btn-default">
+                                <input type="radio" id="game3" name="lock"/>
+                                </label>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td><label>{{this.3.homeTeam}} vs. {{this.3.awayTeam}}</label> </td>
+                            <td><select name="game4" value="game4">
+                                <option value="blank">  </option>
               <option value="{{this.3.homeTeam}}"> {{this.3.homeTeam}} </option>
               <option value="{{this.3.awayTeam}}"> {{this.3.awayTeam}} </option>
-       <input type="radio" id="1" name="lock"/>
-        </select><br><br>
-		<!--<select name="game5" value="game5">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock5"/>
-        </select><br><br>
-		<select name="game6" value="game6">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock6"/>
-        </select><br><br>
-		<select name="game7" value="game7">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock7"/>
-        </select><br><br>
-		<select name="game8" value="game8">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock8"/>
-        </select><br><br>
-		<select name="game9" value="game9">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock9"/>
-        </select><br><br>
-		<select name="game10" value="game10">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock10"/>
-        </select><br><br>
-		<select name="game11" value="game11">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock11"/>
-        </select><br><br>
-		<select name="game12" value="game12">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock12"/>
-        </select><br><br>
-        <select name="game13" value="game13">
-              <option value="Bears">Bears</option>
-              <option value="Titans">Titans</option>
-              <option value="Cowboys">Cowboys</option>
-              <option value="Steelers">Steelers</option>
-        <input type="radio" name="lock" value="lock13"/>
-        </select><br><br>
-        -->
-        {{/each}}
-    <input type="submit" value="submit"/>
+        </select></td>
+                            <td><label class="btn btn-default active">
+                                <input type="radio" id="game4" name="lock" value="false"  />
+                                </label>
+                                </td>
+                        </tr>
+                    </tbody>
+                        </div>
+                </table>
+
+                {{/each}}
+                <input type="submit" value="submit" />
+            </div>
+        </form>
+        <button type="button" name="logout" id="logout" onclick="location.href='/logout';" value="Log Out">Log Out</button>
+
     </div>
-</form>
-<button type="button" name="logout" id="logout"  onclick="location.href='/logout';" value="Log Out">Log Out</button>
-    
-    </div>
-    
-</div>    
+
+</div>
+<script> 
+    Handlebars.registerHelper ("setChecked", function (value, currentValue) {
+    if(value == currentValue{
+       return "checked"
+    }else 
+    {
+       return "";
+     }
+ });
+</script>
