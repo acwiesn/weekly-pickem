@@ -15,23 +15,23 @@ var requireLogin = require('./requireLogin')
             {
             game1: {
                 pick: req.body.game1,
-                lock: req.body.lock
+                lock1: req.body.lock1
                     },
             game2: {
                    pick: req.body.game2,
-                   lock: req.body.lock
+                   lock2: req.body.lock2
                     },
             game3: {
                    pick: req.body.game3,
-                   lock: req.body.lock
+                   lock3: req.body.lock3
                     },
             game4: {
                    pick: req.body.game4,
-                   lock: req.body.lock
+                   lock4: req.body.lock4
                     },
             game5: {
                    pick: req.body.game5,
-                   lock: req.body.lock
+                   lock: req.body.lock5
                     },
             game6: {
                    pick: req.body.game6,

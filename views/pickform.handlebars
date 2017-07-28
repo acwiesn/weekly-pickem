@@ -22,8 +22,8 @@
               <option value="{{this.0.awayTeam}}"> {{this.0.awayTeam}} </option>
                     </select></td>
 
-                            <td><label class="btn btn-default">
-                                <input type="radio" value="" id="game1" name="lock" />
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock1" />
                                 </label>
                                 </td>
                         </tr>
@@ -37,8 +37,8 @@
             </select>
                             </td>
                             <td>
-                                 <label class="btn btn-default">
-                                <input type="radio" id="game2" name="lock" />
+                                 <label class="btn btn-default" id="lock">
+                                <input type="checkbox"  name="lock2" />
                                 </label>
                                 </td>
                         </tr>
@@ -52,8 +52,8 @@
             </select>
                             </td>
                             <td>
-                                <label class="btn btn-default">
-                                <input type="radio" id="game3" name="lock"/>
+                                <label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock3"/>
                                 </label>
                         </tr>
                         <tr>
@@ -65,8 +65,8 @@
               <option value="{{this.3.homeTeam}}"> {{this.3.homeTeam}} </option>
               <option value="{{this.3.awayTeam}}"> {{this.3.awayTeam}} </option>
         </select></td>
-                            <td><label class="btn btn-default active">
-                                <input type="radio" id="game4" name="lock" value="false"  />
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock4" />
                                 </label>
                                 </td>
                         </tr>
@@ -84,12 +84,9 @@
 
 </div>
 <script> 
-    Handlebars.registerHelper ("setChecked", function (value, currentValue) {
-    if(value == currentValue{
-       return "checked"
-    }else 
-    {
-       return "";
-     }
- });
+    var lock_count = $('input[type="checkbox"]:checked').length;
+   if (lock_count >= 2) {
+        alert("You can only select one lock");
+   }
+    
 </script>

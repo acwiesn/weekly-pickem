@@ -10,97 +10,97 @@
         {
             game1: {
                 pick: String,
-                lock: {
+                lock1: {
                     type: Boolean
                 }
             },
             game2: {
                 pick: String,
-                lock: {
+                lock2: {
                     type: Boolean
                 }
             },
              game3: {
                 pick: String,
-                lock: {
+                lock3: {
                     type: Boolean
                 }
             },
             game4: {
                 pick: String,
-                lock: {
+                lock4: {
                     type: Boolean
                 }
             },
             game5: {
                 pick: String,
-                lock: {
+                lock5: {
                     type: Boolean
                 }
             },
             game6: {
                 pick: String,
-                lock: {
+                lock6: {
                     type: Boolean
                 }
             },
             game7: {
                 pick: String,
-                lock: {
+                lock7: {
                     type: Boolean
                 }
             },
             game8: {
                 pick: String,
-                lock: {
+                lock8: {
                     type: Boolean
                 }
             },
             game9: {
                 pick: String,
-                lock: {
+                lock9: {
                     type: Boolean
                 }
             },
             game10: {
                 pick: String,
-                lock: {
+                lock10: {
                     type: Boolean
                 }
             },
             game11: {
                 pick: String,
-                lock: {
+                lock11: {
                     type: Boolean
                 }
             },
             game12: {
                 pick: String,
-                lock: {
+                lock12: {
                     type: Boolean
                 }
             },
             game13: {
                 pick: String,
-                lock: {
+                lock13: {
                     type: Boolean
                 }
             },
             game14: {
                 pick: String,
-                lock: {
+                lock14: {
                     type: Boolean
                 }
             },    
             game15: {
                 pick: String,
-                lock: {
+                lock15: {
                     type: Boolean
                 }
             },
             game16: {
                 pick: String,
-                lock: {
+                lock16: {
                     type: Boolean
                 }
             },        
