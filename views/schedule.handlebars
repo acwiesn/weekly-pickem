@@ -6,10 +6,10 @@
  <div class="col-md-8">
 <h2>Week 1 Games:</h2>
      
-        <form class="form-inline">
+        <form class="form-inline" action="/scheduleSubmit" method="post">
             <div class="form-group">
 
-                {{#each week1}}
+                {{#each games}}
                <table class="table table-bordered">
                    <thead>
                     <th>Game</th>
@@ -25,44 +25,78 @@
                 <tbody>
                 <tr>
                     <td><p>{{this.0.homeTeam}} vs. {{this.0.awayTeam}} </p></td>
-                    <td><p>{{this.0.gameTime}} p.m. </p></td>
-                    <td>{{this.0.homeTeam}} ({{this.0.homeSpread}})</td>
-                        <td><input type="text" style="width:2em;"></td>
-                    <td><input type="text" style="width:5em;"> </td>
-                    <td>{{this.0.awayTeam}} ({{this.0.awaySpread}}) </td>
-                        <td><input type="text" style="width:2em;">  </td>
-                    <td><input type="text" style="width:5em;"> </td>
+                    
+                    <td><p><label><input type="hidden" name="gameTime" value="{{this.0.gameTime}}">{{this.0.gameTime}}</label> p.m. </p></td>
+                    
+                    <td><label><input type="hidden" name="homeTeam" value="{{this.0.homeTeam}}"> {{this.0.homeTeam}}  </label>({{this.0.homeSpread}})</td>
+                    
+                        <td><input name="homeSpread" type="text" style="width:2em;"></td>
+                    
+                    <td><input name="homeScore" type="text" style="width:5em;"> </td>
+                    
+                    <td><label><input type="hidden" name="awayTeam" value="{{this.0.awayTeam}}">{{this.0.awayTeam}}</label> ({{this.0.awaySpread}}) </td>
+                    
+                        <td><input name="awaySpread" type="text" style="width:2em;">  </td>
+                    
+                    <td><input name="awayScore" type="text" style="width:5em;"> </td>
+                    
                     </tr>
-                   <tr>
+                     <tr>
                     <td><p>{{this.1.homeTeam}} vs. {{this.1.awayTeam}} </p></td>
-                        <td><p>{{this.1.gameTime}} p.m. </p></td>
-                        <td>{{this.1.homeTeam}} ({{this.1.homeSpread}})</td>
-                        <td><input type="text" style="width:2em;"></td>
-                       <td><input type="text" style="width:5em;"> </td>
-                       <td>{{this.1.awayTeam}} ({{this.1.awaySpread}}) </td>
-                        <td><input type="text" style="width:2em;">  </td>
-                       <td><input type="text" style="width:5em;">  </td>
+                    
+                    <td><p><label><input type="hidden" name="gameTime" value="{{this.1.gameTime}}">{{this.1.gameTime}}</label> p.m. </p></td>
+                    
+                    <td><label><input type="hidden" name="homeTeam" value="{{this.1.homeTeam}}"> {{this.1.homeTeam}}  </label>({{this.1.homeSpread}})</td>
+                    
+                        <td><input name="homeSpread" type="text" style="width:2em;"></td>
+                    
+                    <td><input name="homeScore" type="text" style="width:5em;"> </td>
+                    
+                    <td><label><input type="hidden" name="awayTeam" value="{{this.1.awayTeam}}">{{this.1.awayTeam}}</label> ({{this.1.awaySpread}}) </td>
+                    
+                        <td><input name="awaySpread" type="text" style="width:2em;">  </td>
+                    
+                    <td><input name="awayScore" type="text" style="width:5em;"> </td>
+                    
                     </tr>
-                    <tr>
-                   <td><p>{{this.2.homeTeam}} vs. {{this.2.awayTeam}} </p></td>
-                        <td><p>{{this.2.gameTime}} p.m. </p></td>
-                        <td>{{this.2.homeTeam}} ({{this.2.homeSpread}})</td>
-                        <td><input type="text" style="width:2em;"></td>
-                       <td><input type="text" style="width:5em;"> </td>
-                       <td>{{this.2.awayTeam}} ({{this.2.awaySpread}}) </td>
-                        <td><input type="text" style="width:2em;">  </td>
-                       <td><input type="text" style="width:5em;">  </td>
+                     <tr>
+                    <td><p>{{this.2.homeTeam}} vs. {{this.2.awayTeam}} </p></td>
+                    
+                    <td><p><label><input type="hidden" name="gameTime" value="{{this.2.gameTime}}">{{this.2.gameTime}}</label> p.m. </p></td>
+                    
+                    <td><label><input type="hidden" name="homeTeam" value="{{this.2.homeTeam}}"> {{this.2.homeTeam}}  </label>({{this.2.homeSpread}})</td>
+                    
+                        <td><input name="homeSpread" type="text" style="width:2em;"></td>
+                    
+                    <td><input name="homeScore" type="text" style="width:5em;"> </td>
+                    
+                    <td><label><input type="hidden" name="awayTeam" value="{{this.2.awayTeam}}">{{this.2.awayTeam}}</label> ({{this.2.awaySpread}}) </td>
+                    
+                        <td><input name="awaySpread" type="text" style="width:2em;">  </td>
+                    
+                    <td><input name="awayScore" type="text" style="width:5em;"> </td>
+                    
                     </tr>
-                    <tr>
-                        <td><p>{{this.3.homeTeam}} vs. {{this.3.awayTeam}} </p></td>
-                        <td><p>{{this.3.gameTime}} p.m. </p></td>
-                        <td>{{this.3.homeTeam}} ({{this.3.homeSpread}})</td>
-                        <td><input type="text" style="width:2em;"></td>
-                       <td><input type="text" style="width:5em;"> </td>
-                       <td>{{this.3.awayTeam}} ({{this.3.awaySpread}}) </td>
-                        <td><input type="text" style="width:2em;">  </td>
-                       <td><input type="text" style="width:5em;">  </td>
+                     <tr>
+                    <td><p>{{this.3.homeTeam}} vs. {{this.3.awayTeam}} </p></td>
+                    
+                    <td><p><label><input type="hidden" name="gameTime" value="{{this.3.gameTime}}">{{this.3.gameTime}}</label> p.m. </p></td>
+                    
+                    <td><label><input type="hidden" name="homeTeam" value="{{this.3.homeTeam}}"> {{this.3.homeTeam}}  </label>({{this.3.homeSpread}})</td>
+                    
+                        <td><input name="homeSpread" type="text" style="width:2em;"></td>
+                    
+                    <td><input name="homeScore" type="text" style="width:5em;"> </td>
+                    
+                    <td><label><input type="hidden" name="awayTeam" value="{{this.3.awayTeam}}">{{this.3.awayTeam}}</label> ({{this.3.awaySpread}}) </td>
+                    
+                        <td><input name="awaySpread" type="text" style="width:2em;">  </td>
+                    
+                    <td><input name="awayScore" type="text" style="width:5em;"> </td>
+                    
                     </tr>
+                   
+                    
                     <tr>
                     
                     </tr>
@@ -71,9 +105,10 @@
                 
                 {{/each}}
             </div>
+             <button type="submit" value="submit">Save Schedule</button>
         </form>
 
-    <button type="button" value="Save" onclick="gamesschedule">Save</button>
+   
     </div>
     <div class="col-md-2">
         

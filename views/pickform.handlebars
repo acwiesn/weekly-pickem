@@ -2,91 +2,164 @@
     <div id="pick1" class="col-md-4 pickform">
 
         <br/>
-        <form action="/entrySubmit" method="post">
+        <form action="/entrySubmit" method="post" id="lock-count">
             <div>
                 <label> <h3>Weekly Entries</h3> </label><br>
-                <label> <h4>User {{user.username}}</h4></label><br>
-                <label>Week </label><label type='text' value="1" name="week"> 1</label> 
+                <label name="user"> <h4>User: {{user.username}}</h4><input type="hidden" name="user" value="{{user.username}}"></label><br>
+                <label>Week: </label><label>
+                <input name="week" type="hidden" value="{{weekSchedule.week}}"> {{weekSchedule.week}}
+                </label>
                 <table class="table">
                     <th>Game</th>
                     <th>Pick</th>
                     <th>Lock?</th>
-                    {{#each week1}}
                     <div class="btn-group" data-toggle="buttons">
                     <tbody>
                         <tr>
-                            <td><label>{{this.0.homeTeam}} ({{this.0.homeSpread}}) vs. {{this.0.awayTeam}} ({{this.0.awaySpread}}) </label> </td>
+                            <td><label>{{weekSchedule.schedule.game1.homeTeam}} ({{weekSchedule.schedule.game1.homeSpread}}) vs. {{weekSchedule.schedule.game1.awayTeam}} ({{weekSchedule.schedule.game1.awaySpread}}) </label> </td>
                             <td><select name="game1" value="game1">
               <option value="blank">  </option>
-             <option value="{{this.0.homeTeam}}"> {{this.0.homeTeam}} </option>
-              <option value="{{this.0.awayTeam}}"> {{this.0.awayTeam}} </option>
-                    </select></td>
-
+             <option value="{{weekSchedule.schedule.game1.homeTeam}}"> {{weekSchedule.schedule.game1.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game1.awayTeam}}"> {{weekSchedule.schedule.game1.awayTeam}} </option></select>
+                </td>
                             <td><label class="btn btn-default" id="lock">
                                 <input type="checkbox" name="lock1" />
                                 </label>
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{this.1.homeTeam}} vs. {{this.1.awayTeam}}</label> </td>
-                            <td>
-                                <select name="game2" value="game2">
-                                    <option value="blank">  </option>
-              <option value="{{this.1.homeTeam}}"> {{this.1.homeTeam}} </option>
-              <option value="{{this.1.awayTeam}}"> {{this.1.awayTeam}} </option>
-            </select>
-                            </td>
-                            <td>
-                                 <label class="btn btn-default" id="lock">
-                                <input type="checkbox"  name="lock2" />
+                            <td><label>{{weekSchedule.schedule.game2.homeTeam}} ({{weekSchedule.schedule.game2.homeSpread}}) vs. {{weekSchedule.schedule.game2.awayTeam}} ({{weekSchedule.schedule.game2.awaySpread}}) </label> </td>
+                            <td><select name="game2" value="game2">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game2.homeTeam}}"> {{weekSchedule.schedule.game2.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game2.awayTeam}}"> {{weekSchedule.schedule.game2.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock2" />
                                 </label>
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{this.2.homeTeam}} vs. {{this.2.awayTeam}}</label> </td>
-                            <td>
-                                <select name="game3" value="game3">
-                                    <option value="blank">  </option>
-              <option value="{{this.2.homeTeam}}"> {{this.2.homeTeam}} </option>
-              <option value="{{this.2.awayTeam}}"> {{this.2.awayTeam}} </option>
-            </select>
-                            </td>
-                            <td>
-                                <label class="btn btn-default" id="lock">
-                                <input type="checkbox" name="lock3"/>
+                            <td><label>{{weekSchedule.schedule.game3.homeTeam}} ({{weekSchedule.schedule.game3.homeSpread}}) vs. {{weekSchedule.schedule.game3.awayTeam}} ({{weekSchedule.schedule.game3.awaySpread}}) </label> </td>
+                            <td><select name="game3" value="game3">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game3.homeTeam}}"> {{weekSchedule.schedule.game3.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game3.awayTeam}}"> {{weekSchedule.schedule.game3.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock3" />
                                 </label>
+                                </td>
                         </tr>
                         <tr>
-                        </tr>
-                        <tr>
-                            <td><label>{{this.3.homeTeam}} vs. {{this.3.awayTeam}}</label> </td>
+                            <td><label>{{weekSchedule.schedule.game4.homeTeam}} ({{weekSchedule.schedule.game4.homeSpread}}) vs. {{weekSchedule.schedule.game4.awayTeam}} ({{weekSchedule.schedule.game4.awaySpread}}) </label> </td>
                             <td><select name="game4" value="game4">
-                                <option value="blank">  </option>
-              <option value="{{this.3.homeTeam}}"> {{this.3.homeTeam}} </option>
-              <option value="{{this.3.awayTeam}}"> {{this.3.awayTeam}} </option>
-        </select></td>
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game4.homeTeam}}"> {{weekSchedule.schedule.game4.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game4.awayTeam}}"> {{weekSchedule.schedule.game4.awayTeam}} </option></select>
+                </td>
                             <td><label class="btn btn-default" id="lock">
                                 <input type="checkbox" name="lock4" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{weekSchedule.schedule.game5.homeTeam}} ({{weekSchedule.schedule.game5.homeSpread}}) vs. {{weekSchedule.schedule.game5.awayTeam}} ({{weekSchedule.schedule.game5.awaySpread}}) </label> </td>
+                            <td><select name="game5" value="game5">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game5.homeTeam}}"> {{weekSchedule.schedule.game5.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game5.awayTeam}}"> {{weekSchedule.schedule.game5.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock5" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{weekSchedule.schedule.game6.homeTeam}} ({{weekSchedule.schedule.game6.homeSpread}}) vs. {{weekSchedule.schedule.game6.awayTeam}} ({{weekSchedule.schedule.game6.awaySpread}}) </label> </td>
+                            <td><select name="game6" value="game6">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game6.homeTeam}}"> {{weekSchedule.schedule.game6.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game6.awayTeam}}"> {{weekSchedule.schedule.game6.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock6" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{weekSchedule.schedule.game7.homeTeam}} ({{weekSchedule.schedule.game7.homeSpread}}) vs. {{weekSchedule.schedule.game7.awayTeam}} ({{weekSchedule.schedule.game7.awaySpread}}) </label> </td>
+                            <td><select name="game7" value="game7">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game7.homeTeam}}"> {{weekSchedule.schedule.game7.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game7.awayTeam}}"> {{weekSchedule.schedule.game7.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock7" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{weekSchedule.schedule.game8.homeTeam}} ({{weekSchedule.schedule.game8.homeSpread}}) vs. {{weekSchedule.schedule.game8.awayTeam}} ({{weekSchedule.schedule.game8.awaySpread}}) </label> </td>
+                            <td><select name="game8" value="game8">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game8.homeTeam}}"> {{weekSchedule.schedule.game8.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game8.awayTeam}}"> {{weekSchedule.schedule.game8.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock8" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{weekSchedule.schedule.game9.homeTeam}} ({{weekSchedule.schedule.game9.homeSpread}}) vs. {{weekSchedule.schedule.game9.awayTeam}} ({{weekSchedule.schedule.game9.awaySpread}}) </label> </td>
+                            <td><select name="game9" value="game9">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game9.homeTeam}}"> {{weekSchedule.schedule.game9.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game9.awayTeam}}"> {{weekSchedule.schedule.game9.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock9" />
+                                </label>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td><label>{{weekSchedule.schedule.game10.homeTeam}} ({{weekSchedule.schedule.game10.homeSpread}}) vs. {{weekSchedule.schedule.game10.awayTeam}} ({{weekSchedule.schedule.game10.awaySpread}}) </label> </td>
+                            <td><select name="game10" value="game10">
+              <option value="blank">  </option>
+             <option value="{{weekSchedule.schedule.game10.homeTeam}}"> {{weekSchedule.schedule.game10.homeTeam}} </option>
+              <option value="{{weekSchedule.schedule.game10.awayTeam}}"> {{weekSchedule.schedule.game10.awayTeam}} </option></select>
+                </td>
+                            <td><label class="btn btn-default" id="lock">
+                                <input type="checkbox" name="lock10" />
                                 </label>
                                 </td>
                         </tr>
                     </tbody>
                         </div>
                 </table>
-
-                {{/each}}
+                
                 <input type="submit" value="submit" />
             </div>
+           
         </form>
-        <button type="button" name="logout" id="logout" onclick="location.href='/logout';" value="Log Out">Log Out</button>
-
+        <button type="button" name="logout" id="logout" onclick="location.href='/logout';" value="Log Out">Log Out</button> 
     </div>
-
-</div>
 <script> 
-    var lock_count = $('input[type="checkbox"]:checked').length;
-   if (lock_count >= 2) {
-        alert("You can only select one lock");
-   }
-    
+$(document).ready(function(){
+
+    var $checkboxes = $('#lock-count td input[type="checkbox"]');
+        
+    $checkboxes.change(function(){
+        var countCheckedCheckboxes = $checkboxes.filter(':checked').length;
+        $('#locked-games').text(countCheckedCheckboxes);
+        
+        $('#locked-games').val(countCheckedCheckboxes);
+        
+        if (countCheckedCheckboxes > 1 ) {
+             alert('You can select 1 lock for the week')
+             //$('input[type="submit"]').attr('disabled', 'disabled');
+        } 
+    });
+});
 </script>

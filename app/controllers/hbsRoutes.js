@@ -3,7 +3,8 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Entry = require('../models/entries.js');
-var requireLogin = require('./requireLogin')
+var requireLogin = require('./requireLogin');
+var Schedule = require('../models/games.js');
 
     //Organizied signup and login routes passing app and function to requireLogin
     router.post('/entrySubmit', requireLogin, (req, res) => {
@@ -31,57 +32,56 @@ var requireLogin = require('./requireLogin')
                     },
             game5: {
                    pick: req.body.game5,
-                   lock: req.body.lock5
+                   lock5: req.body.lock5
                     },
             game6: {
                    pick: req.body.game6,
-                   lock: req.body.lock
+                   lock6: req.body.lock6
                     },
             game7: {
                    pick: req.body.game7,
-                   lock: req.body.lock
+                   lock7: req.body.lock7
                     },
             game8: {
                    pick: req.body.game8,
-                   lock: req.body.lock
+                   lock8: req.body.lock8
                     },
             game9: {
                    pick: req.body.game9,
-                   lock: req.body.lock
+                   lock9: req.body.lock9
                     },
             game10: {
                    pick: req.body.game10,
-                   lock: req.body.lock
+                   lock10: req.body.lock10
                     },
             game11: {
                    pick: req.body.game11,
-                   lock: req.body.lock
+                   lock11: req.body.lock11
                     },
             game12: {
                    pick: req.body.game12,
-                   lock: req.body.lock
+                   lock12: req.body.lock12
                     },
             game13: {
                    pick: req.body.game13,
-                   lock: req.body.lock
+                   lock13: req.body.lock13
                     },
             game14: {
                    pick: req.body.game14,
-                   lock: req.body.lock
+                   lock14: req.body.lock14
                     },
             game15: {
                    pick: req.body.game15,
-                   lock: req.body.lock
+                   lock15: req.body.lock15
                     },
             game16: {
                    pick: req.body.game16,
-                   lock: req.body.lock
+                   lock16: req.body.lock16
                     },
             createdAt: new Date(),
             updatedAt: new Date()
         }
      };
-        
         
         var newentry = new Entry(newEntry);
         newentry.save((err, entry, numRows) => {
@@ -94,6 +94,36 @@ var requireLogin = require('./requireLogin')
         });
         
     });
+
+
+router.post('/scheduleSubmit', requireLogin, (req, res) => {
+        console.log(req.body);
+        var newSchedule = {
+            week: req.body.week,
+            schedule: {
+                gameTime: req.body.gameTime,
+                day: req.body.day,
+                homeTeam: req.body.homeTeam, 
+                awayTeam: req.body.awayTeam,
+                homeScore: req.body.homeScore,
+                awayScore: req.body.awayScore,
+                homeSpread: req.body.homeSpread,
+                awaySpread: req.body.awaySpread,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            }
+        };
+        var newschedule = new Schedule(newSchedule);
+        newschedule.save((err, schedule, numRows) => {
+            if (err || numRows === 0) {
+                console.log(err + numRows );
+            } else {
+                console.log(schedule);
+                res.send('Schedule has been submitted');
+            }
+        });
+ });
+
     router.get('/standings', requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
@@ -102,23 +132,24 @@ var requireLogin = require('./requireLogin')
     });
 
  router.get('/pickform',requireLogin, (req, res, next)=>{  
-     var week1 = require( "../config/scheduleWeek1.json" )
+     var weekSchedule = require( "../config/scheduleWeek1.json" )
+     var example = require( "../config/example.json" )
         if(req.session.flash){
         }
-        res.render('pickform', {week1:week1, user:req.user});
+        res.render('pickform', {weekSchedule:weekSchedule, user:req.user, example:example});
     });
  router.get('/weeklystandings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
-        res.render('weeklystandings');
+        res.render('weeklystandings', {overall:overall});
     });
 router.get('/schedule',requireLogin, (req, res, next)=>{
         var teams = require( "../config/teams.json" )
-        var week1 = require( "../config/scheduleWeek1.json" )
+        var games = require( "../config/scheduleWeek1.json" )
         if(req.session.flash){
         }
-        res.render('schedule', {teams:teams, week1:week1, user:req.user});
+        res.render('schedule', {teams:teams, games:games, user:req.user});
     });
 
 module.exports = router;
