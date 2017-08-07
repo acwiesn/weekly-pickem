@@ -7,7 +7,7 @@
                 <label> <h3>Weekly Entries</h3> </label><br>
                 <label name="user"> <h4>User: {{user.username}}</h4><input type="hidden" name="user" value="{{user.username}}"></label><br>
                 <label>Week: </label><label>
-                <input name="week" type="hidden" value="{{weekSchedule.week}}"> {{weekSchedule.week}}
+                <input name="week" type="hidden" value="{{weekGames.week}}"> {{weekGames.games.week}}
                 </label>
                 <table class="table">
                     <th>Game</th>
@@ -15,6 +15,7 @@
                     <th>Lock?</th>
                     <div class="btn-group" data-toggle="buttons">
                     <tbody>
+                        <div>
                         <tr>
                             <td><label>{{weekSchedule.schedule.game1.homeTeam}} ({{weekSchedule.schedule.game1.homeSpread}}) vs. {{weekSchedule.schedule.game1.awayTeam}} ({{weekSchedule.schedule.game1.awaySpread}}) </label> </td>
                             <td><select name="game1" value="game1">
@@ -27,6 +28,7 @@
                                 </label>
                                 </td>
                         </tr>
+                            </div>
                         <tr>
                             <td><label>{{weekSchedule.schedule.game2.homeTeam}} ({{weekSchedule.schedule.game2.homeSpread}}) vs. {{weekSchedule.schedule.game2.awayTeam}} ({{weekSchedule.schedule.game2.awaySpread}}) </label> </td>
                             <td><select name="game2" value="game2">
@@ -135,6 +137,7 @@
                                 </label>
                                 </td>
                         </tr>
+                        
                     </tbody>
                         </div>
                 </table>

@@ -2,7 +2,7 @@
   "schedule": [
          {
         "game": "1",
-             "week": "1",
+             "week": "2",
           "homeTeam": "Chiefs",
           "awayTeam": "Patriots",
           "day": "Thursday",
@@ -169,5 +169,3 @@
         }
 ]
       }
-  
-        

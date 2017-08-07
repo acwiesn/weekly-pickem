@@ -49,6 +49,7 @@ module.exports = function (app) {
     // Tell express to use this router with /api before.
     app.use(require('./usersRoutes'));
     app.use(require('./hbsRoutes'));
+    app.use(require('./gameRoutes'));
 
     return app;
 };

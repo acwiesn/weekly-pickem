@@ -7,7 +7,8 @@
     
             week: Number,
             schedule: {
-                game1: {
+                game1: 
+                    {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -19,7 +20,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game2: {
+                game2: 
+                {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -31,7 +33,9 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game3: {
+                game3:
+                 {
+
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -43,7 +47,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game4: {
+                game4:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -55,7 +60,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game5: {
+                game5:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -67,7 +73,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game6: {
+                game6:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -79,7 +86,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game7: {
+                game7:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -91,7 +99,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game8: {
+                game8:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -103,7 +112,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game9: {
+                game9:
+                {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -115,7 +125,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game10: {
+                game10:
+                {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -127,7 +138,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game11: {
+                game11:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -139,7 +151,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game12: {
+                game12:
+                {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -151,7 +164,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game13: {
+                game13:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -163,7 +177,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game14: {
+                game14:
+                {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -175,7 +190,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game15: {
+                game15:
+                 {
                         day: String,
                         gameTime: String,
                         homeTeam: String,
@@ -187,7 +203,8 @@
                         created_at: Date,
                         updated_at: Date
                     },
-                game16: {
+                game16:
+                {
                         day: String,
                         gameTime: String,
                         homeTeam: String,

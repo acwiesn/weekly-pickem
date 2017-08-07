@@ -7,7 +7,7 @@ var requireLogin = require('./requireLogin');
 var Schedule = require('../models/games.js');
 
     //Organizied signup and login routes passing app and function to requireLogin
-    router.post('/entrySubmit', requireLogin, (req, res) => {
+router.post('/entrySubmit', requireLogin, (req, res) => {
         console.log(req.body);
         var newEntry = {
             user: req.body.user,
@@ -101,30 +101,214 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
         var newSchedule = {
             week: req.body.week,
             schedule: {
-                gameTime: req.body.gameTime,
-                day: req.body.day,
-                homeTeam: req.body.homeTeam, 
-                awayTeam: req.body.awayTeam,
-                homeScore: req.body.homeScore,
-                awayScore: req.body.awayScore,
-                homeSpread: req.body.homeSpread,
-                awaySpread: req.body.awaySpread,
-                createdAt: new Date(),
-                updatedAt: new Date()
+                game1: {
+                    gameTime: req.body.game1.gameTime,
+                    day: req.body.game1.day,
+                    homeTeam: req.body.game1.homeTeam, 
+                    awayTeam: req.body.game1.awayTeam,
+                    homeScore: req.body.game1.homeScore,
+                    awayScore: req.body.game1.awayScore,
+                    homeSpread: req.body.game1.homeSpread,
+                    awaySpread: req.body.game1.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                 game2: {
+                    gameTime: req.body.game2.gameTime,
+                    day: req.body.game2.day,
+                    homeTeam: req.body.game2.homeTeam, 
+                    awayTeam: req.body.game2.awayTeam,
+                    homeScore: req.body.game2.homeScore,
+                    awayScore: req.body.game2.awayScore,
+                    homeSpread: req.body.game2.homeSpread,
+                    awaySpread: req.body.game2.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                 game3: {
+                    gameTime: req.body.game3.gameTime,
+                    day: req.body.game3.day,
+                    homeTeam: req.body.game3.homeTeam, 
+                    awayTeam: req.body.game3.awayTeam,
+                    homeScore: req.body.game3.homeScore,
+                    awayScore: req.body.game3.awayScore,
+                    homeSpread: req.body.game3.homeSpread,
+                    awaySpread: req.body.game3.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                 game4: {
+                    gameTime: req.body.game4.gameTime,
+                    day: req.body.game4.day,
+                    homeTeam: req.body.game4.homeTeam, 
+                    awayTeam: req.body.game4.awayTeam,
+                    homeScore: req.body.game4.homeScore,
+                    awayScore: req.body.game4.awayScore,
+                    homeSpread: req.body.game4.homeSpread,
+                    awaySpread: req.body.game4.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game5: {
+                    gameTime: req.body.game5.gameTime,
+                    day: req.body.game5.day,
+                    homeTeam: req.body.game5.homeTeam, 
+                    awayTeam: req.body.game5.awayTeam,
+                    homeScore: req.body.game5.homeScore,
+                    awayScore: req.body.game5.awayScore,
+                    homeSpread: req.body.game5.homeSpread,
+                    awaySpread: req.body.game5.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game6: {
+                    gameTime: req.body.game6.gameTime,
+                    day: req.body.game6.day,
+                    homeTeam: req.body.game6.homeTeam, 
+                    awayTeam: req.body.game6.awayTeam,
+                    homeScore: req.body.game6.homeScore,
+                    awayScore: req.body.game6.awayScore,
+                    homeSpread: req.body.game6.homeSpread,
+                    awaySpread: req.body.game6.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game7: {
+                    gameTime: req.body.game7.gameTime,
+                    day: req.body.game7.day,
+                    homeTeam: req.body.game7.homeTeam, 
+                    awayTeam: req.body.game7.awayTeam,
+                    homeScore: req.body.game7.homeScore,
+                    awayScore: req.body.game7.awayScore,
+                    homeSpread: req.body.game7.homeSpread,
+                    awaySpread: req.body.game7.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game8: {
+                    gameTime: req.body.game8.gameTime,
+                    day: req.body.game8.day,
+                    homeTeam: req.body.game8.homeTeam, 
+                    awayTeam: req.body.game8.awayTeam,
+                    homeScore: req.body.game8.homeScore,
+                    awayScore: req.body.game8.awayScore,
+                    homeSpread: req.body.game8.homeSpread,
+                    awaySpread: req.body.game8.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game9: {
+                    gameTime: req.body.game9.gameTime,
+                    day: req.body.game9.day,
+                    homeTeam: req.body.game9.homeTeam, 
+                    awayTeam: req.body.game9.awayTeam,
+                    homeScore: req.body.game9.homeScore,
+                    awayScore: req.body.game9.awayScore,
+                    homeSpread: req.body.game9.homeSpread,
+                    awaySpread: req.body.game9.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game10: {
+                    gameTime: req.body.game10.gameTime,
+                    day: req.body.game10.day,
+                    homeTeam: req.body.game10.homeTeam, 
+                    awayTeam: req.body.game10.awayTeam,
+                    homeScore: req.body.game10.homeScore,
+                    awayScore: req.body.game10.awayScore,
+                    homeSpread: req.body.game10.homeSpread,
+                    awaySpread: req.body.game10.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game11: {
+                    gameTime: req.body.game11.gameTime,
+                    day: req.body.game11.day,
+                    homeTeam: req.body.game11.homeTeam, 
+                    awayTeam: req.body.game11.awayTeam,
+                    homeScore: req.body.game11.homeScore,
+                    awayScore: req.body.game11.awayScore,
+                    homeSpread: req.body.game11.homeSpread,
+                    awaySpread: req.body.game12.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game12: {
+                    gameTime: req.body.game12.gameTime,
+                    day: req.body.game12.day,
+                    homeTeam: req.body.game12.homeTeam, 
+                    awayTeam: req.body.game12.awayTeam,
+                    homeScore: req.body.game12.homeScore,
+                    awayScore: req.body.game12.awayScore,
+                    homeSpread: req.body.game12.homeSpread,
+                    awaySpread: req.body.game12.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game13: {
+                    gameTime: req.body.game13.gameTime,
+                    day: req.body.game13.day,
+                    homeTeam: req.body.game13.homeTeam, 
+                    awayTeam: req.body.game13.awayTeam,
+                    homeScore: req.body.game13.homeScore,
+                    awayScore: req.body.game13.awayScore,
+                    homeSpread: req.body.game13.homeSpread,
+                    awaySpread: req.body.game13.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game14: {
+                    gameTime: req.body.game14.gameTime,
+                    day: req.body.game14.day,
+                    homeTeam: req.body.game14.homeTeam, 
+                    awayTeam: req.body.game14.awayTeam,
+                    homeScore: req.body.game14.homeScore,
+                    awayScore: req.body.game14.awayScore,
+                    homeSpread: req.body.game14.homeSpread,
+                    awaySpread: req.body.game14.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game15: {
+                    gameTime: req.body.game15.gameTime,
+                    day: req.body.game15.day,
+                    homeTeam: req.body.game15.homeTeam, 
+                    awayTeam: req.body.game15.awayTeam,
+                    homeScore: req.body.game15.homeScore,
+                    awayScore: req.body.game15.awayScore,
+                    homeSpread: req.body.game15.homeSpread,
+                    awaySpread: req.body.game15.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                },
+                game16: {
+                    gameTime: req.body.game16.gameTime,
+                    day: req.body.game16.day,
+                    homeTeam: req.body.game16.homeTeam, 
+                    awayTeam: req.body.game16.awayTeam,
+                    homeScore: req.body.game16.homeScore,
+                    awayScore: req.body.game16.awayScore,
+                    homeSpread: req.body.game16.homeSpread,
+                    awaySpread: req.body.game16.awaySpread,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                }
+                 
             }
-        };
+                              
+            }
         var newschedule = new Schedule(newSchedule);
         newschedule.save((err, schedule, numRows) => {
             if (err || numRows === 0) {
                 console.log(err + numRows );
             } else {
-                console.log(schedule);
+                // console.log(schedule);
                 res.send('Schedule has been submitted');
             }
         });
  });
 
-    router.get('/standings', requireLogin, (req, res, next)=>{
+router.get('/standings', requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
@@ -133,10 +317,9 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
 
  router.get('/pickform',requireLogin, (req, res, next)=>{  
      var weekSchedule = require( "../config/scheduleWeek1.json" )
-     var example = require( "../config/example.json" )
         if(req.session.flash){
         }
-        res.render('pickform', {weekSchedule:weekSchedule, user:req.user, example:example});
+        res.render('pickform', {weekSchedule:weekSchedule, user:req.user, weekGames:req.weekGames});
     });
  router.get('/weeklystandings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
@@ -146,10 +329,12 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
     });
 router.get('/schedule',requireLogin, (req, res, next)=>{
         var teams = require( "../config/teams.json" )
-        var games = require( "../config/scheduleWeek1.json" )
+        var weekSchedule = require( "../config/scheduleWeek1.json" )
         if(req.session.flash){
         }
-        res.render('schedule', {teams:teams, games:games, user:req.user});
+        res.render('schedule', {teams:teams, weekSchedule:weekSchedule, user:req.user});
     });
+
+
 
 module.exports = router;
