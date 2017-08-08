@@ -3,7 +3,7 @@
     mongoose.Promise = require('bluebird');
     var Schema = mongoose.Schema;
 
-    var gameSchema = new Schema({
+    var scheduleSchema = new Schema({
     
             week: Number,
             schedule: {
@@ -219,4 +219,4 @@
             }
     });
 
-module.exports = mongoose.model('Game', gameSchema);
+module.exports = mongoose.model('Schedule', scheduleSchema);

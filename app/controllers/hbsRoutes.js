@@ -316,10 +316,19 @@ router.get('/standings', requireLogin, (req, res, next)=>{
     });
 
  router.get('/pickform',requireLogin, (req, res, next)=>{  
-     var weekSchedule = require( "../config/scheduleWeek1.json" )
+     // var weekSchedule = require( "../config/scheduleWeek1.json" )
         if(req.session.flash){
         }
-        res.render('pickform', {weekSchedule:weekSchedule, user:req.user, weekGames:req.weekGames});
+             Schedule.find({}, (err, weeklySchedule) => {
+                if (err){
+                    console.log(err);
+                    res.send(500, {
+                        message: 'Failed to retrieve weekly schedule'
+                    });
+                }
+                 console.log(weeklySchedule.length);
+                  res.render('pickform', {user:req.user, weeklySchedule:weeklySchedule[0]});
+            });
     });
  router.get('/weeklystandings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
@@ -334,7 +343,6 @@ router.get('/schedule',requireLogin, (req, res, next)=>{
         }
         res.render('schedule', {teams:teams, weekSchedule:weekSchedule, user:req.user});
     });
-
 
 
 module.exports = router;

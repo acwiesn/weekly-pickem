@@ -1,3 +1,9 @@
+/**Header**/ 
+
+.logout-button {
+    text-align: right;
+}
+
 /** Pick Form **/
 .pickform {
     text-align: left;
@@ -149,6 +155,11 @@ body{
 picture{
    margin: 0 0 0 0;
 }
+
+.nav-tabs li a {
+    color: #000000 !important;
+}
+
 /* TEMP */
 .page-header{
   background: #51910d;
@@ -156,8 +167,8 @@ picture{
 }
 
 .page-header h1{
-  color: #fff;
-  font-family: 'Lora', serif;
+  color: #000000;
+  font-family: Arial;
   font-style: bold;
   text-align: center;
 }

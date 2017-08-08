@@ -28,7 +28,7 @@ module.exports = function (app) {
 
     });
 
-    //Requireing login for all of static routes
+    //Require login for all of static routes
     app.all('/',requireLogin, (req, res, next)=> {
         res.redirect("/index");
     });
