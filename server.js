@@ -10,7 +10,9 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var favicon = require('serve-favicon');
 var exphbs  = require('express-handlebars');
+var path = require('path');
 
+const publicPath = path.join(__dirname, '../views');
 
 // config files
 var db = require('./app/config/db');
@@ -37,6 +39,7 @@ require('./app/controllers')(app);
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use('/',express.static(__dirname + '/public'));
+app.use('/',express.static(__dirname + publicPath));
 
 // Handle 404 error. 
 // The last middleware.

@@ -4,7 +4,8 @@
     var Schema = mongoose.Schema;
 
     var scheduleSchema = new Schema({
-    
+            
+            current: Boolean,
             week: Number,
             schedule: {
                 game1: 

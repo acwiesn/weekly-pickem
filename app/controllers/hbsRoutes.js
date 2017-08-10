@@ -6,7 +6,9 @@ var Entry = require('../models/entries.js');
 var requireLogin = require('./requireLogin');
 var Schedule = require('../models/games.js');
 
-    //Organizied signup and login routes passing app and function to requireLogin
+
+//Organizied signup and login routes passing app and function to requireLogin
+
 router.post('/entrySubmit', requireLogin, (req, res) => {
         console.log(req.body);
         var newEntry = {
@@ -97,8 +99,9 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
 
 
 router.post('/scheduleSubmit', requireLogin, (req, res) => {
-        console.log(req.body);
+        // console.log(req.body);
         var newSchedule = {
+            current: true,
             week: req.body.week,
             schedule: {
                 game1: {
@@ -297,16 +300,42 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
             }
                               
             }
-        var newschedule = new Schedule(newSchedule);
+    
+ var current = req.params.current
+       Schedule.findOneAndUpdate({current: 'true'}, {$set: {current: 'false'}}, {'multi': true}, (err, current)=> {
+         console.log(current);
+            });
+var newschedule = new Schedule(newSchedule);
         newschedule.save((err, schedule, numRows) => {
             if (err || numRows === 0) {
                 console.log(err + numRows );
             } else {
                 // console.log(schedule);
                 res.send('Schedule has been submitted');
+                
             }
-        });
- });
+        }); 
+    });
+
+router.post('/updateScores', requireLogin, (req, res) => {
+        // console.log(req.body);
+    Schedule.find({}, function(err, s) {
+        if (err) {
+            console.log('Could not find schedule');
+        } else {
+            // do your updates here
+            s.week = req.params.week
+
+            s.save(function(err) {
+              if (err)
+                console.log('error')
+              else
+                console.log('success')
+            });
+        }
+    });
+});
+
 
 router.get('/standings', requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
@@ -319,16 +348,16 @@ router.get('/standings', requireLogin, (req, res, next)=>{
      // var weekSchedule = require( "../config/scheduleWeek1.json" )
         if(req.session.flash){
         }
-             Schedule.find({}, (err, weeklySchedule) => {
-                if (err){
-                    console.log(err);
-                    res.send(500, {
-                        message: 'Failed to retrieve weekly schedule'
-                    });
-                }
-                 console.log(weeklySchedule.length);
-                  res.render('pickform', {user:req.user, weeklySchedule:weeklySchedule[0]});
-            });
+         Schedule.find({current: 'true'}, (err, weeklySchedule) => {
+            if (err){
+                console.log(err);
+                res.send(500, {
+                    message: 'Failed to retrieve weekly schedule'
+                });
+            }
+            
+              res.render('pickform', {user:req.user, weeklySchedule:weeklySchedule[0]});
+        });
     });
  router.get('/weeklystandings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
@@ -336,13 +365,36 @@ router.get('/standings', requireLogin, (req, res, next)=>{
         }
         res.render('weeklystandings', {overall:overall});
     });
-router.get('/schedule',requireLogin, (req, res, next)=>{
-        var teams = require( "../config/teams.json" )
-        var weekSchedule = require( "../config/scheduleWeek1.json" )
+
+router.get('/week/:week',requireLogin, (req, res, next)=>{
+        
+        var week = req.params.week
+    
+        var weekSchedule = require( "../config/scheduleWeek"+week+".json" );
         if(req.session.flash){
         }
-        res.render('schedule', {teams:teams, weekSchedule:weekSchedule, user:req.user});
+        //res.send(weekSchedule);
+         res.render('schedule', {weekSchedule:weekSchedule, user:req.user});
     });
 
+router.get('/schedule',requireLogin, (req, res, next)=>{
+        if(req.session.flash){
+        }
+        res.render('schedule', {user:req.user});
+    });
+
+router.get('/gameschedule',requireLogin, (req, res, next)=>{
+        if(req.session.flash){
+        }
+    Schedule.find({current: 'true'}, (err, weeklySchedule)=>{
+        if (err){
+                console.log(err);
+                res.send(500, {
+                    message: 'Failed to retrieve weekly schedule'
+                });
+    }
+         res.render('gameschedule', {user:req.user, weeklySchedule:weeklySchedule[0]});
+    });
+});
 
 module.exports = router;
