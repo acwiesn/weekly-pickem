@@ -195,14 +195,30 @@ router.get('/week/:week', requireLogin, (req, res, next) => {
 
     var week = req.params.week
 
-    var weekSchedule = require("../config/scheduleWeek" + week + ".json");
-    if (req.session.flash) {}
-    //res.send(weekSchedule);
-    res.render('schedule', {
-        weekSchedule: weekSchedule,
-        user: req.user
+    //var weekSchedule = require("../config/scheduleWeek" + week + ".json");
+    Schedule.findOne({
+        'week': week
+    }, (err, weekschedule) => {
+        console.log('inside find and update');
+console.log(weekschedule);
+        if (err) {
+            console.log(err);
+            res.send(500, {
+                message: 'Failed to retrieve weekly schedule'
+            });
+        }
+console.log(weekschedule.schedule);
+        res.render('schedule', {
+            weekSchedule: weekschedule,
+            user: req.user
+        });
     });
+
+
+
 });
+
+
 
 router.get('/schedule', requireLogin, (req, res, next) => {
     if (req.session.flash) {}
