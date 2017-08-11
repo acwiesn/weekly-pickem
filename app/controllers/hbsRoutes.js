@@ -99,7 +99,7 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
 
 
 router.post('/scheduleSubmit', requireLogin, (req, res) => {
-        // console.log(req.body);
+        //console.log(req.body);
         var newSchedule = {
             current: true,
             week: req.body.week,
@@ -302,11 +302,12 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
             }
     
  var current = req.params.current
-       Schedule.findOneAndUpdate({current: 'true'}, {$set: {current: 'false'}}, {'multi': true}, (err, current)=> {
+       Schedule.findOneAndUpdate({current: 'true'}, {$set: {current: 'false'}}, {multi: true}, (err, current)=> {
          console.log(current);
-            });
-var newschedule = new Schedule(newSchedule);
+           console.log('inside find and update');
+        var newschedule = new Schedule(newSchedule);
         newschedule.save((err, schedule, numRows) => {
+            console.log('inside save');
             if (err || numRows === 0) {
                 console.log(err + numRows );
             } else {
@@ -315,23 +316,28 @@ var newschedule = new Schedule(newSchedule);
                 
             }
         }); 
+            });
+
     });
 
-router.post('/updateScores', requireLogin, (req, res) => {
-        // console.log(req.body);
-    Schedule.find({}, function(err, s) {
+router.post('/scheduleUpdate', requireLogin, (req, res) => {
+    console.log(req.body);
+    
+    Schedule.findOne({current: 'true'}, (err, currentWeek)=> {
         if (err) {
-            console.log('Could not find schedule');
+           res.send(500, {
+                    message: 'Failed to retrieve current week'
+                });
         } else {
-            // do your updates here
-            s.week = req.params.week
-
-            s.save(function(err) {
-              if (err)
-                console.log('error')
-              else
-                console.log('success')
-            });
+            for(var i = 1; i <= 16; i++){
+             var game = 'game'+i;
+             console.log(game);
+                console.log(currentWeek.schedule);
+                currentWeek.schedule.game.awayScore = req.body.game.awayScore;
+                currentWeek.schedule.game.homeScore = req.body.game.homeScore;
+            }
+            currentWeek.save();
+            // res.send(currentWeek);
         }
     });
 });
@@ -344,7 +350,7 @@ router.get('/standings', requireLogin, (req, res, next)=>{
         res.render('standings', {overall:overall});
     });
 
- router.get('/pickform',requireLogin, (req, res, next)=>{  
+router.get('/pickform',requireLogin, (req, res, next)=>{  
      // var weekSchedule = require( "../config/scheduleWeek1.json" )
         if(req.session.flash){
         }
@@ -355,11 +361,10 @@ router.get('/standings', requireLogin, (req, res, next)=>{
                     message: 'Failed to retrieve weekly schedule'
                 });
             }
-            
-              res.render('pickform', {user:req.user, weeklySchedule:weeklySchedule[0]});
+            res.render('pickform', {user:req.user, weeklySchedule:weeklySchedule[0]});
         });
     });
- router.get('/weeklystandings',requireLogin, (req, res, next)=>{
+router.get('/weeklystandings',requireLogin, (req, res, next)=>{
         var overall = require( "../config/standings.json" )
         if(req.session.flash){
         }
