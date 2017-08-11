@@ -18,50 +18,46 @@
  
 </head>
     <body>
-        <div class="page-header">
-        <div class="row">            
+        <div class="row page-header">            
+            <div class="col-md-8">
+                <div class="container header-text">
+                            <h1>Test Header 2017</h1>
+                </div>
+                
+            </div>
             <div class="col-md-2">
                 
             </div>
-            <div class="col-md-8">
-                <div class="container">
-                            <h1>Test Header 2017</h1>
-                        </div>
+            <div class="col-md-2">
+                <span class="logout-button"> <button class="btn btn-default btn-sm" name="logout" id="logout" onclick="location.href='/logout';" value="Log Out">Log Out</button>
+                </span> 
             </div>
-            <div class="col-md-2"> <button class="logout-button" type="button" name="logout" id="logout" onclick="location.href='/logout';" value="Log Out">Log Out</button> </div>
         </div>
-            </div>
         
         <!-- NAVIGATION BAR -->
-    <div class="navbar navbar-default navbar-inverse navbar-static-top" id="nav">
-        <nav class="navbar-wrapper navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-            </button>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav nav-tabs">
-                        <li class="standings1"><a href="/standings"><span class='glyphicon glyphicon-home'></span> Standings</a></li>
-                        <li class="weekly1"><a href="/weeklystandings"><span class='glyphicon glyphicon-glass'></span> Weekly Standings</a></li>
-                        <li class="pick1"><a href="/pickform"><span class='glyphicon glyphicon-map-marker'></span> Pick Form</a></li>
-                       
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
+        
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>    
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-center">
+               <li class="standings1"><a href="/standings"><span class='glyphicon glyphicon-home'></span> Standings</a></li>
+    <li class="weekly1"><a href="/weeklystandings"><span class='glyphicon glyphicon-glass'></span> Weekly Standings</a></li>
+    <li class="pick1"><a href="/pickform"><span class='glyphicon glyphicon-map-marker'></span> Pick Form</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                             <li class="pick1"><a href="/schedule"><span class='glyphicon glyphicon-map-marker'></span>Set Spread</a></li>
                             <li class="pick1"><a href="/gameschedule"><span class='glyphicon glyphicon-map-marker'></span>Set Scores</a></li>
                             </ul>
                         </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+            </ul>
+          </div>
+</nav>
     <!-- END NAVIGATION BAR -->
         {{{body}}}
             
