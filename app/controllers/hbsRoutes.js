@@ -303,7 +303,6 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
     
  var current = req.params.current
        Schedule.findOneAndUpdate({current: 'true'}, {$set: {current: 'false'}}, {multi: true}, (err, current)=> {
-         console.log(current);
            console.log('inside find and update');
         var newschedule = new Schedule(newSchedule);
         newschedule.save((err, schedule, numRows) => {
@@ -321,9 +320,8 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
     });
 
 router.post('/scheduleUpdate', requireLogin, (req, res) => {
-    console.log(req.body);
-    
     Schedule.findOne({current: 'true'}, (err, currentWeek)=> {
+        console.log('inside findOne on schedule update');
         if (err) {
            res.send(500, {
                     message: 'Failed to retrieve current week'
