@@ -7,11 +7,38 @@
 }
 
 .header-text {
-    text-align: left;
+    text-align: center;
 }
 
 .navigation-bar {
     text-align: center;
+}
+
+/* TEMP */
+.page-header{
+  background:  #00b300;
+    margin: 0px !important;
+  display: block;
+}
+
+.page-header h1{
+  color: #000000;
+ font-family: verdana;
+  font-style: bold;
+}
+
+.nav-tabs li a {
+    color: #000000 !important;
+}
+
+.navbar-center {
+    width: 100%;
+    text-align: center;
+}
+
+.navbar-center li {
+      float: none;
+      display: inline-block;
 }
 
 /** Pick Form **/
@@ -120,18 +147,4 @@
 	border-color: #1CA347;
 }
 
-.nav-tabs li a {
-    color: #000000 !important;
-}
 
-/* TEMP */
-.page-header{
-  background: #51910d;
-    margin: 0px !important;
-}
-
-.page-header h1{
-  color: #000000;
-  font-family: Arial;
-  font-style: bold;
-}
