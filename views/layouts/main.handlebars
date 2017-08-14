@@ -19,12 +19,16 @@
 </head>
     <body>
         <div class="row page-header">            
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <div class="container header-text">
                             <h1>Test Header 2017</h1>
                     
                 </div>
                   
+            </div>
+            <div class="col-md-2">
+                <span class="logout-button"> <button class="btn btn-default btn-sm" name="logout" id="logout" onclick="location.href='/logout';" value="Log Out">Log Out</button>
+                </span>
             </div>
                
         </div>
@@ -46,6 +50,7 @@
     <li class="pick1"><a href="/pickform"><span class='glyphicon glyphicon-map-marker'></span> Pick Form</a></li>
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li class="pick1"><a href="/populateschedule"><span class='glyphicon glyphicon-map-marker'></span>Populate DB</a></li>
                             <li class="pick1"><a href="/schedule"><span class='glyphicon glyphicon-map-marker'></span>Set Spread</a></li>
                             <li class="pick1"><a href="/gameschedule"><span class='glyphicon glyphicon-map-marker'></span>Set Scores</a></li>
                             </ul>

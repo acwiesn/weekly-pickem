@@ -1,7 +1,7 @@
 function fillSpreads()
 {
     for(var i=0;i<32;i++){
-        $(".spread")[i].value = Math.floor(Math.random()*20)+1;
+        $(".spread")[i].value = Math.floor(Math.random()*10)+1;
     }
     
 }

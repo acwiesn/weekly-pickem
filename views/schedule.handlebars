@@ -13,13 +13,13 @@
                 <li><a href="/week/3">Week 3</a></li>
             </ul>
         </div>
-        <h2>Week {{weekSchedule.schedule.0.week}} Games:</h2>
+        <h2>Week {{weekSchedule.week}} Games:</h2>
 
         <form class="form-inline" id="gameSubmissions" action="/scheduleSubmit" method="post">
 
             <div class="form-group">
 
-                <label><input type="hidden" name="week" value="{{weekSchedule.schedule.0.week}}"></label>
+                <label><input type="hidden" name="week" value="{{weekSchedule.week}}">{{weekSchedule.week}}</label>
                 <label><input type="hidden" name="user" value="{{user.username}}">{{user.username}}</label>
 
                 <table class="table table-bordered">
@@ -35,362 +35,337 @@
                     </thead>
 
                     <tbody>
-                        {{#each weekSchedule}}
-
                         <div class="gameSchedule">
                             <tr>
                                 <td>
-                                    <p>{{this.0.homeTeam}} vs. {{this.0.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game1.homeTeam}} vs. {{weekSchedule.schedule.game1.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game1[gameTime]" value="{{this.0.gameTime}}">{{this.0.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game1[gameTime]" value="{{weekSchedule.schedule.game1.gameTime}}">{{weekSchedule.schedule.game1.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game1[homeTeam]" value="{{this.0.homeTeam}}"> {{this.0.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game1[homeTeam]" value="{{weekSchedule.schedule.game1.homeTeam}}"> {{weekSchedule.schedule.game1.homeTeam}} ({{weekSchedule.schedule.game1.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game1[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game1[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game1[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game1.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game1[awayTeam]" value="{{this.0.awayTeam}}">{{this.0.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game1[awayTeam]" value="{{weekSchedule.schedule.game1.awayTeam}}">{{weekSchedule.schedule.game1.awayTeam}} ({{weekSchedule.schedule.game1.awaySpread}})</label> </td>
 
                                 <td><input class="answer score" name="game1[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game1[awaySpread]" type="text" style="width:3em;"> </td>
-
-
+                                <td><input class="answer spread" name="game1[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game1.awaySpread}}"> </td>
 
                             </tr>
 
                             <tr>
                                 <td>
-                                    <p>{{this.1.homeTeam}} vs. {{this.1.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game2.homeTeam}} vs. {{weekSchedule.schedule.game2.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game2[gameTime]" value="{{this.1.gameTime}}">{{this.1.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game2[gameTime]" value="{{weekSchedule.schedule.game2.gameTime}}">{{weekSchedule.schedule.game2.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game2[homeTeam]" value="{{this.1.homeTeam}}"> {{this.1.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game2[homeTeam]" value="{{weekSchedule.schedule.game2.homeTeam}}"> {{weekSchedule.schedule.game2.homeTeam}} ({{weekSchedule.schedule.game2.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game2[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game2[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game2[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game2.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game2[awayTeam]" value="{{this.1.awayTeam}}">{{this.1.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game2[awayTeam]" value="{{weekSchedule.schedule.game2.awayTeam}}">{{weekSchedule.schedule.game2.awayTeam}} ({{weekSchedule.schedule.game2.awaySpread}})</label> </td>
 
                                 <td><input class="answer score" name="game2[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game2[awaySpread]" type="text" style="width:3em;"> </td>
-
-
-
+                                <td><input class="answer spread" name="game2[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game2.awaySpread}}"> </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>{{this.2.homeTeam}} vs. {{this.2.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game3.homeTeam}} vs. {{weekSchedule.schedule.game3.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game3[gameTime]" value="{{this.2.gameTime}}">{{this.2.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game3[gameTime]" value="{{weekSchedule.schedule.game3.gameTime}}">{{weekSchedule.schedule.game3.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game3[homeTeam]" value="{{this.2.homeTeam}}"> {{this.2.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game3[homeTeam]" value="{{weekSchedule.schedule.game3.homeTeam}}"> {{weekSchedule.schedule.game3.homeTeam}} ({{weekSchedule.schedule.game3.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game3[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game3[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game3[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game3.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game3[awayTeam]" value="{{this.2.awayTeam}}">{{this.2.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game3[awayTeam]" value="{{weekSchedule.schedule.game3.awayTeam}}">{{weekSchedule.schedule.game3.awayTeam}} ({{weekSchedule.schedule.game3.awaySpread}})</label> </td>
 
                                 <td><input class="answer score" name="game3[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game3[awaySpread]" type="text" style="width:3em;"></td>
-
-
+                                <td><input class="answer spread" name="game3[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game3.awaySpread}}"></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>{{this.3.homeTeam}} vs. {{this.3.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game4.homeTeam}} vs. {{weekSchedule.schedule.game4.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game4[gameTime]" value="{{this.3.gameTime}}">{{this.3.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game4[gameTime]" value="{{weekSchedule.schedule.game4.gameTime}}">{{weekSchedule.schedule.game4.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game4[homeTeam]" value="{{this.3.homeTeam}}"> {{this.3.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game4[homeTeam]" value="{{weekSchedule.schedule.game4.homeTeam}}"> {{weekSchedule.schedule.game4.homeTeam}} ({{weekSchedule.schedule.game4.homeSpread}})</label></td>
 
                                 <td><input class="answer score" name="game4[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game4[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game4[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game4.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game4[awayTeam]" value="{{this.3.awayTeam}}">{{this.3.awayTeam}}</label></td>
+                                <td><label><input class="answer" type="hidden" name="game4[awayTeam]" value="{{weekSchedule.schedule.game4.awayTeam}}">{{weekSchedule.schedule.game4.awayTeam}} ({{weekSchedule.schedule.game4.awaySpread}}) </label></td>
 
                                 <td><input class="answer score" name="game4[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game4[awaySpread]" type="text" style="width:3em;"></td>
-
-
-
+                                <td><input class="answer spread" name="game4[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game4.awaySpread}}"></td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>{{this.4.homeTeam}} vs. {{this.4.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game5.homeTeam}} vs. {{weekSchedule.schedule.game5.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game5[gameTime]" value="{{this.4.gameTime}}">{{this.4.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game5[gameTime]" value="{{weekSchedule.schedule.game5.gameTime}}">{{weekSchedule.schedule.game5.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game5[homeTeam]" value="{{this.4.homeTeam}}"> {{this.4.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game5[homeTeam]" value="{{weekSchedule.schedule.game5.homeTeam}}"> {{weekSchedule.schedule.game5.homeTeam}} ({{weekSchedule.schedule.game5.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game5[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game5[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game5[homeSpread]" type="text" style="width:3em;"  value="{{weekSchedule.schedule.game5.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game5[awayTeam]" value="{{this.4.awayTeam}}">{{this.4.awayTeam}}</label></td>
+                                <td><label><input class="answer" type="hidden" name="game5[awayTeam]" value="{{weekSchedule.schedule.game5.awayTeam}}">{{weekSchedule.schedule.game5.awayTeam}} ({{weekSchedule.schedule.game5.awaySpread}})</label></td>
+                                
                                 <td><input class="answer score" name="game5[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game5[awaySpread]" type="text" style="width:3em;"> </td>
-
-
+                                
+                                <td><input class="answer spread" name="game5[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game5.awaySpread}}"> </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>{{this.5.homeTeam}} vs. {{this.5.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game6.homeTeam}} vs. {{weekSchedule.schedule.game6.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game6[gameTime]" value="{{this.5.gameTime}}">{{this.5.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game6[gameTime]" value="{{weekSchedule.schedule.game6.gameTime}}">{{weekSchedule.schedule.game6.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game6[homeTeam]" value="{{this.5.homeTeam}}"> {{this.5.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game6[homeTeam]" value="{{weekSchedule.schedule.game6.homeTeam}}"> {{weekSchedule.schedule.game6.homeTeam}} ({{weekSchedule.schedule.game6.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game6[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game6[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game6[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game6.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game6[awayTeam]" value="{{this.5.awayTeam}}">{{this.5.awayTeam}}</label></td>
+                                <td><label><input class="answer" type="hidden" name="game6[awayTeam]" value="{{weekSchedule.schedule.game6.awayTeam}}">{{weekSchedule.schedule.game6.awayTeam}} ({{weekSchedule.schedule.game6.awaySpread}}) </label></td>
                                 <td><input class="answer score" name="game6[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game6[awaySpread]" type="text" style="width:3em;"> </td>
+                                <td><input class="answer spread" name="game6[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game6.awaySpread}}"> </td>
 
 
                             </tr>
                             <tr>
                                 <td>
-                                    <p>{{this.6.homeTeam}} vs. {{this.6.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game7.homeTeam}} vs. {{weekSchedule.schedule.game7.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game7[gameTime]" value="{{this.6.gameTime}}">{{this.6.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game7[gameTime]" value="{{weekSchedule.schedule.game7.gameTime}}">{{weekSchedule.schedule.game7.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game7[homeTeam]" value="{{this.6.homeTeam}}"> {{this.6.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game7[homeTeam]" value="{{weekSchedule.schedule.game7.homeTeam}}"> {{weekSchedule.schedule.game7.homeTeam}} ({{weekSchedule.schedule.game7.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game7[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game7[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game7[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game7.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game7[awayTeam]" value="{{this.6.awayTeam}}">{{this.6.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game7[awayTeam]" value="{{weekSchedule.schedule.game7.awayTeam}}">{{weekSchedule.schedule.game7.awayTeam}} ({{weekSchedule.schedule.game7.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game7[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game7[awaySpread]" type="text" style="width:3em;"> </td>
-
-
+                                <td><input class="answer spread" name="game7[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game7.awaySpread}}"> </td>
                             </tr>
                             <tr>
-
                                 <td>
-                                    <p>{{this.7.homeTeam}} vs. {{this.7.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game8.homeTeam}} vs. {{weekSchedule.schedule.game8.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game8[gameTime]" value="{{this.7.gameTime}}">{{this.7.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game8[gameTime]" value="{{weekSchedule.schedule.game8.gameTime}}">{{weekSchedule.schedule.game8.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game8[homeTeam]" value="{{this.7.homeTeam}}"> {{this.7.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game8[homeTeam]" value="{{weekSchedule.schedule.game8.homeTeam}}"> {{weekSchedule.schedule.game8.homeTeam}} ({{weekSchedule.schedule.game8.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game8[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game8[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game8[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game8.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game8[awayTeam]" value="{{this.7.awayTeam}}">{{this.7.awayTeam}}</label></td>
+                                <td><label><input class="answer" type="hidden" name="game8[awayTeam]" value="{{weekSchedule.schedule.game8.awayTeam}}">{{weekSchedule.schedule.game8.awayTeam}} ({{weekSchedule.schedule.game8.awaySpread}})</label></td>
                                 <td><input class="answer score" name="game8[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game8[awaySpread]" type="text" style="width:3em;"> </td>
+                                <td><input class="answer spread" name="game8[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game8.awaySpread}}"> </td>
                                 
-                                
-
-
                             </tr>
                             <tr>
 
                                 <td>
-                                    <p>{{this.8.homeTeam}} vs. {{this.8.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game9.homeTeam}} vs. {{weekSchedule.schedule.game9.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game9[gameTime]" value="{{this.8.gameTime}}">{{this.8.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game9[gameTime]" value="{{weekSchedule.schedule.game9.gameTime}}">{{weekSchedule.schedule.game9.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game9[homeTeam]" value="{{this.8.homeTeam}}"> {{this.8.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game9[homeTeam]" value="{{weekSchedule.schedule.game9.homeTeam}}"> {{weekSchedule.schedule.game9.homeTeam}} ({{weekSchedule.schedule.game9.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game9[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game9[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game9[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game9.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game9[awayTeam]" value="{{this.8.awayTeam}}">{{this.8.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game9[awayTeam]" value="{{weekSchedule.schedule.game9.awayTeam}}">{{weekSchedule.schedule.game9.awayTeam}} ({{weekSchedule.schedule.game9.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game9[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game9[awaySpread]" type="text" style="width:3em;"> </td>
-
-                                
+                                <td><input class="answer spread" name="game9[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game9.awaySpread}}"> </td>
                             </tr>
                             <tr>
-
                                 <td>
-                                    <p>{{this.9.homeTeam}} vs. {{this.9.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game10.homeTeam}} vs. {{weekSchedule.schedule.game10.awayTeam}} </p>
+                                </td>
+                                <td>
+                                    <p><label><input class="answer" type="hidden" name="game10[gameTime]" value="{{weekSchedule.schedule.game10.gameTime}}">{{weekSchedule.schedule.game10.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td>
-                                    <p><label><input class="answer" type="hidden" name="game10[gameTime]" value="{{this.9.gameTime}}">{{this.9.gameTime}}</label> p.m. </p>
-                                </td>
-
-                                <td><label><input class="answer" type="hidden" name="game10[homeTeam]" value="{{this.9.homeTeam}}"> {{this.9.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game10[homeTeam]" value="{{weekSchedule.schedule.game10.homeTeam}}"> {{weekSchedule.schedule.game10.homeTeam}}  ({{weekSchedule.schedule.game10.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game10[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game10[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game10[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game10.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game10[awayTeam]" value="{{this.9.awayTeam}}">{{this.9.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game10[awayTeam]" value="{{weekSchedule.schedule.game10.awayTeam}}">{{weekSchedule.schedule.game10.awayTeam}} ({{weekSchedule.schedule.game10.awaySpread}}) </label> </td>
                                 <td><input class="answer score" name="game10[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game10[awaySpread]" type="text" style="width:3em;"> </td>
-
-                                
+                                <td><input class="answer spread" name="game10[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game10.awaySpread}}"> </td>
                             </tr>
                             <tr>
 
                                 <td>
-                                    <p>{{this.10.homeTeam}} vs. {{this.10.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game11.homeTeam}} vs. {{weekSchedule.schedule.game11.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game11[gameTime]" value="{{this.10.gameTime}}">{{this.10.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game11[gameTime]" value="{{weekSchedule.schedule.game11.gameTime}}">{{weekSchedule.schedule.game11.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game11[homeTeam]" value="{{this.10.homeTeam}}"> {{this.10.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game11[homeTeam]" value="{{weekSchedule.schedule.game11.homeTeam}}"> {{weekSchedule.schedule.game11.homeTeam}} ({{weekSchedule.schedule.game11.homeSpread}})  </label></td>
 
                                 <td><input class="answer score" name="game11[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game11[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game11[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game11.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game11[awayTeam]" value="{{this.10.awayTeam}}">{{this.10.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game11[awayTeam]" value="{{weekSchedule.schedule.game11.awayTeam}}">{{weekSchedule.schedule.game11.awayTeam}} ({{weekSchedule.schedule.game11.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game11[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game11[awaySpread]" type="text" style="width:3em;"> </td>
+                                <td><input class="answer spread" name="game11[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game11.awaySpread}}"> </td>
 
                                 
                             </tr>
                             <tr>
 
                                 <td>
-                                    <p>{{this.11.homeTeam}} vs. {{this.11.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game12.homeTeam}} vs. {{weekSchedule.schedule.game12.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game12[gameTime]" value="{{this.11.gameTime}}">{{this.11.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game12[gameTime]" value="{{weekSchedule.schedule.game12.gameTime}}">{{weekSchedule.schedule.game12.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game12[homeTeam]" value="{{this.11.homeTeam}}"> {{this.11.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game12[homeTeam]" value="{{weekSchedule.schedule.game12.homeTeam}}"> {{weekSchedule.schedule.game12.homeTeam}} ({{weekSchedule.schedule.game12.homeSpread}})  </label></td>
 
                                 <td><input class="answer score" name="game12[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game12[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game12[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game12.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game12[awayTeam]" value="{{this.11.awayTeam}}">{{this.11.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game12[awayTeam]" value="{{weekSchedule.schedule.game12.awayTeam}}">{{weekSchedule.schedule.game12.awayTeam}} ({{weekSchedule.schedule.game12.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game12[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game12[awaySpread]" type="text" style="width:3em;"> </td>
+                                <td><input class="answer spread" name="game12[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game12.awaySpread}}"> </td>
 
                                 
                             </tr>
                             <tr>
 
                                 <td>
-                                    <p>{{this.12.homeTeam}} vs. {{this.12.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game13.homeTeam}} vs. {{weekSchedule.schedule.game13.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game13[gameTime]" value="{{this.12.gameTime}}">{{this.12.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game13[gameTime]" value="{{weekSchedule.schedule.game13.gameTime}}">{{weekSchedule.schedule.game13.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game13[homeTeam]" value="{{this.12.homeTeam}}"> {{this.12.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game13[homeTeam]" value="{{weekSchedule.schedule.game13.homeTeam}}"> {{weekSchedule.schedule.game13.homeTeam}} ({{weekSchedule.schedule.game13.homeSpread}})  </label></td>
 
                                 <td><input class="answer score" name="game13[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game13[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game13[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game13.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game13[awayTeam]" value="{{this.12.awayTeam}}">{{this.12.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game13[awayTeam]" value="{{weekSchedule.schedule.game13.awayTeam}}">{{weekSchedule.schedule.game13.awayTeam}}  ({{weekSchedule.schedule.game13.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game13[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game13[awaySpread]" type="text" style="width:3em;"> </td>
+                                <td><input class="answer spread" name="game13[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game13.awaySpread}}"> </td>
 
                                 
                             </tr>
                             <tr>
 
                                 <td>
-                                    <p>{{this.13.homeTeam}} vs. {{this.13.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game14.homeTeam}} vs. {{weekSchedule.schedule.game14.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game14[gameTime]" value="{{this.13.gameTime}}">{{this.13.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game14[gameTime]" value="{{weekSchedule.schedule.game14.gameTime}}">{{weekSchedule.schedule.game14.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game14[homeTeam]" value="{{this.13.homeTeam}}"> {{this.13.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game14[homeTeam]" value="{{weekSchedule.schedule.game14.homeTeam}}"> {{weekSchedule.schedule.game14.homeTeam}}  ({{weekSchedule.schedule.game14.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game14[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game14[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game14[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game14.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game14[awayTeam]" value="{{this.13.awayTeam}}">{{this.13.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game14[awayTeam]" value="{{weekSchedule.schedule.game14.awayTeam}}">{{weekSchedule.schedule.game14.awayTeam}} ({{weekSchedule.schedule.game14.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game14[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game14[awaySpread]" type="text" style="width:3em;"> </td>
+                                <td><input class="answer spread" name="game14[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game14.awaySpread}}"> </td>
 
                                 
                             </tr>
                             <tr>
 
                                 <td>
-                                    <p>{{this.14.homeTeam}} vs. {{this.14.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game15.homeTeam}} vs. {{weekSchedule.schedule.game15.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game15[gameTime]" value="{{this.14.gameTime}}">{{this.14.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game15[gameTime]" value="{{weekSchedule.schedule.game15.gameTime}}">{{weekSchedule.schedule.game15.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game15[homeTeam]" value="{{this.14.homeTeam}}"> {{this.14.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game15[homeTeam]" value="{{weekSchedule.schedule.game15.homeTeam}}"> {{weekSchedule.schedule.game15.homeTeam}} ({{weekSchedule.schedule.game15.homeSpread}}) </label></td>
                                 <td><input class="answer score" name="game15[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game15[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game15[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game15.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game15[awayTeam]" value="{{this.14.awayTeam}}">{{this.14.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game15[awayTeam]" value="{{weekSchedule.schedule.game15.awayTeam}}">{{weekSchedule.schedule.game15.awayTeam}} ({{weekSchedule.schedule.game15.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game15[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game15[awaySpread]" type="text" style="width:3em;"> </td>
+                                <td><input class="answer spread" name="game15[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game15.awaySpread}}"> </td>
                                 
                             </tr>
 
                             <tr>
 
                                 <td>
-                                    <p>{{this.15.homeTeam}} vs. {{this.15.awayTeam}} </p>
+                                    <p>{{weekSchedule.schedule.game16.homeTeam}} vs. {{weekSchedule.schedule.game16.awayTeam}} </p>
                                 </td>
 
                                 <td>
-                                    <p><label><input class="answer" type="hidden" name="game16[gameTime]" value="{{this.15.gameTime}}">{{this.15.gameTime}}</label> p.m. </p>
+                                    <p><label><input class="answer" type="hidden" name="game16[gameTime]" value="{{weekSchedule.schedule.game16.gameTime}}">{{weekSchedule.schedule.game16.gameTime}}</label> p.m. </p>
                                 </td>
 
-                                <td><label><input class="answer" type="hidden" name="game16[homeTeam]" value="{{this.15.homeTeam}}"> {{this.15.homeTeam}}  </label></td>
+                                <td><label><input class="answer" type="hidden" name="game16[homeTeam]" value="{{weekSchedule.schedule.game16.homeTeam}}"> {{weekSchedule.schedule.game16.homeTeam}} ({{weekSchedule.schedule.game16.homeSpread}}) </label></td>
 
                                 <td><input class="answer score" name="game16[homeScore]" type="text" style="width:3em;"></td>
 
-                                <td><input class="answer spread" name="game16[homeSpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game16[homeSpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game16.homeSpread}}"></td>
 
-                                <td><label><input class="answer" type="hidden" name="game16[awayTeam]" value="{{this.15.awayTeam}}">{{this.15.awayTeam}}</label> </td>
+                                <td><label><input class="answer" type="hidden" name="game16[awayTeam]" value="{{weekSchedule.schedule.game16.awayTeam}}">{{weekSchedule.schedule.game16.awayTeam}} ({{weekSchedule.schedule.game16.awaySpread}})</label> </td>
                                 <td><input class="answer score" name="game16[awayScore]" type="text" style="width:3em;"></td>
-                                <td><input class="answer spread" name="game16[awaySpread]" type="text" style="width:3em;"></td>
+                                <td><input class="answer spread" name="game16[awaySpread]" type="text" style="width:3em;" value="{{weekSchedule.schedule.game16.awaySpread}}"></td>
 
-                                
                             </tr>
                         </div>
                     </tbody>
@@ -401,8 +376,6 @@
 
             <button type="submit" value="submit">Save Schedule</button>
         </form>
-
-        {{/each}}
     </div>
     <div class="col-md-2">
 

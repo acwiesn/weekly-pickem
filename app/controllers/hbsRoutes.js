@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Entry = require('../models/entries.js');
 var requireLogin = require('./requireLogin');
 var Schedule = require('../models/games.js');
+var math = require('mathjs')
 
 
 //Organizied signup and login routes passing app and function to requireLogin
@@ -97,8 +98,9 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
 });
 
 
-router.post('/scheduleSubmit', requireLogin, (req, res) => {
+router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
     //console.log(req.body);
+    
     var games = {};
     for (var i = 1; i <= 16; i++) {
         var game = 'game' + i;
@@ -115,13 +117,13 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
             createdAt: new Date(),
             updatedAt: new Date()
         }
-
+        
     }
+    
     var newSchedule = {
         current: true,
         week: req.body.week,
         schedule: games
-
     }
     Schedule.findOneAndUpdate({
         current: 'true'
@@ -141,21 +143,15 @@ router.post('/scheduleSubmit', requireLogin, (req, res) => {
             if (err || numRows === 0) {
                 console.log(err + numRows);
             } else {
+                
                 // console.log(schedule);
-                res.send('Schedule has been submitted' + schedule + numRows);
-
+                res.send('Schedule has been submitted' + schedule);
+                
             }
         });
 
-
-
-
-
-
     });
-
 });
-
 
 router.get('/standings', requireLogin, (req, res, next) => {
     var overall = require("../config/standings.json")
@@ -207,17 +203,13 @@ console.log(weekschedule);
                 message: 'Failed to retrieve weekly schedule'
             });
         }
-console.log(weekschedule.schedule);
+// console.log(weekschedule.schedule);
         res.render('schedule', {
             weekSchedule: weekschedule,
             user: req.user
         });
     });
-
-
-
 });
-
 
 
 router.get('/schedule', requireLogin, (req, res, next) => {
@@ -226,6 +218,26 @@ router.get('/schedule', requireLogin, (req, res, next) => {
         user: req.user
     });
 });
+
+router.get('/populateschedule', requireLogin, (req, res, next) => {
+    if (req.session.flash) {}
+    res.render('populateschedule', {
+        user: req.user
+    });
+});
+
+router.get('/populate/:schedule', requireLogin, (req, res, next) => {
+
+    var schedule = req.params.schedule
+
+    var weekSchedule = require("../config/scheduleWeek" + schedule + ".json");
+    
+    console.log(weekSchedule);
+        res.render('populateschedule', {
+            weekSchedule: weekSchedule,
+            user: req.user
+        });
+    });
 
 router.get('/gameschedule', requireLogin, (req, res, next) => {
     if (req.session.flash) {}
