@@ -22,7 +22,14 @@ module.exports = {
         }
     },
 
-    checkWinner: function (y) {
-        return y - 2;
+    checkWinner: function (selection,lock,game) {
+        if(selection.pick === game.winner && game.winner !== 'Push' && lock!==true){
+            return 2; 
+        }else if(game.winner == 'Push'){
+            return 1;
+        }
+        else if(selection.pick === game.winner && game.winner !== 'Push' && lock===true){
+            return 4;
+        }
     }
 };
