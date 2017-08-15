@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var Entry = require('../models/entries.js');
 var requireLogin = require('./requireLogin');
 var Schedule = require('../models/games.js');
-var math = require('mathjs')
+var calculations =  require('../lib/calculations.js');
 
 
 //Organizied signup and login routes passing app and function to requireLogin
@@ -117,8 +117,9 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
             createdAt: new Date(),
             updatedAt: new Date()
         }
-        
     }
+    
+    calculations.domath();
     
     var newSchedule = {
         current: true,
