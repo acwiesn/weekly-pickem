@@ -97,16 +97,12 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
 
 });
 
-
-router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
-    //console.log(req.body);
-    
+router.post('/populateScheduleDB', requireLogin, (req, res, next)=> {
     var games = {};
     for (var i = 1; i <= 16; i++) {
 
         var game = 'game' + i;
-        console.log(game);
-        var winner = c.calculateSpread(req.body[game]);
+        // console.log(game);
         games[game] = {
             gameTime: req.body[game].gameTime,
             day: req.body[game].day,
@@ -118,7 +114,56 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
             awaySpread: req.body[game].awaySpread,
             createdAt: new Date(),
             updatedAt: new Date(),
-            winner: winner
+            winner: null
+        }
+    }
+    
+    var newSchedule = {
+        current: false,
+        week: req.body.week,
+        schedule: games
+    }
+    Schedule.findOneAndUpdate({
+        week: req.body.week
+        }, newSchedule, {
+            upsert: true
+        }, (err, schedule, numRows) => {
+            console.log('inside newschedule findandupdateorcreate');
+            if (err || numRows === 0) {
+                console.log(err + numRows);
+            } else {
+            
+                res.send('Schedule has been submitted' + schedule);
+                
+            }
+        });
+});
+
+router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
+    //console.log(req.body);
+    
+    var games = {};
+    for (var i = 1; i <= 16; i++) {
+
+        var game = 'game' + i;
+        console.log(game);
+//        if (req.body[game].homeScore!=null && req.body[game].awayeScore!=null){
+//            var winner = c.calculateSpread(req.body[game]);
+//        } else {
+//            winner = null
+//        }
+        games[game] = {
+            gameTime: req.body[game].gameTime,
+            day: req.body[game].day,
+            homeTeam: req.body[game].homeTeam,
+            awayTeam: req.body[game].awayTeam,
+            homeScore: req.body[game].homeScore,
+            awayScore: req.body[game].awayScore,
+            homeSpread: req.body[game].homeSpread,
+            awaySpread: req.body[game].awaySpread,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            winner: null
         }
     }
     
@@ -235,7 +280,7 @@ router.get('/populate/:schedule', requireLogin, (req, res, next) => {
 
     var weekSchedule = require("../config/scheduleWeek" + schedule + ".json");
     
-    console.log(weekSchedule);
+    // console.log(weekSchedule);
         res.render('populateschedule', {
             weekSchedule: weekSchedule,
             user: req.user
