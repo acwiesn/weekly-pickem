@@ -147,11 +147,13 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
 
         var game = 'game' + i;
         console.log(game);
-//        if (req.body[game].homeScore!=null && req.body[game].awayeScore!=null){
-//            var winner = c.calculateSpread(req.body[game]);
-//        } else {
-//            winner = null
-//        }
+        if (req.body[game].homeScore!==null && req.body[game].awayeScore!==null){
+           
+            var winner = c.calculateSpread(req.body[game]);
+             console.log(winner);
+        } else {
+            var winner = null
+        }
         games[game] = {
             gameTime: req.body[game].gameTime,
             day: req.body[game].day,
@@ -163,7 +165,7 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
             awaySpread: req.body[game].awaySpread,
             createdAt: new Date(),
             updatedAt: new Date(),
-            winner: null
+            winner: winner
         }
     }
     
@@ -243,8 +245,6 @@ router.get('/week/:week', requireLogin, (req, res, next) => {
     Schedule.findOne({
         'week': week
     }, (err, weekschedule) => {
-        console.log('inside find and update');
-console.log(weekschedule);
         if (err) {
             console.log(err);
             res.send(500, {

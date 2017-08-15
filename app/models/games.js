@@ -20,7 +20,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game2: 
                 {
@@ -34,7 +34,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game3:
                  {
@@ -49,7 +49,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game4:
                  {
@@ -63,7 +63,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game5:
                  {
@@ -77,7 +77,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game6:
                  {
@@ -91,7 +91,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game7:
                  {
@@ -105,7 +105,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game8:
                  {
@@ -119,7 +119,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game9:
                 {
@@ -133,7 +133,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game10:
                 {
@@ -147,7 +147,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game11:
                  {
@@ -161,7 +161,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game12:
                 {
@@ -175,7 +175,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game13:
                  {
@@ -189,7 +189,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game14:
                 {
@@ -203,7 +203,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game15:
                  {
@@ -217,7 +217,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     },
                 game16:
                 {
@@ -231,7 +231,7 @@
                         awaySpread: Number,
                         created_at: Date,
                         updated_at: Date,
-                        winnner: String
+                        winner: String
                     }
             }
     });

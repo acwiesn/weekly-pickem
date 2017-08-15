@@ -5,7 +5,9 @@ module.exports = {
         var score = parseInt(game.homeSpread,10)+parseInt(game.homeScore,10);
         
         console.log(score);
-        if(score>game.awayScore){
+        if(game.homeScore==null||game.awayScore==null){
+            return null;
+        }else if(score>game.awayScore){
             console.log('HomeTeam wins');
             return game.homeTeam;
         }
@@ -16,9 +18,7 @@ module.exports = {
         else if(score<game.awayScore){
             console.log('AwayTeam wins');
             return game.awayTeam;
-        }else if(game.homeScore==null||game.homeScore==-1){
-            return null;
-        }
+        } 
     },
 
     checkWinner: function (y) {
