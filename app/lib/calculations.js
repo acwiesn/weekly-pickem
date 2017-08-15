@@ -9,7 +9,7 @@ module.exports = {
             console.log('HomeTeam wins');
             return game.homeTeam;
         }
-        else if(score=game.awayScore){
+        else if(score==game.awayScore){
             console.log('Game is pushed');
             return 'Push';
         }
