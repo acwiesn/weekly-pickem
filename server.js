@@ -15,9 +15,9 @@ var path = require('path');
 const publicPath = path.join(__dirname, '../views');
 
 // config files
-var db = require('./app/config/db');
+// var db = require('./app/config/db');
 var port = process.env.PORT || 5000; // set our port
-mongoose.connect(db.url); 
+// mongoose.connect(db.url); 
 // connect to our mongoDB database (commented out after you enter in your own credentials)
 
 // get all data/stuff of the body (POST) parameters
