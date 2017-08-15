@@ -16,9 +16,24 @@ const publicPath = path.join(__dirname, '../views');
 
 // config files
 // var db = require('./app/config/db');
+// Here we find an appropriate database to connect to, defaulting to
+    // localhost if we don't find one.
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://127.0.0.1/pickEmPool';
 var port = process.env.PORT || 5000; // set our port
 // mongoose.connect(db.url); 
 // connect to our mongoDB database (commented out after you enter in your own credentials)
+// Makes connection asynchronously.  Mongoose will queue up database
+    // operations and release them when the connection is complete.
+    mongoose.connect(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
 
 // get all data/stuff of the body (POST) parameters
 app.use(bodyParser.json()); // parse application/json 
