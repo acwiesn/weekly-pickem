@@ -19,7 +19,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game2: 
                 {
@@ -32,7 +33,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game3:
                  {
@@ -46,7 +48,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game4:
                  {
@@ -59,7 +62,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game5:
                  {
@@ -72,7 +76,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game6:
                  {
@@ -85,7 +90,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game7:
                  {
@@ -98,7 +104,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game8:
                  {
@@ -111,7 +118,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game9:
                 {
@@ -124,7 +132,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game10:
                 {
@@ -137,7 +146,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game11:
                  {
@@ -150,7 +160,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game12:
                 {
@@ -163,7 +174,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game13:
                  {
@@ -176,7 +188,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game14:
                 {
@@ -189,7 +202,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game15:
                  {
@@ -202,7 +216,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     },
                 game16:
                 {
@@ -215,7 +230,8 @@
                         homeSpread: Number,
                         awaySpread: Number,
                         created_at: Date,
-                        updated_at: Date
+                        updated_at: Date,
+                        winnner: String
                     }
             }
     });

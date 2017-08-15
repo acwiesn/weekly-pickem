@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var Entry = require('../models/entries.js');
 var requireLogin = require('./requireLogin');
 var Schedule = require('../models/games.js');
-var calculations =  require('../lib/calculations.js');
+var c =  require('../lib/calculations.js');
 
 
 //Organizied signup and login routes passing app and function to requireLogin
@@ -103,8 +103,10 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
     
     var games = {};
     for (var i = 1; i <= 16; i++) {
+
         var game = 'game' + i;
         console.log(game);
+        var winner = c.calculateSpread(req.body[game]);
         games[game] = {
             gameTime: req.body[game].gameTime,
             day: req.body[game].day,
@@ -115,12 +117,12 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
             homeSpread: req.body[game].homeSpread,
             awaySpread: req.body[game].awaySpread,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            winner: winner
         }
     }
     
-   // calculations.domath();
-    
+    console.log(games);
     var newSchedule = {
         current: true,
         week: req.body.week,
