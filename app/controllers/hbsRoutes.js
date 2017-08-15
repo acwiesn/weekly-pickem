@@ -119,7 +119,7 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
         }
     }
     
-    calculations.domath();
+   // calculations.domath();
     
     var newSchedule = {
         current: true,
