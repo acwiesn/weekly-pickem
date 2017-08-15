@@ -140,8 +140,7 @@ router.post('/populateScheduleDB', requireLogin, (req, res, next)=> {
 });
 
 router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
-    //console.log(req.body);
-    
+
     var games = {};
     for (var i = 1; i <= 16; i++) {
 
@@ -169,7 +168,6 @@ router.post('/scheduleSubmit', requireLogin, (req, res, next) => {
         }
     }
     
-    console.log(games);
     var newSchedule = {
         current: true,
         week: req.body.week,

@@ -6,15 +6,16 @@ module.exports = {
             return null;
         }
         var score = parseInt(game.homeSpread, 10) + parseInt(game.homeScore, 10);
-        console.log(score);
+     /*   console.log('Home Score: '+game.homeScore+' Home Spread: '+game.homeSpread+' Total score: '+score);*/
+        
         if (score > game.awayScore) {
-            console.log('HomeTeam wins');
+            //console.log('HomeTeam wins');
             return game.homeTeam;
         } else if (score == game.awayScore) {
-            console.log('Game is pushed');
+            //console.log('Game is pushed');
             return 'Push';
         } else if (score < game.awayScore) {
-            console.log('AwayTeam wins');
+            //console.log('AwayTeam wins');
             return game.awayTeam;
         } else{
             throw new Error('Something bad happened on calculations');
