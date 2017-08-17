@@ -11,7 +11,7 @@ var c =  require('../lib/calculations.js');
 //Organizied signup and login routes passing app and function to requireLogin
 
 router.post('/entrySubmit', requireLogin, (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     var newEntry = {
         user: req.body.user,
         week: req.body.week,
@@ -62,7 +62,7 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
             },
             game12: {
                 pick: req.body.game12,
-                lock12: req.body.lock12
+                lock: req.body.lock12
             },
             game13: {
                 pick: req.body.game13,
@@ -94,7 +94,33 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
             res.send('Entry has been submitted');
         }
     });
+});
 
+router.get('/checkPicks', requireLogin, (req, res, next)=> {
+//    var entries = {
+//        game1: {
+//                pick: req.body.game1,
+//                lock1: req.body.lock1
+//            },
+//        game2: {
+//                pick: req.body.game2,
+//                lock1: req.body.lock1
+//        }
+//    }
+//var selections = c.checkWinner(req.body.game1.pick) 
+
+    var user = req.user
+    Entry.find({user: 'Adam'},  (err, entries)=> {
+        if (err) {
+            console.log(err);
+            res.send(500, {
+                message: 'Failed to retrieve entries'
+            });
+        }
+        console.log('this is to find the entries');
+        res.send(entries)
+    });
+    
 });
 
 router.post('/populateScheduleDB', requireLogin, (req, res, next)=> {

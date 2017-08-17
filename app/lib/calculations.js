@@ -2,7 +2,7 @@ module.exports = {
 
     calculateSpread: function (game) {
         if (game.homeScore == null || game.awayScore == null || game.homeScore == '' || game.awayScore == '') {
-            console.log('game has null some scores');
+            console.log('game has some null scores');
             return null;
         }
         var score = parseInt(game.homeSpread, 10) + parseInt(game.homeScore, 10);
@@ -30,6 +30,9 @@ module.exports = {
         }
         else if(selection.pick === game.winner && game.winner !== 'Push' && lock===true){
             return 4;
+        }
+        else if(selection.pick !== game.winner){
+            return 0;
         }
     }
 };
