@@ -6,7 +6,7 @@ var Entry = require('../models/entries.js');
 var requireLogin = require('./requireLogin');
 var Schedule = require('../models/games.js');
 var c =  require('../lib/calculations.js');
-
+var service = require('../lib/services.js')
 
 //Organizied signup and login routes passing app and function to requireLogin
 
@@ -109,8 +109,9 @@ router.get('/checkPicks', requireLogin, (req, res, next)=> {
 //    }
 //var selections = c.checkWinner(req.body.game1.pick) 
 
-    var user = req.user
-    Entry.find({user},  (err, entries)=> {
+    var user = req.user.username
+    console.log(service.getCurrentWeek());
+    Entry.find({user: user}, (err, entries)=> {
         if (err) {
             console.log(err);
             res.send(500, {
