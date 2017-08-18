@@ -10,112 +10,112 @@
         {
             game1: {
                 pick: String,
-                lock1: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game2: {
                 pick: String,
-                lock2: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
              game3: {
                 pick: String,
-                lock3: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game4: {
                 pick: String,
-                lock4: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game5: {
                 pick: String,
-                lock5: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game6: {
                 pick: String,
-                lock6: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game7: {
                 pick: String,
-                lock7: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game8: {
                 pick: String,
-                lock8: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game9: {
                 pick: String,
-                lock9: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game10: {
                 pick: String,
-                lock10: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game11: {
                 pick: String,
-                lock11: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game12: {
                 pick: String,
-                lock12: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game13: {
                 pick: String,
-                lock13: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game14: {
                 pick: String,
-                lock14: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },    
             game15: {
                 pick: String,
-                lock15: {
+                lock: {
                     type: Boolean
                 },
                 points: Number
             },
             game16: {
                 pick: String,
-                lock16: {
+                lock: {
                     type: Boolean
                 },
                 points: Number

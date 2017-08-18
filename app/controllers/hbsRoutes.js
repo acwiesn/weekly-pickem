@@ -11,74 +11,74 @@ var c =  require('../lib/calculations.js');
 //Organizied signup and login routes passing app and function to requireLogin
 
 router.post('/entrySubmit', requireLogin, (req, res) => {
-    // console.log(req.body);
+    console.log(req.body);
     var newEntry = {
         user: req.body.user,
         week: req.body.week,
         selections: {
             game1: {
                 pick: req.body.game1,
-                lock1: req.body.lock1
+                lock: req.body.selections.game1.lock
             },
             game2: {
                 pick: req.body.game2,
-                lock2: req.body.lock2
+                lock: req.body.selections.game2.lock
             },
             game3: {
                 pick: req.body.game3,
-                lock3: req.body.lock3
+                lock: req.body.selections.game3.lock
             },
             game4: {
                 pick: req.body.game4,
-                lock4: req.body.lock4
+                lock: req.body.selections.game4.lock
             },
             game5: {
                 pick: req.body.game5,
-                lock5: req.body.lock5
+                lock: req.body.selections.game5.lock
             },
             game6: {
                 pick: req.body.game6,
-                lock6: req.body.lock6
+                lock: req.body.selections.game6.lock
             },
             game7: {
                 pick: req.body.game7,
-                lock7: req.body.lock7
+                lock: req.body.selections.game7.lock
             },
             game8: {
                 pick: req.body.game8,
-                lock8: req.body.lock8
+                lock: req.body.selections.game8.lock
             },
             game9: {
                 pick: req.body.game9,
-                lock9: req.body.lock9
+                lock: req.body.selections.game9.lock
             },
             game10: {
                 pick: req.body.game10,
-                lock10: req.body.lock10
+                lock: req.body.selections.game10.lock
             },
             game11: {
                 pick: req.body.game11,
-                lock11: req.body.lock11
+                lock: req.body.selections.game11.lock
             },
             game12: {
                 pick: req.body.game12,
-                lock: req.body.lock12
+                lock: req.body.selections.game12.lock
             },
             game13: {
                 pick: req.body.game13,
-                lock13: req.body.lock13
+                lock: req.body.selections.game13.lock
             },
             game14: {
                 pick: req.body.game14,
-                lock14: req.body.lock14
+                lock: req.body.selections.game14.lock
             },
             game15: {
                 pick: req.body.game15,
-                lock15: req.body.lock15
+                lock: req.body.selections.game15.lock
             },
             game16: {
                 pick: req.body.game16,
-                lock16: req.body.lock16
+                lock: req.body.selections.game16.lock
             },
             createdAt: new Date(),
             updatedAt: new Date()
@@ -104,13 +104,13 @@ router.get('/checkPicks', requireLogin, (req, res, next)=> {
 //            },
 //        game2: {
 //                pick: req.body.game2,
-//                lock1: req.body.lock1
+//                lock2: req.body.lock2
 //        }
 //    }
 //var selections = c.checkWinner(req.body.game1.pick) 
 
     var user = req.user
-    Entry.find({user: 'Adam'},  (err, entries)=> {
+    Entry.find({user},  (err, entries)=> {
         if (err) {
             console.log(err);
             res.send(500, {
@@ -119,8 +119,7 @@ router.get('/checkPicks', requireLogin, (req, res, next)=> {
         }
         console.log('this is to find the entries');
         res.send(entries)
-    });
-    
+    });    
 });
 
 router.post('/populateScheduleDB', requireLogin, (req, res, next)=> {
