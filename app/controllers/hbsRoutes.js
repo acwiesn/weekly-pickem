@@ -107,7 +107,7 @@ router.get('/checkPicks', requireLogin, (req, res, next)=> {
 //                lock2: req.body.lock2
 //        }
 //    }
-//var selections = c.checkWinner(req.body.game1.pick) 
+
 
     var user = req.user.username
     service.getCurrentWeek(function (err,result) {
@@ -119,7 +119,13 @@ router.get('/checkPicks', requireLogin, (req, res, next)=> {
                 message: 'Failed to retrieve entries'
             });
         }
-        res.send(entries)
+    Schedule.find({week: result}, (err, games)=>{
+        console.log(games);
+         var selections = c.checkWinner(entries[0].selections.game1.pick, entries[0].selections.game1.lock, games[0].schedule.game1); 
+        var results = 'Your Score for this pick:'+selections
+        res.send(results)
+    })        
+       
     });  
     });
       
