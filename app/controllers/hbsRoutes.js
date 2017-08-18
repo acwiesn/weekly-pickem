@@ -120,10 +120,19 @@ router.get('/checkPicks', requireLogin, (req, res, next)=> {
             });
         }
     Schedule.find({week: result}, (err, games)=>{
-        console.log(games);
-         var selections = c.checkWinner(entries[0].selections.game1.pick, entries[0].selections.game1.lock, games[0].schedule.game1); 
-        var results = 'Your Score for this pick:'+selections
-        res.send(results)
+            var totalPoints=0;
+            for (var i = 1; i <= 16; i++) {
+                var game = 'game' + i;
+                         var points = c.checkWinner(entries[0].selections[game], games[0].schedule[game]);
+                console.log(entries[0].selections[game]+" *****\n");
+                console.log(points);
+                totalPoints+=points;
+            }
+ 
+        var results = 'Your Total Score for this entry:'+totalPoints;
+        /*TODO:
+        Save and update enty with points, and totals etc...*/
+        res.send(results);
     })        
        
     });  

@@ -22,16 +22,17 @@ module.exports = {
         }
     },
 
-    checkWinner: function (selection,lock,game) {
-        if(selection.pick === game.winner && game.winner !== 'Push' && lock!==true){
+    checkWinner: function (selection,game) {
+
+        if(selection.pick === game.winner && game.winner !== 'Push' && selection.lock!==true){
             return 2; 
         }else if(game.winner == 'Push'){
             return 1;
         }
-        else if(selection.pick === game.winner && game.winner !== 'Push' && lock===true){
+        else if(selection.pick === game.winner && game.winner !== 'Push' && selection.lock===true){
             return 4;
         }
-        else if(selection.pick !== game.winner){
+        else if(selection.pick !== game.winner ||selection.pick==null){
             return 0;
         }
     }
