@@ -110,17 +110,19 @@ router.get('/checkPicks', requireLogin, (req, res, next)=> {
 //var selections = c.checkWinner(req.body.game1.pick) 
 
     var user = req.user.username
-    console.log(service.getCurrentWeek());
-    Entry.find({user: user}, (err, entries)=> {
+    service.getCurrentWeek(function (err,result) {
+        console.log('Week: '+result);
+        Entry.find({user: user,week:result}, (err, entries)=> {
         if (err) {
             console.log(err);
             res.send(500, {
                 message: 'Failed to retrieve entries'
             });
         }
-        console.log('this is to find the entries');
         res.send(entries)
-    });    
+    });  
+    });
+      
 });
 
 router.post('/populateScheduleDB', requireLogin, (req, res, next)=> {
