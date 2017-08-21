@@ -97,17 +97,6 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
 });
 
 router.get('/checkPicks', requireLogin, (req, res, next)=> {
-//    var entries = {
-//        game1: {
-//                pick: req.body.game1,
-//                lock1: req.body.lock1
-//            },
-//        game2: {
-//                pick: req.body.game2,
-//                lock2: req.body.lock2
-//        }
-//    }
-
 
     var user = req.user.username
     service.getCurrentWeek(function (err,result) {
