@@ -7,6 +7,7 @@ var requireLogin = require('./requireLogin');
 var Schedule = require('../models/games.js');
 var c =  require('../lib/calculations.js');
 var service = require('../lib/services.js')
+//var script = require('../lib/test.js');
 
 //Organizied signup and login routes passing app and function to requireLogin
 

@@ -1,6 +1,10 @@
 var c = require('./calculations.js');
+var service = require('./services.js');
+service.getCurrentWeek(function (err,result) {
+    console.log(result);
+});
 
-games={ game1:
+/*games={ game1:
    { gameTime: '8:30',
      day: undefined,
      homeTeam: 'Chiefs',
@@ -107,6 +111,7 @@ games={ game1:
      awaySpread: '2',
      createdAt: '2017-08-15T14:42:16.271Z',
      updatedAt: '2017-08-15T14:42:16.271Z',
-     winner: null }}
+     winner: null }}*/
 
-console.log(c.calculateSpread(games.game4));
+//console.log(c.calculateSpread(games.game4));
+
