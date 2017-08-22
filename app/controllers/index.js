@@ -24,7 +24,7 @@ module.exports = function (app) {
         if(req.session.flash){
             console.log(req.session.flash);
         }
-        res.render('loginforms');
+        res.render('loginforms',{layout: 'loginlayout'});
 
     });
 
