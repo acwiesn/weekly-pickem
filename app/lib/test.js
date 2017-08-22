@@ -1,8 +1,6 @@
 var c = require('./calculations.js');
 var service = require('./services.js');
-service.getCurrentWeek(function (err,result) {
-    console.log(result);
-});
+
 
 /*games={ game1:
    { gameTime: '8:30',
@@ -115,3 +113,6 @@ service.getCurrentWeek(function (err,result) {
 
 //console.log(c.calculateSpread(games.game4));
 
+service.getCurrentWeek(function (err,result) {
+    console.log(result);
+});

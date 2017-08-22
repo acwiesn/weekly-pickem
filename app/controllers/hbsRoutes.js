@@ -12,7 +12,6 @@ var service = require('../lib/services.js')
 //Organizied signup and login routes passing app and function to requireLogin
 
 router.post('/entrySubmit', requireLogin, (req, res) => {
-    console.log(req.body);
     var newEntry = {
         user: req.body.user,
         week: req.body.week,

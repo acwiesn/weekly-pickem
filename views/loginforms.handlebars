@@ -45,7 +45,7 @@
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="/signup" method="post" role="form" style="display: none;">
+								<form id="register-form" action="/signup" method="post" role="form" style="display: none;"  onSubmit="return checkregisterform()">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
@@ -92,6 +92,25 @@
 		$(this).addClass('active');
 		e.preventDefault();
 	});
+        
 
 });
+function checkregisterform(e)
+{e.preventDefault();
+	if ($('#username').val()==null)
+	{
+		// something is wrong
+		alert('Username cannot be blank!');
+		return false;
+	}
+	else if ($('#email').val()==null)
+	{
+		// something else is wrong
+		alert('Email cannot be blank');
+		return false;
+	}
+	// If the script gets this far through all of your fields
+	// without problems, it's ok and you can submit the form
+	return true;
+}
 </script>
