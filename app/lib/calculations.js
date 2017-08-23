@@ -26,7 +26,7 @@ module.exports = {
 
         if(selection.pick === game.winner && game.winner !== 'Push' && selection.lock!==true){
             return 2; 
-        }else if(game.winner == 'Push'){
+        }else if(game.winner == 'Push' && selection.pick != 'blank'){
             return 1;
         }
         else if(selection.pick === game.winner && game.winner !== 'Push' && selection.lock===true){
@@ -35,5 +35,18 @@ module.exports = {
         else if(selection.pick !== game.winner ||selection.pick==null){
             return 0;
         }
-    }
-};
+    },
+    
+    checkTimes: function (entry, games) {
+        console.log(entry);
+        console.log(games);
+        for (var i = 1; i <= 9; i++){
+            var game = 'game' + i;
+            if (entry[game].createdAt >= games[game].createdAt) {
+                console.log('You have passed submission time for this game');
+        } else if(entry[game].createdAt < games[game].createdAt) {
+                console.log('You can submit your picks');
+        }    
+}
+}
+}

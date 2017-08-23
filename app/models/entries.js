@@ -121,6 +121,7 @@
                 points: Number
             },        
         },
+        totalPoints: Number,
         createdAt: Date,
         updatedAt: Date
     });

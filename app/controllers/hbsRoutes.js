@@ -12,6 +12,7 @@ var service = require('../lib/services.js')
 //Organizied signup and login routes passing app and function to requireLogin
 
 router.post('/entrySubmit', requireLogin, (req, res) => {
+    var date = new Date();
     var newEntry = {
         user: req.body.user,
         week: req.body.week,
@@ -80,13 +81,12 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
                 pick: req.body.game16,
                 lock: req.body.selections.game16.lock
             },
-            createdAt: new Date(),
-            updatedAt: new Date()
+            createdAt: date,
+            updatedAt: date
         }
     };
 
-    var newentry = new Entry(newEntry);
-    newentry.save((err, entry, numRows) => {
+    Entry.findOneAndUpdate({user: req.body.user, week: req.body.week}, newEntry, {upsert: true}, (err, entry, numRows) => {
         if (err || numRows === 0) {
             console.log(err + numRows);
         } else {
@@ -96,29 +96,46 @@ router.post('/entrySubmit', requireLogin, (req, res) => {
     });
 });
 
-router.get('/checkPicks', requireLogin, (req, res, next)=> {
+router.get('/setWeeklyPoints', requireLogin, (req, res, next)=> {
 
     var user = req.user.username
     service.getCurrentWeek(function (err,result) {
         console.log('Week: '+result);
-        Entry.find({user: user,week:result}, (err, entries)=> {
+    Entry.find({week:result}, (err, entries)=> {
         if (err) {
             console.log(err);
             res.send(500, {
                 message: 'Failed to retrieve entries'
             });
         }
+            console.log(entries);
     Schedule.find({week: result}, (err, games)=>{
+            
+        var entriesLength = entries.length
+        for (var j = 0; j < entriesLength; j++){
             var totalPoints=0;
             for (var i = 1; i <= 16; i++) {
+                
                 var game = 'game' + i;
-                         var points = c.checkWinner(entries[0].selections[game], games[0].schedule[game]);
-                console.log(entries[0].selections[game]+" *****\n");
+                         var points = c.checkWinner(entries[j].selections[game], games[0].schedule[game]);
+                console.log(entries[j].selections[game]+" *****\n");
                 console.log(points);
                 totalPoints+=points;
+                entries[j].selections[game].points=points;
             }
- 
+            entries[j].totalPoints=totalPoints;
+            Entry.findOneAndUpdate({user: entries[j].user, week:result}, entries[j], {upsert: true}, (err, entry)=>{
+                if(err){
+                    console.log(err);
+                } 
+                console.log(entry);
+                console.log('Entry Saved');
+
+            })
+        }
         var results = 'Your Total Score for this entry:'+totalPoints;
+        
+        
         /*TODO:
         Save and update enty with points, and totals etc...*/
         res.send(results);
