@@ -277,11 +277,18 @@ router.get('/pickform', requireLogin, (req, res, next) => {
     });
 });
 router.get('/weeklystandings', requireLogin, (req, res, next) => {
-    var overall = require("../config/standings.json")
+    // var overall = require("../config/standings.json")
     if (req.session.flash) {}
-    res.render('weeklystandings', {
-        overall: overall
-    });
+    service.getCurrentWeek(function (err,result) {
+        Schedule.find({current: 'true'},(err, schedule)=>{
+            Entry.find({week: result}, (err, entries)=> {
+                res.render('weeklyStandings', {schedule: schedule}, {entries: entries})
+                        console.log(entries);
+        console.log(schedule);
+            })
+        })
+
+    }  
 });
 
 router.get('/week/:week', requireLogin, (req, res, next) => {
