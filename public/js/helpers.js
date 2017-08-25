@@ -27,7 +27,5 @@ function deleteSpreads()
     }
 }
 
-function hideBadSpread()
-{
-    if(parseInt($('.spreadInt').html())>0){$('.spreadInt').hide()}
-}
+function checkBadSpread(){if(parseInt($('.spreadHide .spreadInt').html())<0){$('.spreadHide').hide()}}
+
