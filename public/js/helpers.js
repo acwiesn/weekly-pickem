@@ -26,3 +26,4 @@ function deleteSpreads()
         $(".spread")[i].value = "";
     }
 }
+function checkBadSpread(){if(parseInt($('.spreadInt').html())<0){$('.spreadInt').hide()}}

@@ -20,7 +20,10 @@
                     <tbody>
                         <div>
                         <tr>
-                            <td><label>{{weeklySchedule.schedule.game1.homeTeam}} ({{weeklySchedule.schedule.game1.homeSpread}}) vs. {{weeklySchedule.schedule.game1.awayTeam}} ({{weeklySchedule.schedule.game1.awaySpread}}) </label> </td>
+                            <td><label>{{weeklySchedule.schedule.game1.homeTeam}} 
+                                <span class="spread">
+                                (<span class="spreadInt">{{weeklySchedule.schedule.game1.homeSpread}}</span>)
+                                </span> vs. {{weeklySchedule.schedule.game1.awayTeam}} ({{weeklySchedule.schedule.game1.awaySpread}}) </label> </td>
                             <td><select name="game1" value="game1">
               <option value="blank">  </option>
              <option value="{{weeklySchedule.schedule.game1.homeTeam}}"> {{weeklySchedule.schedule.game1.homeTeam}} </option>
