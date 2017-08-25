@@ -8,18 +8,16 @@
                 <th></th>
                 <th></th>
                  <th>Game w/ Line</th>
-                {{#each schedule.schedule}}
-                <th>{{awayTeam}} {{awaySpread}} vs. {{homeTeam}}</th>
-                {{/each}}
+                 <th></th>
             </thead>
-
+    {{#with schedule.schedule}}
             <thead>
                 <th></th>
                 <th></th>
                  <th>Result</th>
                 <th>
-                {{game1.awayTeam}} {{game1.awayScore}} <br />
-                    {{game1.homeTeam}} {{game1.homeScore}}</th>
+                {{game1.awayTeam}} <span class="spreadInt">{{game1.awaySpread}}</span>  <br />
+                     {{game1.homeTeam}} {{#ifOdd game1.homeSpread}} {{game1.homeSpread}} {{/ifOdd}}</th>
                 <th>Game 2</th>
                 <th>Game 3</th>
                 <th>Game 4</th>
@@ -59,7 +57,7 @@
                  <th></th>
                  <th></th>
             </thead>
-                      
+                {{/with}}
  <tbody>
                 {{! use this for just_data}} {{!#just_data}} 
                 {{#each schedule}}
@@ -73,3 +71,17 @@
     </div>
     </div>
 </body>
+<script>
+Handlebars.registerHelper("checkSpread", function (spread){
+    var value = "data"
+    var ret = ""
+    if (spread.awaySpread > 0 )
+    {
+        return ret
+    }
+    else
+    {
+        return value
+    }
+});
+</script>
