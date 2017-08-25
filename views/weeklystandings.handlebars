@@ -1,55 +1,71 @@
-<div>Hello! {{user.username}}
-
 
 <body>
 <div>
     <div class="table-responsive">
         <table class="table table-bordered">
-            <thead>
-                <th>Name</th>
-                <th>Total</th>
-                <th>Week 1</th>
-                <th>Week 2</th>
-                <th>Week 3</th>
-                <th>Week 4</th>
-                <th>Week 5</th>
-                <th>Week 6</th>
-                <th>Week 7</th>
-                <th>Week 8</th>
-                <th>Week 9</th>
-                <th>Week 10</th>
-                <th>Week 11</th>
-                <th>Week 12</th>
-                <th>Week 13</th>
-                <th>Week 14</th>
-                <th>Week 15</th>
-                <th>Week 16</th>
-                <th>Week 17</th>
-
+            
+            <thead class="blue-grey lighten-4">
+                <th></th>
+                <th></th>
+                 <th>Game w/ Line</th>
+                {{#each schedule.schedule}}
+                <th>{{awayTeam}} {{awaySpread}} vs. {{homeTeam}}</th>
+                {{/each}}
             </thead>
-            <tbody>
-                {{! use this for just_data}} {{!#just_data}} {{#each overall}}
 
+            <thead>
+                <th></th>
+                <th></th>
+                 <th>Result</th>
+                <th>
+                {{game1.awayTeam}} {{game1.awayScore}} <br />
+                    {{game1.homeTeam}} {{game1.homeScore}}</th>
+                <th>Game 2</th>
+                <th>Game 3</th>
+                <th>Game 4</th>
+                <th>Game 5</th>
+                <th>Game 6</th>
+                <th>Game 7</th>
+                <th>Game 8</th>
+                <th>Game 9</th>
+                <th>Game 10</th>
+                <th>Game 11</th>
+                <th>Game 12</th>
+                <th>Game 13</th>
+                <th>Game 14</th>
+                <th>Game 15</th>
+                <th>Game 16</th>
+                <th>Game 17</th>
+            </thead>
+             <thead>
+                <th>Name</th>
+                 <th>Points</th>
+                <th>Winner </th>
+                <th>{{game1.winner}}</th>
+                <th>Game 4</th>
+                <th>Game 5</th>
+                <th>Game 6</th>
+                <th>Game 7</th>
+                <th>Game 8</th>
+                <th>Game 9</th>
+                <th>Game 10</th>
+                <th>Game 11</th>
+                <th>Game 12</th>
+                <th>Game 13</th>
+                <th>Game 14</th>
+                <th>Game 15</th>
+                <th>Game 16</th>
+                <th>Game 17</th>
+                 <th></th>
+                 <th></th>
+            </thead>
+                      
+ <tbody>
+                {{! use this for just_data}} {{!#just_data}} 
+                {{#each schedule}}
                 <tr>
-                    <td>{{ this.Name }}</td>
-                    <td>{{ this.total }}</td>
-                    <td>{{ this.Week1 }}</td>
-                    <td>{{ this.Week2 }}</td>
-                    <td>{{ this.Week3 }}</td>
-                    <td>{{ this.Week4 }}</td>
-                    <td>{{ this.Week5 }}</td>
-                    <td>{{ this.Week6 }}</td>
-                    <td>{{ this.Week7 }}</td>
-                    <td>{{ this.Week8 }}</td>
-                    <td>{{ this.Week9 }}</td>
-                    <td>{{ this.Week10 }}</td>
-                    <td>{{ this.Week11 }}</td>
-                    <td>{{ this.Week12 }}</td>
-                    <td>{{ this.Week13 }}</td>
-                    <td>{{ this.Week14 }}</td>
-                    <td>{{ this.Week15 }}</td>
-                    <td>{{ this.Week16 }}</td>
-                    <td>{{ this.Week17 }}</td>
+                    <td></td>
+                   
                 </tr>
                 {{/each}} {{!/just_data}}
             </tbody>

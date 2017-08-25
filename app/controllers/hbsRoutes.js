@@ -280,16 +280,36 @@ router.get('/weeklystandings', requireLogin, (req, res, next) => {
     // var overall = require("../config/standings.json")
     if (req.session.flash) {}
     service.getCurrentWeek(function (err,result) {
+        if (err){
+            console.log(err);
+            res.send(500, {
+                message: 'Failed to retrieve current week'
+            });
+        }
         Schedule.find({current: 'true'},(err, schedule)=>{
-            Entry.find({week: result}, (err, entries)=> {
-                res.render('weeklyStandings', {schedule: schedule}, {entries: entries})
-                        console.log(entries);
+            if (err){
+                console.log(err);
+            res.send(500, {
+                message: 'Failed to retrieve schedule for weekly standings'
+            });
+            }
+        Entry.find({week: result}, (err, entries)=> {
+                if (err){
+                     console.log(err);
+            res.send(500, {
+                message: 'Failed to retrieve entries for weekly standings'
+            });
+                }
+                res.render('weeklystandings', {schedule: schedule[0], entries: entries})
+            })
+                
+           //console.log(result);
+         //               console.log(entries);
         console.log(schedule);
             })
         })
 
-    }  
-});
+    });  
 
 router.get('/week/:week', requireLogin, (req, res, next) => {
 
