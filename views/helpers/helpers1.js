@@ -10,3 +10,4 @@ Handlebars.registerHelper("checkSpread", function (spread){
         return value
     }
 });
+

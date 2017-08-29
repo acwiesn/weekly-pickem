@@ -22,7 +22,8 @@
                         <div>
                         <tr>
 
-                            <td><label>{{game1.homeTeam}} ({{game1.homeSpread}}) vs. {{game1.awayTeam}} ({{game1.awaySpread}}) </label> </td>
+                            <td><label>{{game1.homeTeam}} 
+    <span class="spreadHide">(<span class="spreadInt">{{game1.homeSpread}}</span>)</span> vs. {{game1.awayTeam}} <span class="spreadHide">(<span class="spreadInt">{{game1.awaySpread}}</span>)</span> </label></td>
                             <td><select name="game1" value="game1">
               <option value="blank">  </option>
              <option value="{{game1.homeTeam}}"> {{game1.homeTeam}} </option>
@@ -258,7 +259,4 @@ $(document).ready(function(){
     });
 });
     
-if(document.getElementById("lockBox").checked) {
-    document.getElementById('lockHidden').disabled = true;
-}    
 </script>

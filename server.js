@@ -11,7 +11,11 @@ var flash = require('connect-flash');
 var favicon = require('serve-favicon');
 var exphbs  = require('express-handlebars');
 var helpers = require('handlebars-helpers');
+var comparison = helpers.comparison();
+var string = helpers.string();
+var math = helpers.math();
 var helpers = module.exports
+
 var path = require('path');
 
 const publicPath = path.join(__dirname, '../views');

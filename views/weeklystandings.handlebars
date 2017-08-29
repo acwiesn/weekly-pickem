@@ -1,87 +1,58 @@
 
 <body>
-<div>
-    <div class="table-responsive">
+    <div>
+        <div class="table-responsive">
         <table class="table table-bordered">
             
-            <thead class="blue-grey lighten-4">
-                <th></th>
-                <th></th>
-                 <th>Game w/ Line</th>
-                 <th></th>
+          <thead class="gameWLines">
+              <th></th>
+              <th></th>
+                <th>Games W Lines</th>
+                {{#each nflschedule}}
+                    {{#each schedule}}
+                <th >{{this.awayTeam}} {{#lt this.awaySpread 0}} ({{this.awaySpread}}) {{/lt}} <br>
+                {{this.homeTeam}} {{#lt this.homeSpread 0}} ({{this.homeSpread}}) {{/lt}}</th>
+                {{/each}}
+                {{/each}}
             </thead>
-    {{#with schedule.schedule}}
-            <thead>
+            <thead class="gameWLines">
                 <th></th>
                 <th></th>
-                 <th>Result</th>
-                <th>
-                {{game1.awayTeam}} <span class="spreadInt">{{game1.awaySpread}}</span>  <br />
-                     {{game1.homeTeam}} {{#ifOdd game1.homeSpread}} {{game1.homeSpread}} {{/ifOdd}}</th>
-                <th>Game 2</th>
-                <th>Game 3</th>
-                <th>Game 4</th>
-                <th>Game 5</th>
-                <th>Game 6</th>
-                <th>Game 7</th>
-                <th>Game 8</th>
-                <th>Game 9</th>
-                <th>Game 10</th>
-                <th>Game 11</th>
-                <th>Game 12</th>
-                <th>Game 13</th>
-                <th>Game 14</th>
-                <th>Game 15</th>
-                <th>Game 16</th>
-                <th>Game 17</th>
+                <th>Result</th>
+                {{#each nflschedule}}
+                    {{#each schedule}}
+                <th>{{this.awayTeam}} {{this.awayScore}} <br>
+                {{this.homeTeam}}  {{this.homeScore}}</th>
+                {{/each}}
+                {{/each}}
             </thead>
-             <thead>
+            <thead class="gameWLines">
                 <th>Name</th>
-                 <th>Points</th>
-                <th>Winner </th>
-                <th>{{game1.winner}}</th>
-                <th>Game 4</th>
-                <th>Game 5</th>
-                <th>Game 6</th>
-                <th>Game 7</th>
-                <th>Game 8</th>
-                <th>Game 9</th>
-                <th>Game 10</th>
-                <th>Game 11</th>
-                <th>Game 12</th>
-                <th>Game 13</th>
-                <th>Game 14</th>
-                <th>Game 15</th>
-                <th>Game 16</th>
-                <th>Game 17</th>
-                 <th></th>
-                 <th></th>
+                <th>Points</th>
+                <th>Winner</th>
+                {{#each nflschedule}}
+                    {{#each schedule}}
+                <th>{{this.winner}}</th>
+                {{/each}}
+                {{/each}}
             </thead>
-                {{/with}}
- <tbody>
-                {{! use this for just_data}} {{!#just_data}} 
-                {{#each schedule}}
-                <tr>
-                    <td></td>
-                   
-                </tr>
-                {{/each}} {{!/just_data}}
-            </tbody>
-        </table>
-    </div>
-    </div>
+<tbody>    
+    {{entries}}
+      {{#each entries}}
+       
+            <tr>
+                 
+                    <td>{{this.user}}</td>
+                    <td>{{this.totalPoints}}</td>
+                    {{#each selections}}
+                    <td>{{this.pick}}</td>
+                {{/each}}
+            </tr>
+        
+      {{/each}}
+</tbody>
+    </table>
+</div>
+</div>
+    
 </body>
-<script>
-Handlebars.registerHelper("checkSpread", function (spread){
-    var value = "data"
-    var ret = ""
-    if (spread.awaySpread > 0 )
-    {
-        return ret
-    }
-    else
-    {
-        return value
-    }
-});
-</script>

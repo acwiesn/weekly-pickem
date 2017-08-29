@@ -152,4 +152,9 @@
     width: 10em;
 }
 
+.gameWLines {
+    white-space: nowrap;
+    font-size: .8em;
+}
+
 

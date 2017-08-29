@@ -260,6 +260,7 @@ router.get('/standings', requireLogin, (req, res, next) => {
 
 router.get('/pickform', requireLogin, (req, res, next) => {
     // var weekSchedule = require( "../config/scheduleWeek1.json" )
+    
     if (req.session.flash) {}
     Schedule.find({
         current: 'true'
@@ -286,7 +287,7 @@ router.get('/weeklystandings', requireLogin, (req, res, next) => {
                 message: 'Failed to retrieve current week'
             });
         }
-        Schedule.find({current: 'true'},(err, schedule)=>{
+        Schedule.find({current: 'true'},(err, nflschedule)=>{
             if (err){
                 console.log(err);
             res.send(500, {
@@ -300,16 +301,15 @@ router.get('/weeklystandings', requireLogin, (req, res, next) => {
                 message: 'Failed to retrieve entries for weekly standings'
             });
                 }
-                res.render('weeklystandings', {schedule: schedule[0], entries: entries})
+                console.log(entries);
+            res.render('weeklystandings', {nflschedule: nflschedule[0].schedule, entries: entries})
             })
-                
            //console.log(result);
-         //               console.log(entries);
-        console.log(schedule);
+         //    console.log(entries);
+        // console.log(schedule);
             })
         })
-
-    });  
+    });
 
 router.get('/week/:week', requireLogin, (req, res, next) => {
 
