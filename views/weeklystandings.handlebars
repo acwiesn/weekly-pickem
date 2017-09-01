@@ -37,18 +37,19 @@
                 {{/each}}
             </thead>
 <tbody>    
-    {{entries}}
       {{#each entries}}
-       
+            
             <tr>
-                 
                     <td>{{this.user}}</td>
                     <td>{{this.totalPoints}}</td>
+                    <td></td>
+                {{#each selections}}
                     {{#each selections}}
-                    <td>{{this.pick}}</td>
-                {{/each}}
+                <td>{{#eq this.pick "blank"}} {{else}} {{this.pick}} {{/eq}}</td>
+                    {{/each}}
+                    {{/each}}
             </tr>
-        
+
       {{/each}}
 </tbody>
     </table>
