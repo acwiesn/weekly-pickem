@@ -23,7 +23,7 @@
                         <tr>
 
                             <td><label>{{game1.homeTeam}} 
-    <span class="spreadHide">(<span class="spreadInt">{{game1.homeSpread}}</span>)</span> vs. {{game1.awayTeam}} <span class="spreadHide">(<span class="spreadInt">{{game1.awaySpread}}</span>)</span> </label></td>
+   {{#lt game1.homeSpread 0}} ({{game1.homeSpread}}) {{/lt}}vs. {{game1.awayTeam}}  {{#lt game1.awaySpread 0}}({{game1.awaySpread}}) {{/lt}} </label></td>
                             <td><select name="game1" value="game1">
               <option value="blank">  </option>
              <option value="{{game1.homeTeam}}"> {{game1.homeTeam}} </option>
@@ -37,7 +37,7 @@
                         </tr>
                             </div>
                         <tr>
-                            <td><label>{{game2.homeTeam}} ({{game2.homeSpread}}) vs. {{game2.awayTeam}} ({{game2.awaySpread}}) </label> </td>
+                            <td><label>{{game2.homeTeam}} {{#lt game2.homeSpread 0}} ({{game2.homeSpread}}) {{/lt}} vs. {{game2.awayTeam}} {{#lt game2.awaySpread 0}}({{game2.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game2" value="game2">
               <option value="blank">  </option>
              <option value="{{game2.homeTeam}}"> {{game2.homeTeam}} </option>
@@ -50,7 +50,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game3.homeTeam}} ({{game3.homeSpread}}) vs. {{game3.awayTeam}} ({{game3.awaySpread}}) </label> </td>
+                            <td><label>{{game3.homeTeam}} {{#lt game3.homeSpread 0}} ({{game3.homeSpread}}) {{/lt}} vs. {{game3.awayTeam}} {{#lt game3.awaySpread 0}}({{game3.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game3" value="game3">
               <option value="blank">  </option>
              <option value="{{game3.homeTeam}}"> {{game3.homeTeam}} </option>
@@ -63,7 +63,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game4.homeTeam}} ({{game4.homeSpread}}) vs. {{game4.awayTeam}} ({{game4.awaySpread}}) </label> </td>
+                            <td><label>{{game4.homeTeam}} {{#lt game4.homeSpread 0}} ({{game4.homeSpread}}) {{/lt}}vs. {{game4.awayTeam}} {{#lt game4.awaySpread 0}}({{game4.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game4" value="game4">
               <option value="blank">  </option>
              <option value="{{game4.homeTeam}}"> {{game4.homeTeam}} </option>
@@ -76,7 +76,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game5.homeTeam}} ({{game5.homeSpread}}) vs. {{game5.awayTeam}} ({{game5.awaySpread}}) </label> </td>
+                            <td><label>{{game5.homeTeam}}  {{#lt game5.homeSpread 0}} ({{game5.homeSpread}}) {{/lt}} vs. {{game5.awayTeam}} {{#lt game5.awaySpread 0}}({{game5.awaySpread}}) {{/lt}}</label> </td>
                             <td><select name="game5" value="game5">
               <option value="blank">  </option>
              <option value="{{game5.homeTeam}}"> {{game5.homeTeam}} </option>
@@ -89,7 +89,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game6.homeTeam}} ({{game6.homeSpread}}) vs. {{game6.awayTeam}} ({{game6.awaySpread}}) </label> </td>
+                            <td><label>{{game6.homeTeam}} {{#lt game6.homeSpread 0}} ({{game6.homeSpread}}) {{/lt}} vs. {{game6.awayTeam}}  {{#lt game6.awaySpread 0}}({{game6.awaySpread}}) {{/lt}}</label> </td>
                             <td><select name="game6" value="game6">
               <option value="blank">  </option>
              <option value="{{game6.homeTeam}}"> {{game6.homeTeam}} </option>
@@ -102,7 +102,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game7.homeTeam}} ({{game7.homeSpread}}) vs. {{game7.awayTeam}} ({{game7.awaySpread}}) </label> </td>
+                            <td><label>{{game7.homeTeam}} {{#lt game7.homeSpread 0}} ({{game7.homeSpread}}) {{/lt}} vs. {{game7.awayTeam}}{{#lt game7.awaySpread 0}}({{game7.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game7" value="game7">
               <option value="blank">  </option>
              <option value="{{game7.homeTeam}}"> {{game7.homeTeam}} </option>
@@ -115,7 +115,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game8.homeTeam}} ({{game8.homeSpread}}) vs. {{game8.awayTeam}} ({{game8.awaySpread}}) </label> </td>
+                            <td><label>{{game8.homeTeam}} {{#lt game8.homeSpread 0}} ({{game8.homeSpread}}) {{/lt}} vs. {{game8.awayTeam}} {{#lt game8.awaySpread 0}}({{game8.awaySpread}}) {{/lt}}</label> </td>
                             <td><select name="game8" value="game8">
               <option value="blank">  </option>
              <option value="{{game8.homeTeam}}"> {{game8.homeTeam}} </option>
@@ -128,7 +128,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game9.homeTeam}} ({{game9.homeSpread}}) vs. {{game9.awayTeam}} ({{game9.awaySpread}}) </label> </td>
+                            <td><label>{{game9.homeTeam}} {{#lt game9.homeSpread 0}} ({{game9.homeSpread}}) {{/lt}} vs. {{game9.awayTeam}} {{#lt game9.awaySpread 0}}({{game9.awaySpread}}) {{/lt}}</label> </td>
                             <td><select name="game9" value="game9">
               <option value="blank">  </option>
              <option value="{{game9.homeTeam}}"> {{game9.homeTeam}} </option>
@@ -141,7 +141,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game10.homeTeam}} ({{game10.homeSpread}}) vs. {{game10.awayTeam}} ({{game10.awaySpread}}) </label> </td>
+                            <td><label>{{game10.homeTeam}} {{#lt game10.homeSpread 0}} ({{game10.homeSpread}}) {{/lt}}vs. {{game10.awayTeam}} {{#lt game10.awaySpread 0}}({{game10.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game10" value="game10">
               <option value="blank">  </option>
              <option value="{{game10.homeTeam}}"> {{game10.homeTeam}} </option>
@@ -154,7 +154,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game11.homeTeam}} ({{game11.homeSpread}}) vs. {{game11.awayTeam}} ({{game11.awaySpread}}) </label> </td>
+                            <td><label>{{game11.homeTeam}} {{#lt game11.homeSpread 0}} ({{game11.homeSpread}}) {{/lt}}vs. {{game11.awayTeam}}{{#lt game11.awaySpread 0}}({{game11.awaySpread}}) {{/lt}}</label> </td>
                             <td><select name="game11" value="game11">
               <option value="blank">  </option>
              <option value="{{game11.homeTeam}}"> {{game11.homeTeam}} </option>
@@ -167,7 +167,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game12.homeTeam}} ({{game12.homeSpread}}) vs. {{game12.awayTeam}} ({{game12.awaySpread}}) </label> </td>
+                            <td><label>{{game12.homeTeam}} {{#lt game12.homeSpread 0}} ({{game12.homeSpread}}) {{/lt}} vs. {{game12.awayTeam}} {{#lt game12.awaySpread 0}}({{game12.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game12" value="game12">
               <option value="blank">  </option>
              <option value="{{game12.homeTeam}}"> {{game12.homeTeam}} </option>
@@ -180,7 +180,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game13.homeTeam}} ({{game13.homeSpread}}) vs. {{game13.awayTeam}} ({{game13.awaySpread}}) </label> </td>
+                            <td><label>{{game13.homeTeam}} {{#lt game13.homeSpread 0}} ({{game13.homeSpread}}) {{/lt}}  vs. {{game13.awayTeam}}{{#lt game13.awaySpread 0}}({{game13.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game13" value="game13">
               <option value="blank">  </option>
              <option value="{{game13.homeTeam}}"> {{game13.homeTeam}} </option>
@@ -193,7 +193,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game14.homeTeam}} ({{game14.homeSpread}}) vs. {{game14.awayTeam}} ({{game14.awaySpread}}) </label> </td>
+                            <td><label>{{game14.homeTeam}} {{#lt game14.homeSpread 0}} ({{game14.homeSpread}}) {{/lt}}  vs. {{game14.awayTeam}} {{#lt game14.awaySpread 0}}({{game14.awaySpread}}) {{/lt}}  </label> </td>
                             <td><select name="game14" value="game14">
               <option value="blank">  </option>
              <option value="{{game14.homeTeam}}"> {{game14.homeTeam}} </option>
@@ -206,7 +206,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game15.homeTeam}} ({{game15.homeSpread}}) vs. {{game15.awayTeam}} ({{game15.awaySpread}}) </label> </td>
+                            <td><label>{{game15.homeTeam}} {{#lt game15.homeSpread 0}} ({{game15.homeSpread}}) {{/lt}}  vs. {{game15.awayTeam}} {{#lt game15.awaySpread 0}}({{game15.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game15" value="game15">
               <option value="blank">  </option>
              <option value="{{game15.homeTeam}}"> {{game15.homeTeam}} </option>
@@ -219,7 +219,7 @@
                                 </td>
                         </tr>
                         <tr>
-                            <td><label>{{game16.homeTeam}} ({{game16.homeSpread}}) vs. {{game16.awayTeam}} ({{game16.awaySpread}}) </label> </td>
+                            <td><label>{{game16.homeTeam}} {{#lt game16.homeSpread 0}} ({{game16.homeSpread}}) {{/lt}}  vs. {{game16.awayTeam}} {{#lt game16.awaySpread 0}}({{game16.awaySpread}}) {{/lt}} </label> </td>
                             <td><select name="game16" value="game16">
               <option value="blank">  </option>
              <option value="{{game16.homeTeam}}"> {{game16.homeTeam}} </option>

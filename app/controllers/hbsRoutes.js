@@ -310,6 +310,33 @@ router.get('/weeklystandings', requireLogin, (req, res, next) => {
             })
         })
     });
+router.get('/weeklystandings/:week', requireLogin, (req, res, next) => {
+    // var overall = require("../config/standings.json")
+    if (req.session.flash) {}
+    var week = req.params.week
+    
+     Schedule.find({week: week},(err, nflschedule)=>{
+            if (err){
+                console.log(err);
+            res.send(500, {
+                message: 'Failed to retrieve schedule for weekly standings'
+            });
+            }
+        Entry.find({week: week}, (err, entries)=> {
+                if (err){
+                     console.log(err);
+            res.send(500, {
+                message: 'Failed to retrieve entries for weekly standings'
+            });
+                }
+                console.log(entries);
+            res.render('weeklystandings', {nflschedule: nflschedule[0].schedule, entries: entries})
+            })
+           //console.log(result);
+         //    console.log(entries);
+        // console.log(schedule);
+            })
+    });
 
 router.get('/week/:week', requireLogin, (req, res, next) => {
 
