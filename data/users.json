@@ -1,0 +1,4 @@
+{"__v":0,"_id":{"$oid":"597bd0e7e5f1cb9c1437310f"},"email":"acwiesn@yahoo.com","password":"$2a$08$S0UPzSGnlLPDKKQhVSHOZ.J7NNJpBDTIWXbPe670uM3RBAwRJzpD6","username":"Adam"}
+{"__v":0,"_id":{"$oid":"599dc2b61f4551f900f24f8f"},"email":"nestor@test.com","password":"$2a$08$de1Qlq/FpxIn5nxw8gixxekNlG7sHOnRpP7JoxqKihvufS.ct4L26","username":"Nestor"}
+{"__v":0,"_id":{"$oid":"59a57bd3e21e02340c17a1db"},"email":"frog@email.com","password":"$2a$08$N4ZXTzX4C.JbkaRDEEzO7OzzDOzJutTtnzMIwh8xBT0aybtRk3ppK","username":"Frog"}
+{"__v":0,"_id":{"$oid":"59a973928744a524d40a43c1"},"email":"acwiesn@gmail.com","firstname":"Adam","lastname":"Wiesner","password":"$2a$08$p1z.HR6DabS34910MIO8puJ5XsnFcYwAx13B7EzJdbRJAWlG9JpV2","username":"acwiesn"}
