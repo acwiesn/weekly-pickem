@@ -277,6 +277,7 @@ router.get('/pickform', requireLogin, (req, res, next) => {
         });
     });
 });
+
 router.get('/weeklystandings', requireLogin, (req, res, next) => {
     // var overall = require("../config/standings.json")
     if (req.session.flash) {}
@@ -332,7 +333,6 @@ router.get('/week/:week', requireLogin, (req, res, next) => {
         });
     });
 });
-
 
 router.get('/schedule', requireLogin, (req, res, next) => {
     if (req.session.flash) {}
